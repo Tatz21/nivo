@@ -1,0 +1,28 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    
+    // Deny all by default
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+
+    // Candidate resumes: write-only with strict type & size validation, no public reads
+    match /candidate-resumes/{submissionId}/{fileId} {
+      allow read: if false;
+      allow write: if request.resource.size <= 5 * 1024 * 1024
+                   && (request.resource.contentType == 'application/pdf'
+                       || request.resource.contentType == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+    }
+
+    // Resume Studio uploads: private, server-managed
+    match /resume-uploads/{ownerKey}/{resumeId}/{fileId} {
+      allow read, write: if false;
+    }
+
+    // Resume Studio exports: private, server-managed
+    match /resume-exports/{ownerKey}/{resumeId}/{exportId}.pdf {
+      allow read, write: if false;
+    }
+  }
+}
