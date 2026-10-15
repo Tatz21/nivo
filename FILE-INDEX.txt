@@ -1,0 +1,20 @@
+Nivó Project Documentation
+
+- README.md
+- PRD.md
+- ARCHITECTURE.md
+- DESIGN.md
+- TECH-STACK.md
+- DATABASE.md
+- API.md
+- FEATURES.md
+- USER-FLOWS.md
+- SEO.md
+- SECURITY.md
+- RULES.md
+- PHASES.md
+- TESTING.md
+- DEPLOYMENT.md
+- CHANGELOG.md
+
+All files are Markdown and are packaged in nivo-project-docs.zip.
