@@ -1,14 +1,22 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
+import { useTheme } from '@/context/ThemeContext';
 
 /**
  * Ambient Cosmic Particle & Glow Background
  * Provides pointer-reactive ambient lighting and drifting dust particles
+ * Automatically adapts between deep cosmic dark and ethereal aurora light modes
  */
 export default function CosmicBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const glowRef = useRef<HTMLDivElement>(null);
+  const { isDark } = useTheme();
+  const isDarkRef = useRef(isDark);
+
+  useEffect(() => {
+    isDarkRef.current = isDark;
+  }, [isDark]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -54,6 +62,7 @@ export default function CosmicBackground() {
 
     const render = () => {
       ctx.clearRect(0, 0, width, height);
+      const darkMode = isDarkRef.current;
 
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
@@ -65,7 +74,9 @@ export default function CosmicBackground() {
         if (p.y < 0) p.y = height;
         if (p.y > height) p.y = 0;
 
-        ctx.fillStyle = `rgba(167, 139, 250, ${p.alpha})`;
+        ctx.fillStyle = darkMode
+          ? `rgba(167, 139, 250, ${p.alpha})`
+          : `rgba(101, 84, 245, ${p.alpha * 0.6})`;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
@@ -84,25 +95,35 @@ export default function CosmicBackground() {
   }, []);
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden select-none">
+    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden select-none transition-colors duration-500">
       {/* Base Cosmic Gradient */}
       <div 
-        className="absolute inset-0 bg-[#11111B]" 
+        className="absolute inset-0 bg-[#FAF9F6] dark:bg-[#11111B] transition-colors duration-500" 
         style={{
-          backgroundImage: `
-            radial-gradient(circle at 50% 0%, rgba(101, 84, 245, 0.18) 0%, transparent 60%),
-            radial-gradient(circle at 10% 40%, rgba(25, 23, 43, 0.8) 0%, transparent 50%),
-            radial-gradient(circle at 90% 70%, rgba(167, 139, 250, 0.08) 0%, transparent 45%)
-          `
+          backgroundImage: isDark
+            ? `
+              radial-gradient(circle at 50% 0%, rgba(101, 84, 245, 0.18) 0%, transparent 60%),
+              radial-gradient(circle at 10% 40%, rgba(25, 23, 43, 0.8) 0%, transparent 50%),
+              radial-gradient(circle at 90% 70%, rgba(167, 139, 250, 0.08) 0%, transparent 45%)
+            `
+            : `
+              radial-gradient(circle at 50% 0%, rgba(101, 84, 245, 0.08) 0%, transparent 60%),
+              radial-gradient(circle at 10% 40%, rgba(235, 233, 248, 0.75) 0%, transparent 50%),
+              radial-gradient(circle at 90% 70%, rgba(167, 139, 250, 0.05) 0%, transparent 45%)
+            `
         }} 
       />
 
       {/* Pointer Radial Glow */}
       <div
         ref={glowRef}
-        className="hidden md:block absolute top-0 left-0 -ml-[300px] -mt-[300px] w-[600px] h-[600px] rounded-full pointer-events-none opacity-40 mix-blend-screen transition-opacity duration-500"
+        className={`hidden md:block absolute top-0 left-0 -ml-[300px] -mt-[300px] w-[600px] h-[600px] rounded-full pointer-events-none transition-opacity duration-500 ${
+          isDark ? 'opacity-40 mix-blend-screen' : 'opacity-30 mix-blend-multiply'
+        }`}
         style={{
-          background: 'radial-gradient(circle, rgba(101, 84, 245, 0.15) 0%, rgba(167, 139, 250, 0.05) 40%, transparent 70%)',
+          background: isDark
+            ? 'radial-gradient(circle, rgba(101, 84, 245, 0.15) 0%, rgba(167, 139, 250, 0.05) 40%, transparent 70%)'
+            : 'radial-gradient(circle, rgba(101, 84, 245, 0.1) 0%, rgba(167, 139, 250, 0.03) 40%, transparent 70%)',
           willChange: 'transform'
         }}
       />

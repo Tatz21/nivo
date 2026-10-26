@@ -6,6 +6,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import CustomCursor from '@/components/cursor/CustomCursor';
 import CosmicBackground from '@/components/motion/CosmicBackground';
+import { ThemeProvider } from '@/context/ThemeContext';
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -66,26 +67,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${manrope.variable} ${inter.variable} dark scroll-smooth`}>
-      <body className="min-h-screen bg-[#11111B] text-[#FAF9F6] antialiased selection:bg-[#6554F5] selection:text-white flex flex-col justify-between">
-        {/* Interactive Custom Cursor (Desktop fine pointers only) */}
-        <CustomCursor />
+    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth" className={`${manrope.variable} ${inter.variable} dark scroll-smooth`}>
+      <head />
+      <body className="min-h-screen bg-[#11111B] text-[#FAF9F6] antialiased selection:bg-[#6554F5] selection:text-white flex flex-col justify-between transition-colors duration-300">
+        <ThemeProvider>
+          {/* Interactive Custom Cursor (Desktop fine pointers only) */}
+          <CustomCursor />
 
-        {/* Ambient Cosmic Background */}
-        <CosmicBackground />
+          {/* Ambient Cosmic Background */}
+          <CosmicBackground />
 
-        {/* Global Navigation */}
-        <Suspense fallback={null}>
-          <Navbar />
-        </Suspense>
+          {/* Global Navigation */}
+          <Suspense fallback={null}>
+            <Navbar />
+          </Suspense>
 
-        {/* Main Content Area */}
-        <main className="flex-grow relative z-10">
-          {children}
-        </main>
+          {/* Main Content Area */}
+          <main className="flex-grow relative z-10">
+            {children}
+          </main>
 
-        {/* Global Footer */}
-        <Footer />
+          {/* Global Footer */}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

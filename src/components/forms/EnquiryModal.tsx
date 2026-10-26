@@ -74,13 +74,13 @@ export default function EnquiryModal({ isOpen, onClose, defaultTab = 'education'
       onClick={onClose}
     >
       <div 
-        className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto glass-panel rounded-2xl p-6 md:p-8 bg-[#161526]/95 border border-purple-500/20 shadow-2xl text-white"
+        className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto glass-panel rounded-2xl p-6 md:p-8 bg-white dark:bg-[#161526]/95 border border-violet-200 dark:border-purple-500/20 shadow-2xl text-zinc-900 dark:text-white"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-full text-zinc-400 hover:text-white hover:bg-white/10 transition-colors"
+          className="absolute top-5 right-5 p-2 rounded-full text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />
@@ -88,11 +88,11 @@ export default function EnquiryModal({ isOpen, onClose, defaultTab = 'education'
 
         {submitted ? (
           <div className="py-12 text-center space-y-4">
-            <div className="w-16 h-16 mx-auto rounded-full bg-lime-400/20 flex items-center justify-center text-lime-300">
+            <div className="w-16 h-16 mx-auto rounded-full bg-lime-400/20 flex items-center justify-center text-lime-600 dark:text-lime-300">
               <CheckCircle2 className="w-10 h-10" />
             </div>
-            <h3 className="text-2xl font-bold tracking-tight text-white">Enquiry Received</h3>
-            <p className="text-zinc-300 max-w-md mx-auto text-sm leading-relaxed">
+            <h3 className="text-2xl font-bold tracking-tight text-zinc-950 dark:text-white">Enquiry Received</h3>
+            <p className="text-zinc-600 dark:text-zinc-300 max-w-md mx-auto text-sm leading-relaxed">
               Thank you for connecting with Nivó. Our specialized coordinator will review your requirement and reach out within 24 business hours.
             </p>
             <div className="pt-4">
@@ -107,18 +107,18 @@ export default function EnquiryModal({ isOpen, onClose, defaultTab = 'education'
         ) : (
           <div>
             <div className="mb-6">
-              <span className="text-xs uppercase tracking-widest text-lime-300 font-semibold">Connect with Nivó</span>
-              <h2 className="text-2xl font-bold text-white mt-1">Direct Consultation & Enquiries</h2>
-              <p className="text-xs text-zinc-400 mt-1">Select your service area to connect with our dedicated team.</p>
+              <span className="text-xs uppercase tracking-widest text-lime-600 dark:text-lime-300 font-semibold">Connect with Nivó</span>
+              <h2 className="text-2xl font-bold text-zinc-950 dark:text-white mt-1">Direct Consultation & Enquiries</h2>
+              <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Select your service area to connect with our dedicated team.</p>
             </div>
 
             {/* Tab Selectors */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-6 p-1 bg-[#11111B] rounded-xl border border-white/5">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-6 p-1 bg-zinc-100 dark:bg-[#11111B] rounded-xl border border-black/5 dark:border-white/5">
               <button
                 type="button"
                 onClick={() => setTab('education')}
                 className={`flex items-center justify-center gap-1.5 py-2 px-2 text-xs font-medium rounded-lg transition-all ${
-                  tab === 'education' ? 'bg-violet-600 text-white shadow-md' : 'text-zinc-400 hover:text-white'
+                  tab === 'education' ? 'bg-violet-600 text-white shadow-md' : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white'
                 }`}
               >
                 <GraduationCap className="w-3.5 h-3.5" />
@@ -129,7 +129,7 @@ export default function EnquiryModal({ isOpen, onClose, defaultTab = 'education'
                 type="button"
                 onClick={() => setTab('course')}
                 className={`flex items-center justify-center gap-1.5 py-2 px-2 text-xs font-medium rounded-lg transition-all ${
-                  tab === 'course' ? 'bg-violet-600 text-white shadow-md' : 'text-zinc-400 hover:text-white'
+                  tab === 'course' ? 'bg-violet-600 text-white shadow-md' : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white'
                 }`}
               >
                 <Briefcase className="w-3.5 h-3.5" />
@@ -140,7 +140,7 @@ export default function EnquiryModal({ isOpen, onClose, defaultTab = 'education'
                 type="button"
                 onClick={() => setTab('staffing')}
                 className={`flex items-center justify-center gap-1.5 py-2 px-2 text-xs font-medium rounded-lg transition-all ${
-                  tab === 'staffing' ? 'bg-violet-600 text-white shadow-md' : 'text-zinc-400 hover:text-white'
+                  tab === 'staffing' ? 'bg-violet-600 text-white shadow-md' : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white'
                 }`}
               >
                 <Users className="w-3.5 h-3.5" />
@@ -151,7 +151,7 @@ export default function EnquiryModal({ isOpen, onClose, defaultTab = 'education'
                 type="button"
                 onClick={() => setTab('candidate')}
                 className={`flex items-center justify-center gap-1.5 py-2 px-2 text-xs font-medium rounded-lg transition-all ${
-                  tab === 'candidate' ? 'bg-violet-600 text-white shadow-md' : 'text-zinc-400 hover:text-white'
+                  tab === 'candidate' ? 'bg-violet-600 text-white shadow-md' : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white'
                 }`}
               >
                 <FileText className="w-3.5 h-3.5" />
@@ -164,7 +164,7 @@ export default function EnquiryModal({ isOpen, onClose, defaultTab = 'education'
               {/* Common Contact Fields */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-medium text-zinc-300 mb-1">Your Full Name *</label>
+                  <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1">Your Full Name *</label>
                   <input
                     type="text"
                     required
@@ -176,12 +176,12 @@ export default function EnquiryModal({ isOpen, onClose, defaultTab = 'education'
                       else if (tab === 'staffing') setStaffingData({ ...staffingData, contactPerson: e.target.value });
                       else setCandidateData({ ...candidateData, fullName: e.target.value });
                     }}
-                    className="w-full px-3.5 py-2 rounded-lg bg-[#11111B]/90 border border-white/10 text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-violet-500"
+                    className="w-full px-3.5 py-2 rounded-lg bg-zinc-50 dark:bg-[#11111B]/90 border border-zinc-200 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 text-sm focus:outline-none focus:border-violet-500"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-zinc-300 mb-1">Email Address *</label>
+                  <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1">Email Address *</label>
                   <input
                     type="email"
                     required
@@ -193,14 +193,14 @@ export default function EnquiryModal({ isOpen, onClose, defaultTab = 'education'
                       else if (tab === 'staffing') setStaffingData({ ...staffingData, email: e.target.value });
                       else setCandidateData({ ...candidateData, email: e.target.value });
                     }}
-                    className="w-full px-3.5 py-2 rounded-lg bg-[#11111B]/90 border border-white/10 text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-violet-500"
+                    className="w-full px-3.5 py-2 rounded-lg bg-zinc-50 dark:bg-[#11111B]/90 border border-zinc-200 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 text-sm focus:outline-none focus:border-violet-500"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-medium text-zinc-300 mb-1">Contact Phone *</label>
+                  <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1">Contact Phone *</label>
                   <input
                     type="tel"
                     required
@@ -212,31 +212,31 @@ export default function EnquiryModal({ isOpen, onClose, defaultTab = 'education'
                       else if (tab === 'staffing') setStaffingData({ ...staffingData, phone: e.target.value });
                       else setCandidateData({ ...candidateData, phone: e.target.value });
                     }}
-                    className="w-full px-3.5 py-2 rounded-lg bg-[#11111B]/90 border border-white/10 text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-violet-500"
+                    className="w-full px-3.5 py-2 rounded-lg bg-zinc-50 dark:bg-[#11111B]/90 border border-zinc-200 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 text-sm focus:outline-none focus:border-violet-500"
                   />
                 </div>
 
                 {tab === 'staffing' && (
                   <div>
-                    <label className="block text-xs font-medium text-zinc-300 mb-1">Organization / School Name *</label>
+                    <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1">Organization / School Name *</label>
                     <input
                       type="text"
                       required
                       placeholder="e.g. Oakridge Academy"
                       value={staffingData.organizationName}
                       onChange={(e) => setStaffingData({ ...staffingData, organizationName: e.target.value })}
-                      className="w-full px-3.5 py-2 rounded-lg bg-[#11111B]/90 border border-white/10 text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-violet-500"
+                      className="w-full px-3.5 py-2 rounded-lg bg-zinc-50 dark:bg-[#11111B]/90 border border-zinc-200 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 text-sm focus:outline-none focus:border-violet-500"
                     />
                   </div>
                 )}
 
                 {tab === 'education' && (
                   <div>
-                    <label className="block text-xs font-medium text-zinc-300 mb-1">Academic Level *</label>
+                    <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1">Academic Level *</label>
                     <select
                       value={eduData.educationLevel}
                       onChange={(e) => setEduData({ ...eduData, educationLevel: e.target.value })}
-                      className="w-full px-3.5 py-2 rounded-lg bg-[#11111B]/90 border border-white/10 text-white text-sm focus:outline-none focus:border-violet-500"
+                      className="w-full px-3.5 py-2 rounded-lg bg-zinc-50 dark:bg-[#11111B]/90 border border-zinc-200 dark:border-white/10 text-zinc-900 dark:text-white text-sm focus:outline-none focus:border-violet-500"
                     >
                       <option value="kindergarten">Kindergarten / Foundational</option>
                       <option value="primary">Primary School (Grades 1-5)</option>
@@ -252,11 +252,11 @@ export default function EnquiryModal({ isOpen, onClose, defaultTab = 'education'
 
                 {tab === 'course' && (
                   <div>
-                    <label className="block text-xs font-medium text-zinc-300 mb-1">Select Program *</label>
+                    <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1">Select Program *</label>
                     <select
                       value={courseData.courseId}
                       onChange={(e) => setCourseData({ ...courseData, courseId: e.target.value })}
-                      className="w-full px-3.5 py-2 rounded-lg bg-[#11111B]/90 border border-white/10 text-white text-sm focus:outline-none focus:border-violet-500"
+                      className="w-full px-3.5 py-2 rounded-lg bg-zinc-50 dark:bg-[#11111B]/90 border border-zinc-200 dark:border-white/10 text-zinc-900 dark:text-white text-sm focus:outline-none focus:border-violet-500"
                     >
                       {PROFESSIONAL_COURSES.map((c) => (
                         <option key={c.id} value={c.id}>{c.title}</option>
@@ -267,14 +267,14 @@ export default function EnquiryModal({ isOpen, onClose, defaultTab = 'education'
 
                 {tab === 'candidate' && (
                   <div>
-                    <label className="block text-xs font-medium text-zinc-300 mb-1">Target Discipline *</label>
+                    <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1">Target Discipline *</label>
                     <input
                       type="text"
                       required
                       placeholder="e.g. Mathematics Faculty or AI Trainer"
                       value={candidateData.targetRole}
                       onChange={(e) => setCandidateData({ ...candidateData, targetRole: e.target.value })}
-                      className="w-full px-3.5 py-2 rounded-lg bg-[#11111B]/90 border border-white/10 text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-violet-500"
+                      className="w-full px-3.5 py-2 rounded-lg bg-zinc-50 dark:bg-[#11111B]/90 border border-zinc-200 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 text-sm focus:outline-none focus:border-violet-500"
                     />
                   </div>
                 )}
@@ -284,22 +284,22 @@ export default function EnquiryModal({ isOpen, onClose, defaultTab = 'education'
               {tab === 'education' && (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-xs font-medium text-zinc-300 mb-1">Subject(s) Needed *</label>
+                    <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1">Subject(s) Needed *</label>
                     <input
                       type="text"
                       required
                       placeholder="e.g. Mathematics, Physics, French"
                       value={eduData.subjectOrArea}
                       onChange={(e) => setEduData({ ...eduData, subjectOrArea: e.target.value })}
-                      className="w-full px-3.5 py-2 rounded-lg bg-[#11111B]/90 border border-white/10 text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-violet-500"
+                      className="w-full px-3.5 py-2 rounded-lg bg-zinc-50 dark:bg-[#11111B]/90 border border-zinc-200 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 text-sm focus:outline-none focus:border-violet-500"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-zinc-300 mb-1">Delivery Preference</label>
+                    <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1">Delivery Preference</label>
                     <select
                       value={eduData.deliveryMode}
                       onChange={(e) => setEduData({ ...eduData, deliveryMode: e.target.value })}
-                      className="w-full px-3.5 py-2 rounded-lg bg-[#11111B]/90 border border-white/10 text-white text-sm focus:outline-none focus:border-violet-500"
+                      className="w-full px-3.5 py-2 rounded-lg bg-zinc-50 dark:bg-[#11111B]/90 border border-zinc-200 dark:border-white/10 text-zinc-900 dark:text-white text-sm focus:outline-none focus:border-violet-500"
                     >
                       <option value="online">Interactive Online (Global)</option>
                       <option value="home-tuition">Dedicated Home Tuition (where available)</option>
@@ -312,11 +312,11 @@ export default function EnquiryModal({ isOpen, onClose, defaultTab = 'education'
               {tab === 'staffing' && (
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                   <div>
-                    <label className="block text-xs font-medium text-zinc-300 mb-1">Staffing Category</label>
+                    <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1">Staffing Category</label>
                     <select
                       value={staffingData.roleCategory}
                       onChange={(e) => setStaffingData({ ...staffingData, roleCategory: e.target.value as any })}
-                      className="w-full px-3.5 py-2 rounded-lg bg-[#11111B]/90 border border-white/10 text-white text-sm focus:outline-none focus:border-violet-500"
+                      className="w-full px-3.5 py-2 rounded-lg bg-zinc-50 dark:bg-[#11111B]/90 border border-zinc-200 dark:border-white/10 text-zinc-900 dark:text-white text-sm focus:outline-none focus:border-violet-500"
                     >
                       <option value="school-teacher">School / K-12 Teacher</option>
                       <option value="specialist-educator">Arts & Language Specialist</option>
@@ -327,24 +327,24 @@ export default function EnquiryModal({ isOpen, onClose, defaultTab = 'education'
                     </select>
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-zinc-300 mb-1">Number of Positions</label>
+                    <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1">Number of Positions</label>
                     <input
                       type="number"
                       min={1}
                       value={staffingData.positionsCount}
                       onChange={(e) => setStaffingData({ ...staffingData, positionsCount: parseInt(e.target.value) || 1 })}
-                      className="w-full px-3.5 py-2 rounded-lg bg-[#11111B]/90 border border-white/10 text-white text-sm focus:outline-none focus:border-violet-500"
+                      className="w-full px-3.5 py-2 rounded-lg bg-zinc-50 dark:bg-[#11111B]/90 border border-zinc-200 dark:border-white/10 text-zinc-900 dark:text-white text-sm focus:outline-none focus:border-violet-500"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-zinc-300 mb-1">Location / City *</label>
+                    <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1">Location / City *</label>
                     <input
                       type="text"
                       required
                       placeholder="e.g. London or Remote"
                       value={staffingData.location}
                       onChange={(e) => setStaffingData({ ...staffingData, location: e.target.value })}
-                      className="w-full px-3.5 py-2 rounded-lg bg-[#11111B]/90 border border-white/10 text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-violet-500"
+                      className="w-full px-3.5 py-2 rounded-lg bg-zinc-50 dark:bg-[#11111B]/90 border border-zinc-200 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 text-sm focus:outline-none focus:border-violet-500"
                     />
                   </div>
                 </div>
@@ -353,23 +353,23 @@ export default function EnquiryModal({ isOpen, onClose, defaultTab = 'education'
               {tab === 'candidate' && (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-xs font-medium text-zinc-300 mb-1">Years of Experience</label>
+                    <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1">Years of Experience</label>
                     <input
                       type="number"
                       min={0}
                       value={candidateData.yearsExperience}
                       onChange={(e) => setCandidateData({ ...candidateData, yearsExperience: parseInt(e.target.value) || 0 })}
-                      className="w-full px-3.5 py-2 rounded-lg bg-[#11111B]/90 border border-white/10 text-white text-sm focus:outline-none focus:border-violet-500"
+                      className="w-full px-3.5 py-2 rounded-lg bg-zinc-50 dark:bg-[#11111B]/90 border border-zinc-200 dark:border-white/10 text-zinc-900 dark:text-white text-sm focus:outline-none focus:border-violet-500"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-zinc-300 mb-1">LinkedIn or Portfolio URL</label>
+                    <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1">LinkedIn or Portfolio URL</label>
                     <input
                       type="url"
                       placeholder="https://linkedin.com/in/..."
                       value={candidateData.portfolioOrLinkedIn}
                       onChange={(e) => setCandidateData({ ...candidateData, portfolioOrLinkedIn: e.target.value })}
-                      className="w-full px-3.5 py-2 rounded-lg bg-[#11111B]/90 border border-white/10 text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-violet-500"
+                      className="w-full px-3.5 py-2 rounded-lg bg-zinc-50 dark:bg-[#11111B]/90 border border-zinc-200 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 text-sm focus:outline-none focus:border-violet-500"
                     />
                   </div>
                 </div>
@@ -377,7 +377,7 @@ export default function EnquiryModal({ isOpen, onClose, defaultTab = 'education'
 
               {/* Requirement Notes */}
               <div>
-                <label className="block text-xs font-medium text-zinc-300 mb-1">Additional Details / Schedule / Requirements</label>
+                <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-1">Additional Details / Schedule / Requirements</label>
                 <textarea
                   rows={3}
                   placeholder="Share any specific goals, curricula (CBSE, IB, Cambridge), or timelines..."
@@ -388,7 +388,7 @@ export default function EnquiryModal({ isOpen, onClose, defaultTab = 'education'
                     else if (tab === 'staffing') setStaffingData({ ...staffingData, jobDescriptionNotes: e.target.value });
                     else setCandidateData({ ...candidateData, summaryNotes: e.target.value });
                   }}
-                  className="w-full px-3.5 py-2 rounded-lg bg-[#11111B]/90 border border-white/10 text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-violet-500"
+                  className="w-full px-3.5 py-2 rounded-lg bg-zinc-50 dark:bg-[#11111B]/90 border border-zinc-200 dark:border-white/10 text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 text-sm focus:outline-none focus:border-violet-500"
                 />
               </div>
 

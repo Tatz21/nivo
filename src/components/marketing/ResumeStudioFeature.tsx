@@ -3,7 +3,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { Sparkles, FileText, UploadCloud, CheckCircle2, ShieldCheck, Download, ArrowRight, Eye, Layout } from 'lucide-react';
-import ScrollReveal from '@/components/motion/ScrollReveal';
 import MagneticButton from '@/components/motion/MagneticButton';
 
 export default function ResumeStudioFeature() {
@@ -11,60 +10,60 @@ export default function ResumeStudioFeature() {
     <section className="py-24 relative z-10 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="glass-panel rounded-3xl p-8 sm:p-12 lg:p-16 border border-violet-500/20 relative bg-gradient-to-br from-[#161526]/90 via-[#19172B]/80 to-[#11111B]/95 shadow-2xl">
+        <div className="glass-panel rounded-3xl p-8 sm:p-12 lg:p-16 border border-violet-200 dark:border-violet-500/20 relative bg-gradient-to-br from-violet-50/90 via-white to-purple-50/80 dark:from-[#161526]/90 dark:via-[#19172B]/80 dark:to-[#11111B]/95 shadow-2xl">
           <div className="absolute top-0 right-1/4 w-96 h-96 bg-brand-violet/15 rounded-full blur-[100px] pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Left Column: Feature Narrative */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-violet-900/50 border border-violet-400/30 text-xs text-lime-300">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span className="font-semibold">First-Party Application</span>
-                <span className="text-zinc-500">•</span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-violet-100 dark:bg-violet-900/50 border border-violet-300 dark:border-violet-400/30 text-xs text-violet-800 dark:text-lime-300 font-semibold">
+                <Sparkles className="w-3.5 h-3.5 text-amber-500 dark:text-lime-300" />
+                <span>First-Party Application</span>
+                <span className="text-zinc-400 dark:text-zinc-500">•</span>
                 <span>Zero Account Friction</span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-950 dark:text-white tracking-tight">
                 Resume Studio. <br />
                 <span className="cosmic-gradient-text">Engineered for ATS & Recruiter Eyes.</span>
               </h2>
 
-              <p className="text-sm sm:text-base text-zinc-300 leading-relaxed max-w-xl">
+              <p className="text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed max-w-xl">
                 Build an ATS-optimized, beautifully typeset resume in minutes. Import existing PDF/DOCX files, customize clean typography, switch between 4 curated templates without data loss, and export selectable vector PDFs.
               </p>
 
               {/* Grid of Advantages */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/5">
-                  <UploadCloud className="w-5 h-5 text-lime-400 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-3 p-3 rounded-xl bg-white dark:bg-white/5 border border-violet-100 dark:border-white/5 shadow-sm dark:shadow-none">
+                  <UploadCloud className="w-5 h-5 text-emerald-600 dark:text-lime-400 shrink-0 mt-0.5" />
                   <div>
-                    <h3 className="text-xs font-bold text-white">Smart PDF / DOCX Import</h3>
-                    <p className="text-[11px] text-zinc-400 mt-0.5">Extract and review your existing profile before finalizing content.</p>
+                    <h3 className="text-xs font-bold text-zinc-950 dark:text-white">Smart PDF / DOCX Import</h3>
+                    <p className="text-[11px] text-zinc-600 dark:text-zinc-400 mt-0.5">Extract and review your existing profile before finalizing content.</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/5">
-                  <Download className="w-5 h-5 text-violet-400 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-3 p-3 rounded-xl bg-white dark:bg-white/5 border border-violet-100 dark:border-white/5 shadow-sm dark:shadow-none">
+                  <Download className="w-5 h-5 text-violet-600 dark:text-violet-400 shrink-0 mt-0.5" />
                   <div>
-                    <h3 className="text-xs font-bold text-white">Real Vector PDF Export</h3>
-                    <p className="text-[11px] text-zinc-400 mt-0.5">Selectable text, clean typography, not a fragile image capture.</p>
+                    <h3 className="text-xs font-bold text-zinc-950 dark:text-white">Real Vector PDF Export</h3>
+                    <p className="text-[11px] text-zinc-600 dark:text-zinc-400 mt-0.5">Selectable text, clean typography, not a fragile image capture.</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/5">
-                  <Layout className="w-5 h-5 text-purple-400 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-3 p-3 rounded-xl bg-white dark:bg-white/5 border border-violet-100 dark:border-white/5 shadow-sm dark:shadow-none">
+                  <Layout className="w-5 h-5 text-purple-600 dark:text-purple-400 shrink-0 mt-0.5" />
                   <div>
-                    <h3 className="text-xs font-bold text-white">4 Distinct Design Templates</h3>
-                    <p className="text-[11px] text-zinc-400 mt-0.5">Cosmic Modern, Executive Clean, Creative Minimal, and Tech Monospace.</p>
+                    <h3 className="text-xs font-bold text-zinc-950 dark:text-white">4 Distinct Design Templates</h3>
+                    <p className="text-[11px] text-zinc-600 dark:text-zinc-400 mt-0.5">Cosmic Modern, Executive Clean, Creative Minimal, and Tech Monospace.</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/5">
-                  <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-3 p-3 rounded-xl bg-white dark:bg-white/5 border border-violet-100 dark:border-white/5 shadow-sm dark:shadow-none">
+                  <ShieldCheck className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                   <div>
-                    <h3 className="text-xs font-bold text-white">High-Entropy Privacy</h3>
-                    <p className="text-[11px] text-zinc-400 mt-0.5">Protected access tokens; never indexed by search engines or public by default.</p>
+                    <h3 className="text-xs font-bold text-zinc-950 dark:text-white">High-Entropy Privacy</h3>
+                    <p className="text-[11px] text-zinc-600 dark:text-zinc-400 mt-0.5">Protected access tokens; never indexed by search engines or public by default.</p>
                   </div>
                 </div>
               </div>
@@ -84,15 +83,15 @@ export default function ResumeStudioFeature() {
 
                 <Link
                   href="/resume-studio/import"
-                  className="flex items-center gap-2 px-5 py-3.5 rounded-xl glass-panel text-white font-medium text-xs hover:bg-white/10 transition-colors border border-white/10"
+                  className="flex items-center gap-2 px-5 py-3.5 rounded-xl glass-panel text-zinc-900 dark:text-white font-medium text-xs hover:bg-black/5 dark:hover:bg-white/10 transition-colors border border-black/10 dark:border-white/10"
                 >
-                  <UploadCloud className="w-4 h-4 text-violet-400" />
+                  <UploadCloud className="w-4 h-4 text-violet-600 dark:text-violet-400" />
                   <span>Import Existing CV</span>
                 </Link>
 
                 <Link
                   href="/resume-studio/templates"
-                  className="flex items-center gap-1.5 px-3 py-3.5 text-xs text-zinc-400 hover:text-white transition-colors"
+                  className="flex items-center gap-1.5 px-3 py-3.5 text-xs text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-colors"
                 >
                   <Eye className="w-3.5 h-3.5" />
                   <span>Preview Templates</span>

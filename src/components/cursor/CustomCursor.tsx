@@ -90,13 +90,13 @@ export default function CustomCursor() {
       {/* Center Dot */}
       <div
         ref={dotRef}
-        className="fixed top-0 left-0 w-2 h-2 -ml-1 -mt-1 bg-white rounded-full transition-opacity duration-200"
+        className="fixed top-0 left-0 w-2 h-2 -ml-1 -mt-1 bg-zinc-950 dark:bg-white rounded-full transition-opacity duration-200"
         style={{ willChange: 'transform' }}
       />
       {/* Outer Ring */}
       <div
         ref={ringRef}
-        className="fixed top-0 left-0 w-9 h-9 -ml-4.5 -mt-4.5 rounded-full border border-violet-400/60 shadow-[0_0_15px_rgba(101,84,245,0.4)] transition-[border-color,opacity] duration-200"
+        className="fixed top-0 left-0 w-9 h-9 -ml-4.5 -mt-4.5 rounded-full border border-violet-600/70 dark:border-violet-400/60 shadow-[0_0_15px_rgba(101,84,245,0.4)] transition-[border-color,opacity] duration-200"
         style={{ willChange: 'transform' }}
       />
     </div>
