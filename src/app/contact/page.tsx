@@ -116,17 +116,17 @@ export default function ContactPage() {
       
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-3">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-violet-950/60 border border-violet-500/30 text-xs text-lime-300">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/40 text-xs text-red-600 dark:text-red-400 font-semibold">
           <Mail className="w-3.5 h-3.5" />
           <span>Direct Contact & Enquiries</span>
         </div>
 
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-zinc-950 dark:text-white tracking-tight">
           How Can We Support You?
         </h1>
 
-        <p className="text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto">
-          Operating since 2020. Connect directly with our academic coordinators, cohort instructors, or institutional recruitment panel.
+        <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 max-w-xl mx-auto">
+          Operating continuously since 2020. Connect directly with our academic coordinators, cohort instructors, or institutional recruitment panel.
         </p>
       </div>
 
@@ -134,47 +134,47 @@ export default function ContactPage() {
         
         {/* Left Column: Direct Info & Operating Ethics */}
         <div className="lg:col-span-5 space-y-6">
-          <div className="glass-panel rounded-3xl p-8 border border-white/10 space-y-6">
-            <h2 className="text-xl font-bold text-white">Direct Communication</h2>
+          <div className="card-surface rounded-3xl p-8 space-y-6">
+            <h2 className="text-xl font-bold text-zinc-950 dark:text-white">Direct Communication</h2>
             
-            <div className="space-y-4 text-xs text-zinc-300">
+            <div className="space-y-4 text-xs text-zinc-700 dark:text-zinc-300">
               <div className="flex items-start gap-3">
-                <div className="p-2 rounded-lg bg-violet-600/20 text-violet-400 shrink-0">
+                <div className="p-2 rounded-xl bg-red-50 dark:bg-red-950/40 text-red-600 dark:text-red-400 border border-red-200 dark:border-red-900/30 shrink-0">
                   <Mail className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="font-semibold text-white">General & Academic Enquiries</div>
-                  <div className="text-zinc-400 mt-0.5">contact@nivo.education</div>
+                  <div className="font-semibold text-zinc-950 dark:text-white">General & Academic Enquiries</div>
+                  <div className="text-zinc-500 dark:text-zinc-400 mt-0.5">contact@nivo.education</div>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="p-2 rounded-lg bg-lime-400/20 text-lime-300 shrink-0">
+                <div className="p-2 rounded-xl bg-zinc-100 dark:bg-white/5 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-white/10 shrink-0">
                   <Users className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="font-semibold text-white">Institutional Staffing Desk</div>
-                  <div className="text-zinc-400 mt-0.5">staffing@nivo.education</div>
+                  <div className="font-semibold text-zinc-950 dark:text-white">Institutional Staffing Desk</div>
+                  <div className="text-zinc-500 dark:text-zinc-400 mt-0.5">staffing@nivo.education</div>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <div className="p-2 rounded-lg bg-purple-600/20 text-purple-400 shrink-0">
+                <div className="p-2 rounded-xl bg-red-50 dark:bg-red-950/40 text-red-600 dark:text-red-400 border border-red-200 dark:border-red-900/30 shrink-0">
                   <Briefcase className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="font-semibold text-white">Course Admissions</div>
-                  <div className="text-zinc-400 mt-0.5">admissions@nivo.education</div>
+                  <div className="font-semibold text-zinc-950 dark:text-white">Course Admissions</div>
+                  <div className="text-zinc-500 dark:text-zinc-400 mt-0.5">admissions@nivo.education</div>
                 </div>
               </div>
             </div>
 
-            <div className="pt-6 border-t border-white/5 space-y-2">
-              <div className="flex items-center gap-1.5 text-xs text-lime-300 font-semibold">
+            <div className="pt-6 border-t border-zinc-200 dark:border-white/5 space-y-2">
+              <div className="flex items-center gap-1.5 text-xs text-red-600 dark:text-red-400 font-semibold">
                 <ShieldCheck className="w-4 h-4" />
                 <span>Operating Standards</span>
               </div>
-              <p className="text-[11px] text-zinc-400 leading-relaxed">
+              <p className="text-[11px] text-zinc-600 dark:text-zinc-400 leading-relaxed">
                 Nivó has been operating continuously since 2020. All correspondence is handled confidentially by designated subject advisors.
               </p>
             </div>
@@ -183,20 +183,20 @@ export default function ContactPage() {
 
         {/* Right Column: Tabbed Enquiry Form */}
         <div className="lg:col-span-7">
-          <div className="glass-panel rounded-3xl p-8 border border-violet-500/20 bg-[#161526]">
+          <div className="card-surface rounded-3xl p-8">
             {submitted ? (
               <div className="py-16 text-center space-y-4">
-                <div className="w-16 h-16 mx-auto rounded-full bg-lime-400/20 text-lime-300 flex items-center justify-center">
+                <div className="w-16 h-16 mx-auto rounded-full bg-red-50 dark:bg-red-950/40 text-red-600 dark:text-red-400 border border-red-200 dark:border-red-900/40 flex items-center justify-center">
                   <CheckCircle2 className="w-10 h-10" />
                 </div>
-                <h3 className="text-2xl font-bold text-white">Enquiry Received</h3>
-                <p className="text-xs text-zinc-300 max-w-md mx-auto leading-relaxed">
+                <h3 className="text-2xl font-bold text-zinc-950 dark:text-white">Enquiry Received</h3>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 max-w-md mx-auto leading-relaxed">
                   Thank you for contacting Nivó. An academic mentor or staffing coordinator will reach out within 24 business hours.
                 </p>
                 <div className="pt-4">
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="px-6 py-2.5 rounded-lg bg-violet-600 hover:bg-violet-500 text-white font-medium text-xs transition-colors"
+                    className="brand-primary-btn px-6 py-2.5 rounded-lg text-xs"
                   >
                     Submit Another Request
                   </button>
@@ -205,12 +205,12 @@ export default function ContactPage() {
             ) : (
               <div>
                 {/* Tab buttons */}
-                <div className="grid grid-cols-2 sm:grid-cols-5 gap-1 p-1 bg-[#0f0e1a] rounded-xl border border-white/10 mb-6 text-xs font-medium">
+                <div className="grid grid-cols-2 sm:grid-cols-5 gap-1 p-1 bg-zinc-100 dark:bg-zinc-950/80 rounded-xl border border-zinc-200 dark:border-white/10 mb-6 text-xs font-medium">
                   <button
                     type="button"
                     onClick={() => setActiveTab('education')}
-                    className={`py-2 px-1 text-center rounded-lg transition-colors ${
-                      activeTab === 'education' ? 'bg-violet-600 text-white font-semibold' : 'text-zinc-400 hover:text-white'
+                    className={`py-2 px-1 text-center rounded-lg transition-colors cursor-pointer ${
+                      activeTab === 'education' ? 'bg-red-600 text-white font-semibold shadow-sm' : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white'
                     }`}
                   >
                     Education
@@ -218,8 +218,8 @@ export default function ContactPage() {
                   <button
                     type="button"
                     onClick={() => setActiveTab('course')}
-                    className={`py-2 px-1 text-center rounded-lg transition-colors ${
-                      activeTab === 'course' ? 'bg-violet-600 text-white font-semibold' : 'text-zinc-400 hover:text-white'
+                    className={`py-2 px-1 text-center rounded-lg transition-colors cursor-pointer ${
+                      activeTab === 'course' ? 'bg-red-600 text-white font-semibold shadow-sm' : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white'
                     }`}
                   >
                     Courses
@@ -227,8 +227,8 @@ export default function ContactPage() {
                   <button
                     type="button"
                     onClick={() => setActiveTab('staffing')}
-                    className={`py-2 px-1 text-center rounded-lg transition-colors ${
-                      activeTab === 'staffing' ? 'bg-violet-600 text-white font-semibold' : 'text-zinc-400 hover:text-white'
+                    className={`py-2 px-1 text-center rounded-lg transition-colors cursor-pointer ${
+                      activeTab === 'staffing' ? 'bg-red-600 text-white font-semibold shadow-sm' : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white'
                     }`}
                   >
                     Staffing
@@ -236,8 +236,8 @@ export default function ContactPage() {
                   <button
                     type="button"
                     onClick={() => setActiveTab('candidate')}
-                    className={`py-2 px-1 text-center rounded-lg transition-colors ${
-                      activeTab === 'candidate' ? 'bg-violet-600 text-white font-semibold' : 'text-zinc-400 hover:text-white'
+                    className={`py-2 px-1 text-center rounded-lg transition-colors cursor-pointer ${
+                      activeTab === 'candidate' ? 'bg-red-600 text-white font-semibold shadow-sm' : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white'
                     }`}
                   >
                     Join Us
@@ -245,8 +245,8 @@ export default function ContactPage() {
                   <button
                     type="button"
                     onClick={() => setActiveTab('general')}
-                    className={`py-2 px-1 text-center rounded-lg transition-colors col-span-2 sm:col-span-1 ${
-                      activeTab === 'general' ? 'bg-violet-600 text-white font-semibold' : 'text-zinc-400 hover:text-white'
+                    className={`py-2 px-1 text-center rounded-lg transition-colors col-span-2 sm:col-span-1 cursor-pointer ${
+                      activeTab === 'general' ? 'bg-red-600 text-white font-semibold shadow-sm' : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white'
                     }`}
                   >
                     General
@@ -257,36 +257,36 @@ export default function ContactPage() {
                   {/* Name and Email */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-xs font-medium text-zinc-300 mb-1">Your Full Name *</label>
+                      <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1">Your Full Name *</label>
                       <input
                         type="text"
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-3.5 py-2 rounded-lg bg-[#0e0d17] border border-white/10 text-white text-xs focus:outline-none focus:border-violet-500"
+                        className="w-full px-3.5 py-2.5 rounded-lg bg-white dark:bg-zinc-950/80 border border-zinc-300 dark:border-white/10 text-zinc-950 dark:text-white text-xs focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-medium text-zinc-300 mb-1">Email Address *</label>
+                      <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1">Email Address *</label>
                       <input
                         type="email"
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-3.5 py-2 rounded-lg bg-[#0e0d17] border border-white/10 text-white text-xs focus:outline-none focus:border-violet-500"
+                        className="w-full px-3.5 py-2.5 rounded-lg bg-white dark:bg-zinc-950/80 border border-zinc-300 dark:border-white/10 text-zinc-950 dark:text-white text-xs focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-colors"
                       />
                     </div>
                   </div>
 
                   {/* Phone */}
                   <div>
-                    <label className="block text-xs font-medium text-zinc-300 mb-1">Contact Phone *</label>
+                    <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1">Contact Phone *</label>
                     <input
                       type="tel"
                       required
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-3.5 py-2 rounded-lg bg-[#0e0d17] border border-white/10 text-white text-xs focus:outline-none focus:border-violet-500"
+                      className="w-full px-3.5 py-2.5 rounded-lg bg-white dark:bg-zinc-950/80 border border-zinc-300 dark:border-white/10 text-zinc-950 dark:text-white text-xs focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-colors"
                     />
                   </div>
 
@@ -294,11 +294,11 @@ export default function ContactPage() {
                   {activeTab === 'education' && (
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div>
-                        <label className="block text-xs font-medium text-zinc-300 mb-1">Education Level</label>
+                        <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1">Education Level</label>
                         <select
                           value={formData.educationLevel}
                           onChange={(e) => setFormData({ ...formData, educationLevel: e.target.value })}
-                          className="w-full px-3.5 py-2 rounded-lg bg-[#0e0d17] border border-white/10 text-white text-xs focus:outline-none focus:border-violet-500"
+                          className="w-full px-3.5 py-2.5 rounded-lg bg-white dark:bg-zinc-950/80 border border-zinc-300 dark:border-white/10 text-zinc-950 dark:text-white text-xs focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-colors"
                         >
                           <option value="kindergarten">Kindergarten / Early Learning</option>
                           <option value="primary">Primary (Grades 1-5)</option>
@@ -311,14 +311,14 @@ export default function ContactPage() {
                         </select>
                       </div>
                       <div>
-                        <label className="block text-xs font-medium text-zinc-300 mb-1">Subject Needed *</label>
+                        <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1">Subject Needed *</label>
                         <input
                           type="text"
                           required
                           placeholder="e.g. Physics, French, Calculus"
                           value={formData.subjectOrArea}
                           onChange={(e) => setFormData({ ...formData, subjectOrArea: e.target.value })}
-                          className="w-full px-3.5 py-2 rounded-lg bg-[#0e0d17] border border-white/10 text-white text-xs focus:outline-none focus:border-violet-500"
+                          className="w-full px-3.5 py-2.5 rounded-lg bg-white dark:bg-zinc-950/80 border border-zinc-300 dark:border-white/10 text-zinc-950 dark:text-white text-xs focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-colors"
                         />
                       </div>
                     </div>
@@ -326,11 +326,11 @@ export default function ContactPage() {
 
                   {activeTab === 'course' && (
                     <div>
-                      <label className="block text-xs font-medium text-zinc-300 mb-1">Select Program *</label>
+                      <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1">Select Program *</label>
                       <select
                         value={formData.courseId}
                         onChange={(e) => setFormData({ ...formData, courseId: e.target.value })}
-                        className="w-full px-3.5 py-2 rounded-lg bg-[#0e0d17] border border-white/10 text-white text-xs focus:outline-none focus:border-violet-500"
+                        className="w-full px-3.5 py-2.5 rounded-lg bg-white dark:bg-zinc-950/80 border border-zinc-300 dark:border-white/10 text-zinc-950 dark:text-white text-xs focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-colors"
                       >
                         {PROFESSIONAL_COURSES.map((c) => (
                           <option key={c.id} value={c.id}>{c.title}</option>
@@ -342,23 +342,23 @@ export default function ContactPage() {
                   {activeTab === 'staffing' && (
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div>
-                        <label className="block text-xs font-medium text-zinc-300 mb-1">Organization Name *</label>
+                        <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1">Organization Name *</label>
                         <input
                           type="text"
                           required
                           value={formData.organizationName}
                           onChange={(e) => setFormData({ ...formData, organizationName: e.target.value })}
-                          className="w-full px-3.5 py-2 rounded-lg bg-[#0e0d17] border border-white/10 text-white text-xs focus:outline-none focus:border-violet-500"
+                          className="w-full px-3.5 py-2.5 rounded-lg bg-white dark:bg-zinc-950/80 border border-zinc-300 dark:border-white/10 text-zinc-950 dark:text-white text-xs focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-colors"
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-medium text-zinc-300 mb-1">Location / City *</label>
+                        <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1">Location / City *</label>
                         <input
                           type="text"
                           required
                           value={formData.location}
                           onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                          className="w-full px-3.5 py-2 rounded-lg bg-[#0e0d17] border border-white/10 text-white text-xs focus:outline-none focus:border-violet-500"
+                          className="w-full px-3.5 py-2.5 rounded-lg bg-white dark:bg-zinc-950/80 border border-zinc-300 dark:border-white/10 text-zinc-950 dark:text-white text-xs focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-colors"
                         />
                       </div>
                     </div>
@@ -367,24 +367,24 @@ export default function ContactPage() {
                   {activeTab === 'candidate' && (
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div>
-                        <label className="block text-xs font-medium text-zinc-300 mb-1">Teaching Discipline *</label>
+                        <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1">Teaching Discipline *</label>
                         <input
                           type="text"
                           required
                           placeholder="e.g. Mathematics, AI Trainer"
                           value={formData.targetRole}
                           onChange={(e) => setFormData({ ...formData, targetRole: e.target.value })}
-                          className="w-full px-3.5 py-2 rounded-lg bg-[#0e0d17] border border-white/10 text-white text-xs focus:outline-none focus:border-violet-500"
+                          className="w-full px-3.5 py-2.5 rounded-lg bg-white dark:bg-zinc-950/80 border border-zinc-300 dark:border-white/10 text-zinc-950 dark:text-white text-xs focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-colors"
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-medium text-zinc-300 mb-1">LinkedIn / Portfolio URL</label>
+                        <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1">LinkedIn / Portfolio URL</label>
                         <input
                           type="url"
                           placeholder="https://..."
                           value={formData.portfolioOrLinkedIn}
                           onChange={(e) => setFormData({ ...formData, portfolioOrLinkedIn: e.target.value })}
-                          className="w-full px-3.5 py-2 rounded-lg bg-[#0e0d17] border border-white/10 text-white text-xs focus:outline-none focus:border-violet-500"
+                          className="w-full px-3.5 py-2.5 rounded-lg bg-white dark:bg-zinc-950/80 border border-zinc-300 dark:border-white/10 text-zinc-950 dark:text-white text-xs focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-colors"
                         />
                       </div>
                     </div>
@@ -392,26 +392,26 @@ export default function ContactPage() {
 
                   {activeTab === 'general' && (
                     <div>
-                      <label className="block text-xs font-medium text-zinc-300 mb-1">Subject</label>
+                      <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1">Subject</label>
                       <input
                         type="text"
                         required
                         value={formData.subject}
                         onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                        className="w-full px-3.5 py-2 rounded-lg bg-[#0e0d17] border border-white/10 text-white text-xs focus:outline-none focus:border-violet-500"
+                        className="w-full px-3.5 py-2.5 rounded-lg bg-white dark:bg-zinc-950/80 border border-zinc-300 dark:border-white/10 text-zinc-950 dark:text-white text-xs focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-colors"
                       />
                     </div>
                   )}
 
                   {/* Message */}
                   <div>
-                    <label className="block text-xs font-medium text-zinc-300 mb-1">Details & Schedule Notes</label>
+                    <label className="block text-xs font-semibold text-zinc-700 dark:text-zinc-300 mb-1">Details & Schedule Notes</label>
                     <textarea
                       rows={4}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Share your goals, academic board (CBSE, IB, Cambridge), or timelines..."
-                      className="w-full p-3 rounded-lg bg-[#0e0d17] border border-white/10 text-white text-xs leading-relaxed focus:outline-none focus:border-violet-500"
+                      className="w-full p-3 rounded-lg bg-white dark:bg-zinc-950/80 border border-zinc-300 dark:border-white/10 text-zinc-950 dark:text-white text-xs leading-relaxed focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-colors"
                     />
                   </div>
 
@@ -419,7 +419,7 @@ export default function ContactPage() {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="px-6 py-2.5 rounded-xl cosmic-glow-btn text-white font-semibold text-xs flex items-center gap-2 cursor-pointer disabled:opacity-50"
+                      className="brand-primary-btn px-6 py-2.5 rounded-xl text-xs gap-2 disabled:opacity-50"
                     >
                       <span>{loading ? 'Sending...' : 'Submit Request'}</span>
                       <Send className="w-3.5 h-3.5" />

@@ -7,7 +7,7 @@ export const SAMPLE_RESUME_DATA: ResumeData = {
   title: 'Senior Software Engineer & Technical Mentor',
   updatedAt: '2026-03-15T00:00:00.000Z',
   template: 'cosmic',
-  accentColor: '#6554F5',
+  accentColor: '#DC2626',
   personalInfo: {
     fullName: 'Alex Vance',
     jobTitle: 'Senior Full-Stack Engineer & Mentor',

@@ -1,104 +1,130 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 /**
- * Nivó Desktop Custom Cursor
- * Compliant with DESIGN.md Section 5:
- * - Desktop pointer only (pointer: fine)
- * - pointer-events: none
- * - Smooth outer ring with subtle violet glow
- * - Preserves native selection and click behaviours
+ * High-performance, tactile custom cursor for Nivó.
+ * Styled with Nivó's signature crimson red dot and smooth spring-lag follower ring.
+ * Only rendered on desktop devices with fine pointer input.
  */
 export default function CustomCursor() {
+  const [enabled, setEnabled] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+  const [isClicking, setIsClicking] = useState(false);
+  const [hoverText, setHoverText] = useState<string | null>(null);
+
+  // Direct DOM references for 120fps requestAnimationFrame transforms
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
 
+  const mousePos = useRef({ x: -100, y: -100 });
+  const ringPos = useRef({ x: -100, y: -100 });
+  const rafId = useRef<number | null>(null);
+
   useEffect(() => {
-    // Check if device supports fine pointer (mouse/trackpad) and not reduced motion
-    const isTouch = window.matchMedia('(pointer: coarse)').matches;
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // Only enable on devices with a mouse/fine pointer (never on touch screens)
+    const isFinePointer = window.matchMedia('(pointer: fine)').matches;
+    if (!isFinePointer) return;
 
-    if (isTouch || prefersReducedMotion) {
-      return;
-    }
-
-    let mouseX = -100;
-    let mouseY = -100;
-    let ringX = -100;
-    let ringY = -100;
-    let isHovering = false;
-    let isClicking = false;
-    let animationFrameId: number;
+    setEnabled(true);
 
     const onMouseMove = (e: MouseEvent) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+      mousePos.current = { x: e.clientX, y: e.clientY };
+      if (!isVisible) setIsVisible(true);
 
+      // Instantly position the center pinpoint dot
       if (dotRef.current) {
-        dotRef.current.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+        dotRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
       }
 
-      // Check if target is an interactive element
+      // Check if hovering interactive elements
       const target = e.target as HTMLElement | null;
       if (target) {
-        const interactive = target.closest('a, button, input, textarea, select, [role="button"], [data-cursor="interactive"]');
-        isHovering = !!interactive;
+        const interactive = target.closest(
+          'a, button, input, textarea, select, [role="button"], .cursor-pointer, [data-cursor]'
+        );
+        if (interactive) {
+          setIsHovering(true);
+          const customText = interactive.getAttribute('data-cursor-text');
+          setHoverText(customText || null);
+        } else {
+          setIsHovering(false);
+          setHoverText(null);
+        }
       }
     };
 
-    const onMouseDown = () => {
-      isClicking = true;
-    };
+    const onMouseDown = () => setIsClicking(true);
+    const onMouseUp = () => setIsClicking(false);
 
-    const onMouseUp = () => {
-      isClicking = false;
-    };
+    const onMouseLeave = () => setIsVisible(false);
+    const onMouseEnter = () => setIsVisible(true);
 
-    // Smooth lerp loop for the outer ring
+    // Smooth spring physics loop for follower ring
     const render = () => {
-      const ease = 0.18;
-      ringX += (mouseX - ringX) * ease;
-      ringY += (mouseY - ringY) * ease;
+      const ease = 0.16; // Follower smooth lag factor
+      ringPos.current.x += (mousePos.current.x - ringPos.current.x) * ease;
+      ringPos.current.y += (mousePos.current.y - ringPos.current.y) * ease;
 
       if (ringRef.current) {
-        const scale = isClicking ? 0.75 : isHovering ? 1.6 : 1;
-        const opacity = mouseX < 0 ? 0 : isHovering ? 0.9 : 0.6;
-        ringRef.current.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) scale(${scale})`;
-        ringRef.current.style.opacity = `${opacity}`;
-        ringRef.current.style.borderColor = isHovering ? '#D8FF75' : '#A78BFA';
+        ringRef.current.style.transform = `translate3d(${ringPos.current.x}px, ${ringPos.current.y}px, 0)`;
       }
 
-      animationFrameId = requestAnimationFrame(render);
+      rafId.current = requestAnimationFrame(render);
     };
 
     window.addEventListener('mousemove', onMouseMove, { passive: true });
     window.addEventListener('mousedown', onMouseDown);
     window.addEventListener('mouseup', onMouseUp);
-    animationFrameId = requestAnimationFrame(render);
+    document.documentElement.addEventListener('mouseleave', onMouseLeave);
+    document.documentElement.addEventListener('mouseenter', onMouseEnter);
+
+    rafId.current = requestAnimationFrame(render);
 
     return () => {
       window.removeEventListener('mousemove', onMouseMove);
       window.removeEventListener('mousedown', onMouseDown);
       window.removeEventListener('mouseup', onMouseUp);
-      cancelAnimationFrame(animationFrameId);
+      document.documentElement.removeEventListener('mouseleave', onMouseLeave);
+      document.documentElement.removeEventListener('mouseenter', onMouseEnter);
+      if (rafId.current) cancelAnimationFrame(rafId.current);
     };
-  }, []);
+  }, [isVisible]);
+
+  if (!enabled) return null;
 
   return (
-    <div className="hidden lg:block pointer-events-none fixed inset-0 z-50 overflow-hidden select-none">
-      {/* Center Dot */}
+    <div
+      className={`pointer-events-none fixed inset-0 z-[9999] transition-opacity duration-300 ${
+        isVisible ? 'opacity-100' : 'opacity-0'
+      }`}
+    >
+      {/* Precision Pinpoint Dot (Nivó Crimson Dot) */}
       <div
         ref={dotRef}
-        className="fixed top-0 left-0 w-2 h-2 -ml-1 -mt-1 bg-zinc-950 dark:bg-white rounded-full transition-opacity duration-200"
-        style={{ willChange: 'transform' }}
+        className="fixed top-0 left-0 -ml-1 -mt-1 w-2 h-2 rounded-full bg-red-600 shadow-[0_0_8px_rgba(220,38,38,0.8)] pointer-events-none will-change-transform transition-[width,height,background-color] duration-150"
+        style={{ transform: 'translate3d(-100px, -100px, 0)' }}
       />
-      {/* Outer Ring */}
+
+      {/* Fluid Follower Halo Ring */}
       <div
         ref={ringRef}
-        className="fixed top-0 left-0 w-9 h-9 -ml-4.5 -mt-4.5 rounded-full border border-violet-600/70 dark:border-violet-400/60 shadow-[0_0_15px_rgba(101,84,245,0.4)] transition-[border-color,opacity] duration-200"
-        style={{ willChange: 'transform' }}
-      />
+        className={`fixed top-0 left-0 pointer-events-none will-change-transform flex items-center justify-center rounded-full transition-all duration-200 ${
+          isClicking
+            ? '-ml-3 -mt-3 w-6 h-6 border-2 border-red-600 bg-red-600/20 scale-90'
+            : isHovering
+            ? '-ml-6 -mt-6 w-12 h-12 border-2 border-red-500 bg-red-500/10 backdrop-blur-[0.5px] scale-110 shadow-[0_0_15px_rgba(220,38,38,0.25)]'
+            : '-ml-4 -mt-4 w-8 h-8 border border-red-500/40 dark:border-red-400/50 bg-red-500/[0.03]'
+        }`}
+        style={{ transform: 'translate3d(-100px, -100px, 0)' }}
+      >
+        {hoverText && (
+          <span className="text-[8px] font-bold uppercase tracking-wider text-red-600 dark:text-red-400 select-none">
+            {hoverText}
+          </span>
+        )}
+      </div>
     </div>
   );
 }

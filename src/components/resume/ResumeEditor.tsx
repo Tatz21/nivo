@@ -8,7 +8,7 @@ import ResumePreview from '@/components/resume/ResumePreview';
 import { 
   Download, Save, Key, Layout, Palette, User, FileText, 
   Briefcase, GraduationCap, Wrench, FolderGit2, Award, 
-  Plus, Trash2, CheckCircle2, Copy, Sparkles, ZoomIn, ZoomOut
+  Plus, Trash2, CheckCircle2, Copy, ZoomIn, ZoomOut
 } from 'lucide-react';
 
 interface ResumeEditorProps {
@@ -128,7 +128,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
     <div className="min-h-screen bg-[#0d0c15] text-white flex flex-col pt-20">
       
       {/* Top Action Bar */}
-      <div className="bg-[#161526] border-b border-white/10 px-4 py-3 sticky top-16 z-30 flex flex-wrap items-center justify-between gap-4">
+      <div className="bg-zinc-950 border-b border-white/10 px-4 py-3 sticky top-16 z-30 flex flex-wrap items-center justify-between gap-4">
         
         {/* Title & Saved status */}
         <div className="flex items-center gap-3">
@@ -136,10 +136,10 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
             type="text"
             value={resume.title}
             onChange={(e) => setResume({ ...resume, title: e.target.value })}
-            className="bg-transparent font-bold text-sm sm:text-base border-b border-transparent hover:border-white/20 focus:border-violet-500 focus:outline-none px-1 py-0.5"
+            className="bg-transparent font-bold text-sm sm:text-base border-b border-transparent hover:border-white/20 focus:border-red-600 focus:ring-1 focus:ring-red-600 focus:outline-none px-1 py-0.5"
           />
           {savedNotice && (
-            <span className="flex items-center gap-1 text-[11px] text-lime-400 bg-lime-950/40 px-2 py-0.5 rounded">
+            <span className="flex items-center gap-1 text-[11px] text-red-500 bg-red-500/10 border border-red-500/20 px-2 py-0.5 rounded">
               <CheckCircle2 className="w-3 h-3" /> Saved Locally
             </span>
           )}
@@ -147,14 +147,14 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
 
         {/* Template & Color controls */}
         <div className="flex items-center gap-4">
-          <div className="flex items-center gap-1.5 bg-[#11111B] p-1 rounded-lg border border-white/10 text-xs">
+          <div className="flex items-center gap-1.5 bg-black/50 p-1 rounded-lg border border-white/10 text-xs">
             <Layout className="w-3.5 h-3.5 text-zinc-400 ml-1" />
             {(['cosmic', 'executive', 'creative'] as TemplateType[]).map((t) => (
               <button
                 key={t}
                 onClick={() => setResume({ ...resume, template: t })}
                 className={`px-2.5 py-1 rounded text-xs capitalize transition-colors ${
-                  resume.template === t ? 'bg-violet-600 text-white font-medium' : 'text-zinc-400 hover:text-white'
+                  resume.template === t ? 'bg-red-600 text-white font-medium' : 'text-zinc-400 hover:text-white'
                 }`}
               >
                 {t}
@@ -162,9 +162,9 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
             ))}
           </div>
 
-          <div className="hidden sm:flex items-center gap-1.5 bg-[#11111B] p-1.5 rounded-lg border border-white/10">
+          <div className="hidden sm:flex items-center gap-1.5 bg-black/50 p-1.5 rounded-lg border border-white/10">
             <Palette className="w-3.5 h-3.5 text-zinc-400" />
-            {['#6554F5', '#A78BFA', '#2563EB', '#059669', '#E11D48', '#111827'].map((c) => (
+            {['#DC2626', '#E11D48', '#2563EB', '#059669', '#18181B', '#71717A'].map((c) => (
               <button
                 key={c}
                 onClick={() => setResume({ ...resume, accentColor: c })}
@@ -185,7 +185,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-xs text-zinc-300 font-medium transition-colors"
             title="View secure cryptographic access key"
           >
-            <Key className="w-3.5 h-3.5 text-lime-400" />
+            <Key className="w-3.5 h-3.5 text-red-500" />
             <span className="hidden md:inline">Access Key</span>
           </button>
 
@@ -199,9 +199,9 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
 
           <button
             onClick={handleExportPDF}
-            className="flex items-center gap-1.5 px-4 py-1.5 rounded-lg cosmic-glow-btn text-xs font-semibold text-white shadow-md cursor-pointer"
+            className="flex items-center gap-1.5 px-4 py-1.5 rounded-lg brand-primary-btn !text-xs !shadow-sm cursor-pointer"
           >
-            <Download className="w-3.5 h-3.5 text-lime-300" />
+            <Download className="w-3.5 h-3.5 text-white" />
             <span>Export PDF</span>
           </button>
         </div>
@@ -211,14 +211,14 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
       <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
         
         {/* Left Region: Section Navigation & Field Editor */}
-        <div className="w-full lg:w-[460px] xl:w-[500px] border-r border-white/10 bg-[#141322] flex flex-col shrink-0 max-h-[calc(100vh-120px)] overflow-y-auto">
+        <div className="w-full lg:w-[460px] xl:w-[500px] border-r border-white/10 bg-zinc-950 flex flex-col shrink-0 max-h-[calc(100vh-120px)] overflow-y-auto">
           
           {/* Section Selector Tabs */}
-          <div className="flex overflow-x-auto p-2 bg-[#100f1c] border-b border-white/5 gap-1 scrollbar-none text-xs">
+          <div className="flex overflow-x-auto p-2 bg-black/40 border-b border-white/5 gap-1 scrollbar-none text-xs">
             <button
               onClick={() => setActiveSection('personal')}
               className={`flex items-center gap-1 px-3 py-1.5 rounded-lg font-medium whitespace-nowrap transition-colors ${
-                activeSection === 'personal' ? 'bg-violet-600 text-white' : 'text-zinc-400 hover:text-white'
+                activeSection === 'personal' ? 'bg-red-600 text-white' : 'text-zinc-400 hover:text-white'
               }`}
             >
               <User className="w-3.5 h-3.5" />
@@ -228,7 +228,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
             <button
               onClick={() => setActiveSection('summary')}
               className={`flex items-center gap-1 px-3 py-1.5 rounded-lg font-medium whitespace-nowrap transition-colors ${
-                activeSection === 'summary' ? 'bg-violet-600 text-white' : 'text-zinc-400 hover:text-white'
+                activeSection === 'summary' ? 'bg-red-600 text-white' : 'text-zinc-400 hover:text-white'
               }`}
             >
               <FileText className="w-3.5 h-3.5" />
@@ -238,7 +238,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
             <button
               onClick={() => setActiveSection('experience')}
               className={`flex items-center gap-1 px-3 py-1.5 rounded-lg font-medium whitespace-nowrap transition-colors ${
-                activeSection === 'experience' ? 'bg-violet-600 text-white' : 'text-zinc-400 hover:text-white'
+                activeSection === 'experience' ? 'bg-red-600 text-white' : 'text-zinc-400 hover:text-white'
               }`}
             >
               <Briefcase className="w-3.5 h-3.5" />
@@ -248,7 +248,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
             <button
               onClick={() => setActiveSection('education')}
               className={`flex items-center gap-1 px-3 py-1.5 rounded-lg font-medium whitespace-nowrap transition-colors ${
-                activeSection === 'education' ? 'bg-violet-600 text-white' : 'text-zinc-400 hover:text-white'
+                activeSection === 'education' ? 'bg-red-600 text-white' : 'text-zinc-400 hover:text-white'
               }`}
             >
               <GraduationCap className="w-3.5 h-3.5" />
@@ -258,7 +258,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
             <button
               onClick={() => setActiveSection('skills')}
               className={`flex items-center gap-1 px-3 py-1.5 rounded-lg font-medium whitespace-nowrap transition-colors ${
-                activeSection === 'skills' ? 'bg-violet-600 text-white' : 'text-zinc-400 hover:text-white'
+                activeSection === 'skills' ? 'bg-red-600 text-white' : 'text-zinc-400 hover:text-white'
               }`}
             >
               <Wrench className="w-3.5 h-3.5" />
@@ -268,7 +268,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
             <button
               onClick={() => setActiveSection('projects')}
               className={`flex items-center gap-1 px-3 py-1.5 rounded-lg font-medium whitespace-nowrap transition-colors ${
-                activeSection === 'projects' ? 'bg-violet-600 text-white' : 'text-zinc-400 hover:text-white'
+                activeSection === 'projects' ? 'bg-red-600 text-white' : 'text-zinc-400 hover:text-white'
               }`}
             >
               <FolderGit2 className="w-3.5 h-3.5" />
@@ -278,7 +278,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
             <button
               onClick={() => setActiveSection('certifications')}
               className={`flex items-center gap-1 px-3 py-1.5 rounded-lg font-medium whitespace-nowrap transition-colors ${
-                activeSection === 'certifications' ? 'bg-violet-600 text-white' : 'text-zinc-400 hover:text-white'
+                activeSection === 'certifications' ? 'bg-red-600 text-white' : 'text-zinc-400 hover:text-white'
               }`}
             >
               <Award className="w-3.5 h-3.5" />
@@ -302,7 +302,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                     type="text"
                     value={resume.personalInfo.fullName}
                     onChange={(e) => setResume({ ...resume, personalInfo: { ...resume.personalInfo, fullName: e.target.value } })}
-                    className="w-full px-3 py-2 rounded-lg bg-[#0e0d17] border border-white/10 text-white text-xs focus:outline-none focus:border-violet-500"
+                    className="w-full px-3 py-2 rounded-lg bg-zinc-900/80 border border-white/10 text-white text-xs focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600"
                   />
                 </div>
 
@@ -312,7 +312,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                     type="text"
                     value={resume.personalInfo.jobTitle}
                     onChange={(e) => setResume({ ...resume, personalInfo: { ...resume.personalInfo, jobTitle: e.target.value } })}
-                    className="w-full px-3 py-2 rounded-lg bg-[#0e0d17] border border-white/10 text-white text-xs focus:outline-none focus:border-violet-500"
+                    className="w-full px-3 py-2 rounded-lg bg-zinc-900/80 border border-white/10 text-white text-xs focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600"
                   />
                 </div>
 
@@ -323,7 +323,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                       type="email"
                       value={resume.personalInfo.email}
                       onChange={(e) => setResume({ ...resume, personalInfo: { ...resume.personalInfo, email: e.target.value } })}
-                      className="w-full px-3 py-2 rounded-lg bg-[#0e0d17] border border-white/10 text-white text-xs focus:outline-none focus:border-violet-500"
+                      className="w-full px-3 py-2 rounded-lg bg-zinc-900/80 border border-white/10 text-white text-xs focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600"
                     />
                   </div>
                   <div>
@@ -332,7 +332,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                       type="text"
                       value={resume.personalInfo.phone}
                       onChange={(e) => setResume({ ...resume, personalInfo: { ...resume.personalInfo, phone: e.target.value } })}
-                      className="w-full px-3 py-2 rounded-lg bg-[#0e0d17] border border-white/10 text-white text-xs focus:outline-none focus:border-violet-500"
+                      className="w-full px-3 py-2 rounded-lg bg-zinc-900/80 border border-white/10 text-white text-xs focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600"
                     />
                   </div>
                 </div>
@@ -344,7 +344,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                       type="text"
                       value={resume.personalInfo.location}
                       onChange={(e) => setResume({ ...resume, personalInfo: { ...resume.personalInfo, location: e.target.value } })}
-                      className="w-full px-3 py-2 rounded-lg bg-[#0e0d17] border border-white/10 text-white text-xs focus:outline-none focus:border-violet-500"
+                      className="w-full px-3 py-2 rounded-lg bg-zinc-900/80 border border-white/10 text-white text-xs focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600"
                     />
                   </div>
                   <div>
@@ -353,7 +353,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                       type="text"
                       value={resume.personalInfo.website || ''}
                       onChange={(e) => setResume({ ...resume, personalInfo: { ...resume.personalInfo, website: e.target.value } })}
-                      className="w-full px-3 py-2 rounded-lg bg-[#0e0d17] border border-white/10 text-white text-xs focus:outline-none focus:border-violet-500"
+                      className="w-full px-3 py-2 rounded-lg bg-zinc-900/80 border border-white/10 text-white text-xs focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600"
                     />
                   </div>
                 </div>
@@ -365,7 +365,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                       type="text"
                       value={resume.personalInfo.linkedin || ''}
                       onChange={(e) => setResume({ ...resume, personalInfo: { ...resume.personalInfo, linkedin: e.target.value } })}
-                      className="w-full px-3 py-2 rounded-lg bg-[#0e0d17] border border-white/10 text-white text-xs focus:outline-none focus:border-violet-500"
+                      className="w-full px-3 py-2 rounded-lg bg-zinc-900/80 border border-white/10 text-white text-xs focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600"
                     />
                   </div>
                   <div>
@@ -374,7 +374,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                       type="text"
                       value={resume.personalInfo.github || ''}
                       onChange={(e) => setResume({ ...resume, personalInfo: { ...resume.personalInfo, github: e.target.value } })}
-                      className="w-full px-3 py-2 rounded-lg bg-[#0e0d17] border border-white/10 text-white text-xs focus:outline-none focus:border-violet-500"
+                      className="w-full px-3 py-2 rounded-lg bg-zinc-900/80 border border-white/10 text-white text-xs focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600"
                     />
                   </div>
                 </div>
@@ -394,7 +394,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                   rows={6}
                   value={resume.summary}
                   onChange={(e) => setResume({ ...resume, summary: e.target.value })}
-                  className="w-full p-3 rounded-lg bg-[#0e0d17] border border-white/10 text-white text-xs leading-relaxed focus:outline-none focus:border-violet-500"
+                  className="w-full p-3 rounded-lg bg-zinc-900/80 border border-white/10 text-white text-xs leading-relaxed focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600"
                 />
               </div>
             )}
@@ -406,7 +406,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                   <h3 className="text-sm font-bold uppercase tracking-wider text-white">Work Experience</h3>
                   <button
                     onClick={addExperience}
-                    className="flex items-center gap-1 text-xs text-lime-400 hover:text-lime-300 font-semibold"
+                    className="flex items-center gap-1 text-xs text-red-600 dark:text-red-400 hover:text-red-500 font-semibold"
                   >
                     <Plus className="w-3.5 h-3.5" />
                     <span>Add Position</span>
@@ -414,7 +414,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                 </div>
 
                 {resume.experiences.map((exp, index) => (
-                  <div key={exp.id} className="p-4 rounded-xl bg-[#0e0d17] border border-white/10 space-y-3 relative">
+                  <div key={exp.id} className="p-4 rounded-xl bg-zinc-900/80 border border-white/10 space-y-3 relative">
                     <button
                       onClick={() => removeExperience(exp.id)}
                       className="absolute top-3 right-3 text-zinc-500 hover:text-rose-400 p-1"
@@ -423,7 +423,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                       <Trash2 className="w-3.5 h-3.5" />
                     </button>
 
-                    <div className="text-[11px] font-bold text-violet-400 uppercase tracking-wider">
+                    <div className="text-[11px] font-bold text-red-500 uppercase tracking-wider">
                       Position #{index + 1}
                     </div>
 
@@ -438,7 +438,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                             updated[index].role = e.target.value;
                             setResume({ ...resume, experiences: updated });
                           }}
-                          className="w-full px-2.5 py-1.5 rounded bg-[#161526] border border-white/10 text-white text-xs"
+                          className="w-full px-2.5 py-1.5 rounded bg-zinc-950 border border-white/10 text-white text-xs"
                         />
                       </div>
                       <div>
@@ -451,7 +451,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                             updated[index].company = e.target.value;
                             setResume({ ...resume, experiences: updated });
                           }}
-                          className="w-full px-2.5 py-1.5 rounded bg-[#161526] border border-white/10 text-white text-xs"
+                          className="w-full px-2.5 py-1.5 rounded bg-zinc-950 border border-white/10 text-white text-xs"
                         />
                       </div>
                     </div>
@@ -467,7 +467,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                             updated[index].startDate = e.target.value;
                             setResume({ ...resume, experiences: updated });
                           }}
-                          className="w-full px-2.5 py-1.5 rounded bg-[#161526] border border-white/10 text-white text-xs"
+                          className="w-full px-2.5 py-1.5 rounded bg-zinc-950 border border-white/10 text-white text-xs"
                         />
                       </div>
                       <div>
@@ -480,7 +480,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                             updated[index].endDate = e.target.value;
                             setResume({ ...resume, experiences: updated });
                           }}
-                          className="w-full px-2.5 py-1.5 rounded bg-[#161526] border border-white/10 text-white text-xs"
+                          className="w-full px-2.5 py-1.5 rounded bg-zinc-950 border border-white/10 text-white text-xs"
                         />
                       </div>
                       <div>
@@ -493,7 +493,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                             updated[index].location = e.target.value;
                             setResume({ ...resume, experiences: updated });
                           }}
-                          className="w-full px-2.5 py-1.5 rounded bg-[#161526] border border-white/10 text-white text-xs"
+                          className="w-full px-2.5 py-1.5 rounded bg-zinc-950 border border-white/10 text-white text-xs"
                         />
                       </div>
                     </div>
@@ -508,7 +508,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                           updated[index].highlights = e.target.value.split('\n');
                           setResume({ ...resume, experiences: updated });
                         }}
-                        className="w-full p-2 rounded bg-[#161526] border border-white/10 text-white text-xs leading-relaxed"
+                        className="w-full p-2 rounded bg-zinc-950 border border-white/10 text-white text-xs leading-relaxed"
                       />
                     </div>
                   </div>
@@ -523,7 +523,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                   <h3 className="text-sm font-bold uppercase tracking-wider text-white">Academic Qualifications</h3>
                   <button
                     onClick={addEducation}
-                    className="flex items-center gap-1 text-xs text-lime-400 hover:text-lime-300 font-semibold"
+                    className="flex items-center gap-1 text-xs text-red-600 dark:text-red-400 hover:text-red-500 font-semibold"
                   >
                     <Plus className="w-3.5 h-3.5" />
                     <span>Add Degree</span>
@@ -531,7 +531,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                 </div>
 
                 {resume.education.map((edu, index) => (
-                  <div key={edu.id} className="p-4 rounded-xl bg-[#0e0d17] border border-white/10 space-y-3 relative">
+                  <div key={edu.id} className="p-4 rounded-xl bg-zinc-900/80 border border-white/10 space-y-3 relative">
                     <button
                       onClick={() => removeEducation(edu.id)}
                       className="absolute top-3 right-3 text-zinc-500 hover:text-rose-400 p-1"
@@ -551,7 +551,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                             updated[index].degree = e.target.value;
                             setResume({ ...resume, education: updated });
                           }}
-                          className="w-full px-2.5 py-1.5 rounded bg-[#161526] border border-white/10 text-white text-xs"
+                          className="w-full px-2.5 py-1.5 rounded bg-zinc-950 border border-white/10 text-white text-xs"
                         />
                       </div>
                       <div>
@@ -564,7 +564,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                             updated[index].institution = e.target.value;
                             setResume({ ...resume, education: updated });
                           }}
-                          className="w-full px-2.5 py-1.5 rounded bg-[#161526] border border-white/10 text-white text-xs"
+                          className="w-full px-2.5 py-1.5 rounded bg-zinc-950 border border-white/10 text-white text-xs"
                         />
                       </div>
                     </div>
@@ -580,7 +580,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                             updated[index].startDate = e.target.value;
                             setResume({ ...resume, education: updated });
                           }}
-                          className="w-full px-2.5 py-1.5 rounded bg-[#161526] border border-white/10 text-white text-xs"
+                          className="w-full px-2.5 py-1.5 rounded bg-zinc-950 border border-white/10 text-white text-xs"
                         />
                       </div>
                       <div>
@@ -593,7 +593,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                             updated[index].endDate = e.target.value;
                             setResume({ ...resume, education: updated });
                           }}
-                          className="w-full px-2.5 py-1.5 rounded bg-[#161526] border border-white/10 text-white text-xs"
+                          className="w-full px-2.5 py-1.5 rounded bg-zinc-950 border border-white/10 text-white text-xs"
                         />
                       </div>
                       <div>
@@ -606,7 +606,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                             updated[index].grade = e.target.value;
                             setResume({ ...resume, education: updated });
                           }}
-                          className="w-full px-2.5 py-1.5 rounded bg-[#161526] border border-white/10 text-white text-xs"
+                          className="w-full px-2.5 py-1.5 rounded bg-zinc-950 border border-white/10 text-white text-xs"
                         />
                       </div>
                     </div>
@@ -622,7 +622,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                   <h3 className="text-sm font-bold uppercase tracking-wider text-white">Skills Categories</h3>
                   <button
                     onClick={addSkillCategory}
-                    className="flex items-center gap-1 text-xs text-lime-400 hover:text-lime-300 font-semibold"
+                    className="flex items-center gap-1 text-xs text-red-600 dark:text-red-400 hover:text-red-500 font-semibold"
                   >
                     <Plus className="w-3.5 h-3.5" />
                     <span>Add Category</span>
@@ -630,7 +630,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                 </div>
 
                 {resume.skillCategories.map((cat, index) => (
-                  <div key={cat.id} className="p-4 rounded-xl bg-[#0e0d17] border border-white/10 space-y-3 relative">
+                  <div key={cat.id} className="p-4 rounded-xl bg-zinc-900/80 border border-white/10 space-y-3 relative">
                     <button
                       onClick={() => removeSkillCategory(cat.id)}
                       className="absolute top-3 right-3 text-zinc-500 hover:text-rose-400 p-1"
@@ -649,7 +649,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                           updated[index].categoryName = e.target.value;
                           setResume({ ...resume, skillCategories: updated });
                         }}
-                        className="w-full px-2.5 py-1.5 rounded bg-[#161526] border border-white/10 text-white text-xs"
+                        className="w-full px-2.5 py-1.5 rounded bg-zinc-950 border border-white/10 text-white text-xs"
                       />
                     </div>
 
@@ -663,7 +663,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                           updated[index].skills = e.target.value.split(',').map(s => s.trim()).filter(Boolean);
                           setResume({ ...resume, skillCategories: updated });
                         }}
-                        className="w-full px-2.5 py-1.5 rounded bg-[#161526] border border-white/10 text-white text-xs"
+                        className="w-full px-2.5 py-1.5 rounded bg-zinc-950 border border-white/10 text-white text-xs"
                       />
                     </div>
                   </div>
@@ -678,7 +678,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                   <h3 className="text-sm font-bold uppercase tracking-wider text-white">Portfolio Projects</h3>
                   <button
                     onClick={addProject}
-                    className="flex items-center gap-1 text-xs text-lime-400 hover:text-lime-300 font-semibold"
+                    className="flex items-center gap-1 text-xs text-red-600 dark:text-red-400 hover:text-red-500 font-semibold"
                   >
                     <Plus className="w-3.5 h-3.5" />
                     <span>Add Project</span>
@@ -686,7 +686,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                 </div>
 
                 {resume.projects.map((proj, index) => (
-                  <div key={proj.id} className="p-4 rounded-xl bg-[#0e0d17] border border-white/10 space-y-3 relative">
+                  <div key={proj.id} className="p-4 rounded-xl bg-zinc-900/80 border border-white/10 space-y-3 relative">
                     <button
                       onClick={() => removeProject(proj.id)}
                       className="absolute top-3 right-3 text-zinc-500 hover:text-rose-400 p-1"
@@ -705,7 +705,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                             updated[index].title = e.target.value;
                             setResume({ ...resume, projects: updated });
                           }}
-                          className="w-full px-2.5 py-1.5 rounded bg-[#161526] border border-white/10 text-white text-xs"
+                          className="w-full px-2.5 py-1.5 rounded bg-zinc-950 border border-white/10 text-white text-xs"
                         />
                       </div>
                       <div>
@@ -718,7 +718,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                             updated[index].url = e.target.value;
                             setResume({ ...resume, projects: updated });
                           }}
-                          className="w-full px-2.5 py-1.5 rounded bg-[#161526] border border-white/10 text-white text-xs"
+                          className="w-full px-2.5 py-1.5 rounded bg-zinc-950 border border-white/10 text-white text-xs"
                         />
                       </div>
                     </div>
@@ -733,7 +733,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                           updated[index].description = e.target.value;
                           setResume({ ...resume, projects: updated });
                         }}
-                        className="w-full p-2 rounded bg-[#161526] border border-white/10 text-white text-xs"
+                        className="w-full p-2 rounded bg-zinc-950 border border-white/10 text-white text-xs"
                       />
                     </div>
                   </div>
@@ -748,7 +748,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                   <h3 className="text-sm font-bold uppercase tracking-wider text-white">Certifications</h3>
                   <button
                     onClick={addCertification}
-                    className="flex items-center gap-1 text-xs text-lime-400 hover:text-lime-300 font-semibold"
+                    className="flex items-center gap-1 text-xs text-red-600 dark:text-red-400 hover:text-red-500 font-semibold"
                   >
                     <Plus className="w-3.5 h-3.5" />
                     <span>Add Certification</span>
@@ -756,7 +756,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                 </div>
 
                 {resume.certifications.map((cert, index) => (
-                  <div key={cert.id} className="p-4 rounded-xl bg-[#0e0d17] border border-white/10 space-y-3 relative">
+                  <div key={cert.id} className="p-4 rounded-xl bg-zinc-900/80 border border-white/10 space-y-3 relative">
                     <button
                       onClick={() => removeCertification(cert.id)}
                       className="absolute top-3 right-3 text-zinc-500 hover:text-rose-400 p-1"
@@ -775,7 +775,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                             updated[index].name = e.target.value;
                             setResume({ ...resume, certifications: updated });
                           }}
-                          className="w-full px-2.5 py-1.5 rounded bg-[#161526] border border-white/10 text-white text-xs"
+                          className="w-full px-2.5 py-1.5 rounded bg-zinc-950 border border-white/10 text-white text-xs"
                         />
                       </div>
                       <div>
@@ -788,7 +788,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
                             updated[index].issuer = e.target.value;
                             setResume({ ...resume, certifications: updated });
                           }}
-                          className="w-full px-2.5 py-1.5 rounded bg-[#161526] border border-white/10 text-white text-xs"
+                          className="w-full px-2.5 py-1.5 rounded bg-zinc-950 border border-white/10 text-white text-xs"
                         />
                       </div>
                     </div>
@@ -803,7 +803,7 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
         <div className="flex-1 bg-[#090810] p-6 lg:p-10 flex flex-col items-center overflow-auto relative">
           
           {/* Zoom controls */}
-          <div className="sticky top-2 z-20 mb-4 flex items-center gap-2 bg-[#161526]/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 shadow-lg text-xs">
+          <div className="sticky top-2 z-20 mb-4 flex items-center gap-2 bg-zinc-950/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 shadow-lg text-xs">
             <button
               onClick={() => setScale(Math.max(0.5, scale - 0.1))}
               className="p-1 text-zinc-400 hover:text-white"
@@ -836,37 +836,37 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
           onClick={() => setShowKeyModal(false)}
         >
           <div 
-            className="w-full max-w-md glass-panel rounded-2xl p-6 bg-[#161526] border border-violet-500/30 text-white space-y-4"
+            className="w-full max-w-md card-surface rounded-2xl p-6 text-zinc-950 dark:text-white space-y-4"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center gap-2.5 text-lime-300">
+            <div className="flex items-center gap-2.5 text-red-600 dark:text-red-500">
               <Key className="w-5 h-5" />
-              <h3 className="font-bold text-base text-white">Your Secure Access Key</h3>
+              <h3 className="font-bold text-base text-zinc-950 dark:text-white">Your Secure Access Key</h3>
             </div>
 
-            <p className="text-xs text-zinc-300 leading-relaxed">
+            <p className="text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed">
               Nivó does not force you to create a public account. Instead, this resume is bound to a high-entropy secret key. Save this key to reopen or edit this resume from any device.
             </p>
 
-            <div className="p-3 rounded-lg bg-[#0e0d17] border border-white/10 flex items-center justify-between gap-2 font-mono text-xs text-lime-300 break-all select-all">
+            <div className="p-3 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-white/10 flex items-center justify-between gap-2 font-mono text-xs text-red-600 dark:text-red-400 break-all select-all">
               <span>{resume.accessKey}</span>
               <button
                 onClick={copyAccessKey}
-                className="p-1.5 rounded hover:bg-white/10 text-zinc-400 hover:text-white shrink-0"
+                className="p-1.5 rounded-lg hover:bg-zinc-200 dark:hover:bg-white/10 text-zinc-500 hover:text-zinc-950 dark:hover:text-white shrink-0 transition-colors"
                 title="Copy Key"
               >
-                {copiedKey ? <CheckCircle2 className="w-4 h-4 text-lime-400" /> : <Copy className="w-4 h-4" />}
+                {copiedKey ? <CheckCircle2 className="w-4 h-4 text-red-600 dark:text-red-500" /> : <Copy className="w-4 h-4" />}
               </button>
             </div>
 
             <div className="text-[11px] text-zinc-500">
-              Resume ID: <span className="font-mono text-zinc-400">{resume.id}</span>
+              Resume ID: <span className="font-mono text-zinc-600 dark:text-zinc-400">{resume.id}</span>
             </div>
 
             <div className="pt-2 flex justify-end">
               <button
                 onClick={() => setShowKeyModal(false)}
-                className="px-4 py-2 rounded-lg bg-violet-600 hover:bg-violet-500 text-xs font-semibold text-white"
+                className="px-4 py-2 rounded-lg bg-red-600 hover:bg-red-500 text-xs font-semibold text-white"
               >
                 Done
               </button>

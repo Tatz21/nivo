@@ -1,11 +1,13 @@
+// components/ui/animated-service-card.tsx
+
 "use client";
 
 import * as React from "react";
 import { motion, useInView } from "framer-motion";
-import { ArrowLeft, ArrowRight, ShieldCheck, Compass, Lock, CheckCircle2, Award, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// Embla Carousel Imports
+// Shadcn UI Carousel Imports
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react";
@@ -195,7 +197,9 @@ const CarouselPrevious = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        "h-10 w-10 rounded-full border border-black/10 dark:border-white/10 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md hover:bg-white dark:hover:bg-zinc-800 text-zinc-900 dark:text-white shadow-md disabled:opacity-40 transition-all",
+        "absolute h-10 w-10 rounded-full z-20 shadow-md",
+        "left-2 top-1/2 -translate-y-1/2",
+        "bg-white/90 dark:bg-zinc-900/90 border border-zinc-200 dark:border-white/10 hover:bg-white dark:hover:bg-zinc-800 text-zinc-950 dark:text-white disabled:opacity-30 cursor-pointer backdrop-blur-md transition-all",
         className,
       )}
       onClick={scrollPrev}
@@ -220,7 +224,9 @@ const CarouselNext = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        "h-10 w-10 rounded-full border border-black/10 dark:border-white/10 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md hover:bg-white dark:hover:bg-zinc-800 text-zinc-900 dark:text-white shadow-md disabled:opacity-40 transition-all",
+        "absolute h-10 w-10 rounded-full z-20 shadow-md",
+        "right-2 top-1/2 -translate-y-1/2",
+        "bg-white/90 dark:bg-zinc-900/90 border border-zinc-200 dark:border-white/10 hover:bg-white dark:hover:bg-zinc-800 text-zinc-950 dark:text-white disabled:opacity-30 cursor-pointer backdrop-blur-md transition-all",
         className,
       )}
       onClick={scrollNext}
@@ -234,7 +240,7 @@ const CarouselNext = React.forwardRef<
 });
 CarouselNext.displayName = "CarouselNext";
 
-// --- Service Interface & Card Component ---
+// --- Service Card & Carousel Section ---
 export interface Service {
   number: string;
   title: string;
@@ -245,9 +251,10 @@ export interface Service {
   image?: string;
 }
 
+// Sub-component for individual cards
 const ServiceCard = ({ service, index }: { service: Service; index: number }) => {
   const cardVariants = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
       y: 0,
@@ -263,7 +270,9 @@ const ServiceCard = ({ service, index }: { service: Service; index: number }) =>
       variants={cardVariants}
       whileHover={{ y: -6, transition: { duration: 0.2 } }}
       className={cn(
-        "group relative flex h-[440px] w-full flex-col justify-between overflow-hidden rounded-3xl p-7 border border-black/10 dark:border-white/10 shadow-lg backdrop-blur-xl bg-gradient-to-br transition-all duration-300",
+        "group relative flex h-[450px] w-full flex-col justify-between overflow-hidden rounded-3xl p-8 transition-all duration-300",
+        "border border-zinc-200 dark:border-white/10 shadow-sm hover:shadow-xl",
+        "bg-gradient-to-br",
         service.gradient
       )}
     >
@@ -272,50 +281,49 @@ const ServiceCard = ({ service, index }: { service: Service; index: number }) =>
         <img
           src={service.image}
           alt={service.title}
-          className="absolute inset-0 w-full h-full object-cover opacity-15 mix-blend-overlay group-hover:scale-105 transition-transform duration-700 pointer-events-none"
+          className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay group-hover:scale-105 transition-transform duration-700 pointer-events-none"
         />
       )}
 
-      {/* Top Header */}
-      <div className="z-10 flex items-center justify-between">
-        <span className="font-mono text-xs font-bold uppercase tracking-widest text-zinc-900/60 dark:text-white/60 px-2.5 py-1 rounded-full bg-white/40 dark:bg-black/30 border border-black/5 dark:border-white/10 backdrop-blur-sm">
-          ( {service.number} )
-        </span>
-        {service.tag && (
-          <span className="text-[11px] font-bold text-emerald-700 dark:text-lime-300 px-2.5 py-1 rounded-full bg-emerald-500/15 dark:bg-lime-400/15 border border-emerald-500/20 dark:border-lime-400/20">
-            {service.tag}
+      {/* Card Content Top */}
+      <div className="z-10 flex flex-col items-start text-left">
+        <div className="w-full flex items-center justify-between mb-8">
+          <span className="text-sm font-mono font-bold text-zinc-700 dark:text-zinc-400 px-3 py-1 rounded-full bg-white/70 dark:bg-black/40 border border-zinc-200/60 dark:border-white/10 backdrop-blur-sm">
+            ( {service.number} )
           </span>
-        )}
-      </div>
+          {service.tag && (
+            <span className="text-[11px] font-bold text-red-600 dark:text-red-400 px-2.5 py-1 rounded-full bg-red-500/10 dark:bg-red-500/15 border border-red-500/20">
+              {service.tag}
+            </span>
+          )}
+        </div>
 
-      {/* Center Icon */}
-      <div className="z-10 my-auto">
-        <div className="w-14 h-14 rounded-2xl bg-white/80 dark:bg-black/40 border border-black/5 dark:border-white/10 flex items-center justify-center text-zinc-900 dark:text-white shadow-md group-hover:scale-110 transition-transform duration-300">
-          <service.icon className="h-7 w-7" />
+        <div className="mb-auto p-3.5 rounded-2xl bg-white/90 dark:bg-black/50 border border-zinc-200/80 dark:border-white/10 shadow-sm group-hover:scale-110 transition-transform duration-300">
+          <service.icon className="h-8 w-8 text-red-600 dark:text-red-500" />
         </div>
       </div>
 
-      {/* Bottom Text Content */}
+      {/* Card Content Bottom */}
       <div className="z-10 space-y-2">
-        <h3 className="text-xl font-extrabold tracking-tight text-zinc-950 dark:text-white">
+        <h3 className="text-xl font-bold uppercase tracking-wider text-zinc-950 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-500 transition-colors">
           {service.title}
         </h3>
-        <p className="text-xs sm:text-sm leading-relaxed text-zinc-700 dark:text-zinc-300 font-medium">
+        <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-300 font-medium">
           {service.description}
         </p>
       </div>
 
-      {/* Soft gradient bottom vignette */}
-      <div className="absolute inset-0 bg-gradient-to-t from-white/30 dark:from-black/40 to-transparent pointer-events-none" />
+      {/* Subtle overlay for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-t from-white/70 via-white/20 dark:from-zinc-950/80 dark:via-zinc-950/20 to-transparent pointer-events-none" />
     </motion.div>
   );
 };
 
-// --- Main Exportable Carousel Component ---
-export const ServiceCarousel = ({
+// Main exportable component
+export const ServiceCarousel = ({ 
   services,
-  className,
-}: {
+  className 
+}: { 
   services: Service[];
   className?: string;
 }) => {
@@ -339,7 +347,7 @@ export const ServiceCarousel = ({
         >
           <CarouselContent>
             {services.map((service, index) => (
-              <CarouselItem key={index} className="sm:basis-1/2 lg:basis-1/3">
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-2 h-full">
                   <ServiceCard service={service} index={index} />
                 </div>
@@ -348,15 +356,15 @@ export const ServiceCarousel = ({
           </CarouselContent>
         </motion.div>
 
-        {/* Carousel Prev & Next Controls */}
-        <div className="mt-8 flex items-center justify-end gap-3 px-2">
-          <CarouselPrevious className="static translate-y-0" />
-          <CarouselNext className="static translate-y-0" />
-        </div>
+        {/* Carousel Next & Prev Controls */}
+        <CarouselPrevious />
+        <CarouselNext />
       </Carousel>
     </div>
   );
 };
+
+export default ServiceCarousel;
 
 export {
   Carousel,

@@ -1,8 +1,5 @@
-import { BouncyCardsFeatures } from "@/components/ui/bounce-card-features";
+import FUIBentoGridDark from "@/components/ui/bento";
 
-const DemoOne = () => {
-  return <BouncyCardsFeatures />;
-};
-
-export { DemoOne };
-export default DemoOne;
+export default function DemoOne() {
+  return <FUIBentoGridDark />;
+}

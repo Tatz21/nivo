@@ -3,7 +3,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'framer-motion';
 import {
-  Sparkles,
   CheckCircle2,
   GraduationCap,
   Code2,
@@ -72,9 +71,9 @@ export default function TeacherStudentHero() {
       id: 0,
       title: 'Phase I: Foundations & Theory',
       badge: 'Interactive Blueprint',
-      color: '#6554F5',
-      accentBg: 'bg-violet-600',
-      badgeClass: 'bg-violet-500/10 text-violet-600 dark:text-violet-300 border-violet-500/30',
+      color: '#DC2626',
+      accentBg: 'bg-red-600',
+      badgeClass: 'bg-red-500/10 text-red-600 dark:text-red-400 border-red-500/30',
       description: 'First-principles pedagogy. Rigorous calculus, logic derivations, and foundational intuition.',
       tag: '1:1 Guided Diagnostics',
       codeSnippet: 'f(x) = ∫ ∇E • dl = mc² + e^(iπ)',
@@ -128,15 +127,15 @@ export default function TeacherStudentHero() {
           className={`absolute inset-0 rounded-3xl blur-3xl pointer-events-none transition-all duration-700 ${
             phase === 0
               ? isDark
-                ? 'bg-gradient-to-tr from-violet-600/30 via-purple-600/20 to-indigo-600/20 opacity-80'
-                : 'bg-gradient-to-tr from-violet-400/25 via-purple-300/20 to-indigo-300/20 opacity-70'
+                ? 'bg-gradient-to-tr from-red-600/25 via-red-950/20 to-black/20 opacity-80'
+                : 'bg-gradient-to-tr from-red-200/30 via-zinc-100/20 to-transparent opacity-70'
               : phase === 1
               ? isDark
-                ? 'bg-gradient-to-tr from-cyan-600/30 via-emerald-600/25 to-blue-600/20 opacity-80'
-                : 'bg-gradient-to-tr from-cyan-400/25 via-teal-300/20 to-blue-300/20 opacity-70'
+                ? 'bg-gradient-to-tr from-zinc-700/30 via-zinc-900/25 to-black/20 opacity-80'
+                : 'bg-gradient-to-tr from-zinc-200/25 via-zinc-100/20 to-transparent opacity-70'
               : isDark
-              ? 'bg-gradient-to-tr from-emerald-600/30 via-amber-500/25 to-lime-500/20 opacity-80'
-              : 'bg-gradient-to-tr from-emerald-400/25 via-amber-300/20 to-lime-300/20 opacity-70'
+              ? 'bg-gradient-to-tr from-red-700/25 via-zinc-900/25 to-black/20 opacity-80'
+              : 'bg-gradient-to-tr from-red-100/30 via-zinc-100/20 to-transparent opacity-70'
           }`}
         />
 
@@ -144,8 +143,8 @@ export default function TeacherStudentHero() {
         <div
           className={`relative z-10 rounded-3xl border backdrop-blur-2xl p-5 sm:p-7 transition-all duration-500 ${
             isDark
-              ? 'bg-[#131221]/90 border-white/10 shadow-[0_25px_60px_rgba(0,0,0,0.6)]'
-              : 'bg-white/95 border-violet-100 shadow-[0_25px_60px_rgba(101,84,245,0.14)]'
+              ? 'bg-[#101014]/90 border-white/10 shadow-[0_25px_60px_rgba(0,0,0,0.6)]'
+              : 'bg-white/95 border-zinc-200 shadow-[0_25px_60px_rgba(0,0,0,0.06)]'
           }`}
         >
           {/* Top Phase Switcher Tabs (Clickable & Scroll-Driven) */}
@@ -153,10 +152,10 @@ export default function TeacherStudentHero() {
             <div className="flex items-center gap-2">
               <span className="relative flex h-3 w-3">
                 <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
-                  phase === 0 ? 'bg-violet-400' : phase === 1 ? 'bg-cyan-400' : 'bg-emerald-400'
+                  phase === 0 ? 'bg-red-400' : phase === 1 ? 'bg-zinc-400' : 'bg-red-500'
                 }`} />
                 <span className={`relative inline-flex rounded-full h-3 w-3 ${
-                  phase === 0 ? 'bg-violet-500' : phase === 1 ? 'bg-cyan-500' : 'bg-emerald-500'
+                  phase === 0 ? 'bg-red-500' : phase === 1 ? 'bg-zinc-600' : 'bg-red-600'
                 }`} />
               </span>
               <span className="text-xs font-black tracking-wider uppercase text-zinc-900 dark:text-zinc-100">
@@ -170,7 +169,7 @@ export default function TeacherStudentHero() {
                 onClick={() => selectPhase(0)}
                 className={`px-2.5 py-1 rounded-lg font-bold transition-all text-[11px] ${
                   phase === 0
-                    ? 'bg-violet-600 text-white shadow-md'
+                    ? 'bg-red-600 text-white shadow-sm'
                     : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white'
                 }`}
               >
@@ -180,7 +179,7 @@ export default function TeacherStudentHero() {
                 onClick={() => selectPhase(1)}
                 className={`px-2.5 py-1 rounded-lg font-bold transition-all text-[11px] ${
                   phase === 1
-                    ? 'bg-cyan-600 text-white shadow-md'
+                    ? 'bg-zinc-900 dark:bg-white text-white dark:text-zinc-950 shadow-sm'
                     : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white'
                 }`}
               >
@@ -190,7 +189,7 @@ export default function TeacherStudentHero() {
                 onClick={() => selectPhase(2)}
                 className={`px-2.5 py-1 rounded-lg font-bold transition-all text-[11px] ${
                   phase === 2
-                    ? 'bg-emerald-600 text-white shadow-md'
+                    ? 'bg-red-600 text-white shadow-sm'
                     : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white'
                 }`}
               >
@@ -200,7 +199,7 @@ export default function TeacherStudentHero() {
           </div>
 
           {/* Central High-Contrast Dynamic Scene: Changes complete visual design on scroll */}
-          <div className="relative my-4 aspect-[16/10] sm:aspect-[16/10] w-full rounded-2xl overflow-hidden bg-gradient-to-b from-transparent to-violet-500/5 flex items-center justify-center border border-black/5 dark:border-white/5">
+          <div className="relative my-4 aspect-[16/10] sm:aspect-[16/10] w-full rounded-2xl overflow-hidden bg-gradient-to-b from-transparent to-red-500/5 flex items-center justify-center border border-black/5 dark:border-white/5">
             
             {/* SVG Visual Stage */}
             <svg
@@ -418,18 +417,18 @@ export default function TeacherStudentHero() {
                 />
 
                 {/* Head */}
-                <circle cx="80" cy="130" r="18" fill="#FBD38D" stroke={isDark ? '#4A3E3D' : '#8B5CF6'} strokeWidth="1" />
+                <circle cx="80" cy="130" r="18" fill="#FBD38D" stroke={isDark ? '#4A3E3D' : '#DC2626'} strokeWidth="1" />
                 {/* Hair */}
                 <path d="M 64 128 C 64 110, 96 108, 96 128 Z" fill="#2D3748" />
                 {/* Teacher Glasses */}
-                <rect x="74" y="127" width="9" height="6" rx="2" stroke="#6554F5" strokeWidth="1.5" fill="none" />
-                <rect x="85" y="127" width="9" height="6" rx="2" stroke="#6554F5" strokeWidth="1.5" fill="none" />
-                <line x1="83" y1="130" x2="85" y2="130" stroke="#6554F5" strokeWidth="1.5" />
+                <rect x="74" y="127" width="9" height="6" rx="2" stroke="#DC2626" strokeWidth="1.5" fill="none" />
+                <rect x="85" y="127" width="9" height="6" rx="2" stroke="#DC2626" strokeWidth="1.5" fill="none" />
+                <line x1="83" y1="130" x2="85" y2="130" stroke="#DC2626" strokeWidth="1.5" />
 
                 {/* Torso / Blazer */}
                 <path
                   d="M 58 152 L 102 152 L 110 235 L 50 235 Z"
-                  fill={phase === 0 ? '#6554F5' : phase === 1 ? '#0284C7' : '#059669'}
+                  fill={phase === 0 ? '#DC2626' : phase === 1 ? '#0284C7' : '#059669'}
                   className="transition-colors duration-500"
                 />
                 {/* Tie / Inner Shirt */}
@@ -592,13 +591,13 @@ export default function TeacherStudentHero() {
           <div
             className={`p-4 rounded-2xl border transition-all duration-300 ${
               isDark
-                ? 'bg-[#18162B] border-white/10'
-                : 'bg-violet-50/90 border-violet-200'
+                ? 'bg-[#121215] border-white/10'
+                : 'bg-zinc-50 border-zinc-200'
             }`}
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <current.icon className="w-4 h-4 text-violet-600 dark:text-violet-400" />
+                <current.icon className="w-4 h-4 text-red-600 dark:text-red-400" />
                 <span className="text-xs font-black tracking-wide text-zinc-950 dark:text-white">
                   {current.title}
                 </span>
@@ -622,7 +621,7 @@ export default function TeacherStudentHero() {
             {/* Scroll Progress Bar */}
             <div className="mt-3 w-full bg-zinc-200 dark:bg-zinc-800 h-2 rounded-full overflow-hidden">
               <motion.div
-                className="h-full bg-gradient-to-r from-violet-600 via-cyan-500 to-emerald-400 transition-all duration-300"
+                className="h-full bg-gradient-to-r from-red-600 via-zinc-400 to-red-600 transition-all duration-300"
                 style={{
                   width: phase === 0 ? '33%' : phase === 1 ? '66%' : '100%',
                 }}
@@ -630,7 +629,7 @@ export default function TeacherStudentHero() {
             </div>
             <div className="mt-1.5 flex justify-between text-[10px] text-zinc-500 dark:text-zinc-400">
               <span>Scroll page or click tabs to transform scene</span>
-              <span className="font-bold text-violet-600 dark:text-violet-400">
+              <span className="font-bold text-red-600 dark:text-red-400">
                 Phase {phase + 1} of 3 ({current.badge})
               </span>
             </div>
@@ -641,15 +640,15 @@ export default function TeacherStudentHero() {
         <motion.div
           className={`absolute -bottom-1 -left-2 sm:left-4 p-3 rounded-2xl border shadow-2xl backdrop-blur-xl z-20 transition-all duration-300 ${
             isDark
-              ? 'bg-[#18162B]/95 border-white/10 text-white shadow-black/60'
-              : 'bg-white/95 border-violet-200 text-zinc-950 shadow-violet-950/10'
+              ? 'bg-[#121215]/95 border-white/10 text-white shadow-black/60'
+              : 'bg-white/95 border-zinc-200 text-zinc-950 shadow-black/5'
           }`}
           style={{
             y: useTransform(smoothProgress, [0, 1], [0, -20]),
           }}
         >
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-violet-600/20 text-violet-600 dark:text-violet-300">
+            <div className="p-2.5 rounded-xl bg-red-600/15 text-red-600 dark:text-red-400">
               <GraduationCap className="w-5 h-5" />
             </div>
             <div>
@@ -663,8 +662,8 @@ export default function TeacherStudentHero() {
         <motion.div
           className={`absolute -top-1 -right-2 sm:right-4 p-3 rounded-2xl border shadow-2xl backdrop-blur-xl z-20 transition-all duration-300 ${
             isDark
-              ? 'bg-[#18162B]/95 border-white/10 text-white shadow-black/60'
-              : 'bg-white/95 border-violet-200 text-zinc-950 shadow-violet-950/10'
+              ? 'bg-[#121215]/95 border-white/10 text-white shadow-black/60'
+              : 'bg-white/95 border-zinc-200 text-zinc-950 shadow-black/5'
           }`}
           style={{
             y: useTransform(smoothProgress, [0, 1], [0, 20]),

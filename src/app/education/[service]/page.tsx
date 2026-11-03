@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { EDUCATION_SERVICES } from '@/lib/data/services';
-import { GraduationCap, CheckCircle2, ArrowRight, ArrowLeft, Users, Monitor, Sparkles } from 'lucide-react';
+import { GraduationCap, CheckCircle2, ArrowRight, ArrowLeft, Users, Monitor } from 'lucide-react';
 
 interface PageProps {
   params: Promise<{ service: string }>;
@@ -39,7 +39,7 @@ export default async function EducationDetailPage({ params }: PageProps) {
       
       {/* Back link */}
       <div>
-        <Link href="/education" className="inline-flex items-center gap-2 text-xs font-semibold text-zinc-400 hover:text-white transition-colors">
+        <Link href="/education" className="inline-flex items-center gap-2 text-xs font-semibold text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-colors">
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>Back to All Education Programs</span>
         </Link>
@@ -47,16 +47,16 @@ export default async function EducationDetailPage({ params }: PageProps) {
 
       {/* Program Header */}
       <div className="space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-violet-950/60 border border-violet-500/30 text-xs text-lime-300">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/40 text-xs text-red-600 dark:text-red-400 font-semibold">
           <GraduationCap className="w-3.5 h-3.5" />
           <span>{item.category}</span>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-950 dark:text-white tracking-tight">
           {item.title}
         </h1>
 
-        <p className="text-base text-zinc-300 leading-relaxed max-w-3xl">
+        <p className="text-base text-zinc-700 dark:text-zinc-300 leading-relaxed max-w-3xl">
           {item.description}
         </p>
       </div>
@@ -66,23 +66,23 @@ export default async function EducationDetailPage({ params }: PageProps) {
         
         {/* Left Column: Modules & Features */}
         <div className="md:col-span-2 space-y-8">
-          <div className="glass-panel rounded-3xl p-8 border border-white/10 space-y-4">
-            <h2 className="text-lg font-bold text-white">Curriculum & Pedagogical Scope</h2>
-            <ul className="space-y-3 text-xs sm:text-sm text-zinc-300">
+          <div className="card-surface rounded-3xl p-8 space-y-4">
+            <h2 className="text-lg font-bold text-zinc-950 dark:text-white">Curriculum & Pedagogical Scope</h2>
+            <ul className="space-y-3 text-xs sm:text-sm text-zinc-700 dark:text-zinc-300">
               {item.features.map((f, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-lime-400 shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-red-600 dark:text-red-400 shrink-0 mt-0.5" />
                   <span className="leading-relaxed">{f}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="glass-panel rounded-3xl p-8 border border-white/10 space-y-4">
-            <h2 className="text-lg font-bold text-white">Target Learners & Scholars</h2>
+          <div className="card-surface rounded-3xl p-8 space-y-4">
+            <h2 className="text-lg font-bold text-zinc-950 dark:text-white">Target Learners & Scholars</h2>
             <div className="flex flex-wrap gap-2">
               {item.audience.map((a, i) => (
-                <span key={i} className="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-xs text-zinc-300">
+                <span key={i} className="px-3 py-1 rounded-lg bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-xs text-zinc-800 dark:text-zinc-200 font-medium">
                   {a}
                 </span>
               ))}
@@ -92,21 +92,21 @@ export default async function EducationDetailPage({ params }: PageProps) {
 
         {/* Right Column: Modes & Enquiry CTA */}
         <div className="space-y-6">
-          <div className="glass-panel rounded-3xl p-6 border border-violet-500/30 space-y-4">
-            <h3 className="text-base font-bold text-white">Delivery Modes</h3>
-            <ul className="space-y-2 text-xs text-zinc-300">
+          <div className="card-surface rounded-3xl p-6 space-y-4">
+            <h3 className="text-base font-bold text-zinc-950 dark:text-white">Delivery Modes</h3>
+            <ul className="space-y-2 text-xs text-zinc-700 dark:text-zinc-300">
               {item.modes.map((m, i) => (
                 <li key={i} className="flex items-center gap-2">
-                  <Monitor className="w-3.5 h-3.5 text-violet-400" />
+                  <Monitor className="w-3.5 h-3.5 text-red-600 dark:text-red-400" />
                   <span>{m}</span>
                 </li>
               ))}
             </ul>
 
-            <div className="pt-4 border-t border-white/10 space-y-3">
+            <div className="pt-4 border-t border-zinc-200 dark:border-white/10 space-y-3">
               <Link
                 href={`/contact?subject=Enquiry:%20${encodeURIComponent(item.title)}`}
-                className="w-full py-2.5 rounded-xl cosmic-glow-btn text-white font-semibold text-xs flex items-center justify-center gap-1.5 shadow-lg text-center"
+                className="w-full py-2.5 rounded-xl brand-primary-btn text-xs gap-1.5 shadow-md text-center"
               >
                 <span>Request Consultation</span>
                 <ArrowRight className="w-3.5 h-3.5" />

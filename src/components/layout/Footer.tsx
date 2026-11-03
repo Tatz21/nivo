@@ -1,42 +1,46 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowUpRight, GraduationCap, Briefcase, FileText, Shield, Sparkles } from 'lucide-react';
+import { ArrowUpRight, GraduationCap, Briefcase, FileText, Shield } from 'lucide-react';
 import ThemeToggle from '@/components/theme/ThemeToggle';
 
 export default function Footer() {
   const currentYear = 2026;
 
   return (
-    <footer className="relative z-10 bg-[#F4F3F8] dark:bg-[#0d0c15] border-t border-black/10 dark:border-white/10 text-zinc-600 dark:text-zinc-400 text-sm transition-colors duration-300">
+    <footer className="relative z-10 bg-zinc-50 dark:bg-[#070709] border-t border-black/10 dark:border-white/10 text-zinc-600 dark:text-zinc-400 text-sm transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand & Ethos */}
           <div className="lg:col-span-2 space-y-4">
-            <Link href="/" className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-brand-violet to-purple-400 p-[1.5px]">
-                <div className="w-full h-full bg-[#11111B] rounded-[10px] flex items-center justify-center">
-                  <span className="font-extrabold text-xs text-white">N</span>
-                </div>
-              </div>
-              <span className="font-extrabold text-xl tracking-tight text-zinc-950 dark:text-white">NIVÓ</span>
+            <Link href="/" className="inline-block select-none group">
+              <img
+                src="/brand/logo-horizontal-light.png"
+                alt="Nivó Logo"
+                className="h-11 w-auto object-contain dark:hidden transition-transform group-hover:scale-[1.02]"
+              />
+              <img
+                src="/brand/logo-horizontal-dark.png"
+                alt="Nivó Logo"
+                className="h-11 w-auto object-contain hidden dark:block transition-transform group-hover:scale-[1.02]"
+              />
             </Link>
 
             <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-sm">
-              Established in 2020. Nivó bridges foundational learning, cutting-edge industry training, specialized educator recruitment, and high-performance resume engineering.
+              Established in 2020. Nivó bridges foundational learning, industry-focused engineering training, specialized educator recruitment, and high-performance resume engineering.
             </p>
 
             <div className="pt-2 flex items-center gap-2 text-xs text-zinc-500">
-              <Shield className="w-3.5 h-3.5 text-lime-600 dark:text-lime-400" />
+              <Shield className="w-3.5 h-3.5 text-red-600 dark:text-red-500" />
               <span>Ethical Education & Privacy-First Data Practices</span>
             </div>
 
             <div className="pt-1">
               <Link
                 href="/resume-studio"
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-violet-100 dark:bg-violet-950/60 border border-violet-300 dark:border-violet-500/30 text-xs text-violet-800 dark:text-violet-300 hover:text-violet-950 dark:hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-zinc-100 dark:bg-white/[0.06] border border-zinc-200 dark:border-white/10 text-xs text-zinc-700 dark:text-zinc-300 hover:text-red-600 dark:hover:text-red-400 transition-colors"
               >
-                <Sparkles className="w-3.5 h-3.5 text-amber-500 dark:text-lime-300" />
-                <span>Launch First-Party Resume Studio</span>
+                <FileText className="w-3.5 h-3.5 text-red-600 dark:text-red-400" />
+                <span>Launch Resume Studio</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -45,38 +49,38 @@ export default function Footer() {
           {/* Pillar 1: Education */}
           <div className="space-y-3">
             <div className="flex items-center gap-1.5 text-zinc-950 dark:text-white font-semibold text-xs tracking-wider uppercase">
-              <GraduationCap className="w-4 h-4 text-violet-600 dark:text-violet-400" />
+              <GraduationCap className="w-4 h-4 text-red-600 dark:text-red-400" />
               <span>Education</span>
             </div>
             <ul className="space-y-2 text-xs">
-              <li><Link href="/education/foundational-and-k12" className="hover:text-zinc-950 dark:hover:text-white transition-colors">Foundational & K-12</Link></li>
-              <li><Link href="/education/undergraduate-and-college" className="hover:text-zinc-950 dark:hover:text-white transition-colors">College & Degree Mentoring</Link></li>
-              <li><Link href="/education/languages-and-creative-arts" className="hover:text-zinc-950 dark:hover:text-white transition-colors">Languages & Creative Arts</Link></li>
-              <li><Link href="/education/competitive-exam-prep" className="hover:text-zinc-950 dark:hover:text-white transition-colors">Competitive Exam Prep</Link></li>
-              <li><Link href="/education" className="text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300 font-medium">Explore All Education →</Link></li>
+              <li><Link href="/education/foundational-and-k12" className="hover:text-red-600 dark:hover:text-white transition-colors">Foundational & K-12</Link></li>
+              <li><Link href="/education/undergraduate-and-college" className="hover:text-red-600 dark:hover:text-white transition-colors">College & Degree Mentoring</Link></li>
+              <li><Link href="/education/languages-and-creative-arts" className="hover:text-red-600 dark:hover:text-white transition-colors">Languages & Creative Arts</Link></li>
+              <li><Link href="/education/competitive-exam-prep" className="hover:text-red-600 dark:hover:text-white transition-colors">Competitive Exam Prep</Link></li>
+              <li><Link href="/education" className="text-red-600 dark:text-red-400 hover:underline font-semibold">Explore All Education →</Link></li>
             </ul>
           </div>
 
           {/* Pillar 2 & 3: Courses & Recruitment */}
           <div className="space-y-3">
             <div className="flex items-center gap-1.5 text-zinc-950 dark:text-white font-semibold text-xs tracking-wider uppercase">
-              <Briefcase className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+              <Briefcase className="w-4 h-4 text-red-600 dark:text-red-400" />
               <span>Courses & Careers</span>
             </div>
             <ul className="space-y-2 text-xs">
-              <li><Link href="/professional-courses/software-engineering-fullstack" className="hover:text-zinc-950 dark:hover:text-white transition-colors">Software Engineering</Link></li>
-              <li><Link href="/professional-courses/artificial-intelligence-machine-learning" className="hover:text-zinc-950 dark:hover:text-white transition-colors">AI & Machine Learning</Link></li>
-              <li><Link href="/professional-courses/ui-ux-product-design" className="hover:text-zinc-950 dark:hover:text-white transition-colors">UI/UX Product Design</Link></li>
-              <li><Link href="/hr-and-recruitment/school-and-k12-educators" className="hover:text-zinc-950 dark:hover:text-white transition-colors">Educator Staffing</Link></li>
-              <li><Link href="/hr-and-recruitment/higher-ed-and-college-faculty" className="hover:text-zinc-950 dark:hover:text-white transition-colors">College Faculty Placement</Link></li>
-              <li><Link href="/hr-and-recruitment" className="text-violet-600 dark:text-violet-400 hover:text-violet-700 dark:hover:text-violet-300 font-medium">HR & Recruitment →</Link></li>
+              <li><Link href="/professional-courses/software-engineering-fullstack" className="hover:text-red-600 dark:hover:text-white transition-colors">Software Engineering</Link></li>
+              <li><Link href="/professional-courses/artificial-intelligence-machine-learning" className="hover:text-red-600 dark:hover:text-white transition-colors">AI & Machine Learning</Link></li>
+              <li><Link href="/professional-courses/ui-ux-product-design" className="hover:text-red-600 dark:hover:text-white transition-colors">UI/UX Product Design</Link></li>
+              <li><Link href="/hr-and-recruitment/school-and-k12-educators" className="hover:text-red-600 dark:hover:text-white transition-colors">Educator Staffing</Link></li>
+              <li><Link href="/hr-and-recruitment/higher-ed-and-college-faculty" className="hover:text-red-600 dark:hover:text-white transition-colors">College Faculty Placement</Link></li>
+              <li><Link href="/hr-and-recruitment" className="text-red-600 dark:text-red-400 hover:underline font-semibold">HR & Recruitment →</Link></li>
             </ul>
           </div>
 
           {/* Tools & Company */}
           <div className="space-y-3">
             <div className="flex items-center gap-1.5 text-zinc-950 dark:text-white font-semibold text-xs tracking-wider uppercase">
-              <FileText className="w-4 h-4 text-lime-600 dark:text-lime-300" />
+              <FileText className="w-4 h-4 text-red-600 dark:text-red-400" />
               <span>Application & Company</span>
             </div>
             <ul className="space-y-2 text-xs">

@@ -2,285 +2,225 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { ArrowUpRight, GraduationCap, Code2, Users, FileText, Sparkles, CheckCircle2, Award, ArrowRight } from 'lucide-react';
+import { 
+  GraduationCap, 
+  Code2, 
+  Users, 
+  FileText, 
+  CheckCircle2, 
+  Award, 
+  ArrowRight,
+  ShieldCheck,
+  Sparkles
+} from 'lucide-react';
 
-interface BounceCardProps {
-  className?: string;
-  children: React.ReactNode;
-}
-
-export const BounceCard = ({ className = '', children }: BounceCardProps) => {
-  return (
-    <motion.div
-      whileHover={{ scale: 0.98, rotate: '-0.5deg' }}
-      transition={{ type: 'spring', stiffness: 350, damping: 25 }}
-      className={`group relative min-h-[340px] sm:min-h-[380px] cursor-pointer overflow-hidden rounded-3xl bg-slate-100/90 dark:bg-[#161526]/90 border border-slate-200/80 dark:border-white/10 p-6 sm:p-8 backdrop-blur-xl transition-shadow duration-300 hover:shadow-2xl dark:hover:shadow-violet-950/40 ${className}`}
-    >
-      {children}
-    </motion.div>
-  );
-};
-
-export const CardTitle = ({ children, subtitle }: { children: React.ReactNode; subtitle?: string }) => {
-  return (
-    <div className="relative z-20 mb-4">
-      <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-        {children}
-      </h3>
-      {subtitle && (
-        <p className="mt-1.5 text-xs sm:text-sm font-medium text-slate-600 dark:text-zinc-400 line-clamp-2">
-          {subtitle}
-        </p>
-      )}
-    </div>
-  );
-};
-
-/**
- * BouncyCardsFeatures:
- * Integrates the Bouncy Card design system directly into Nivó's Core Service Pillars:
- * 1. Pillar I (Academic Tuition & Mentorship)
- * 2. Pillar II (Professional Cohorts & Tech Training)
- * 3. Pillar III (Corporate & Institutional HR Staffing)
- * 4. Pillar IV (Resume Studio & Career Tools)
- */
 export const BouncyCardsFeatures = () => {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 text-slate-800 dark:text-zinc-100">
-      {/* Header bar */}
-      <div className="mb-12 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end md:px-4">
+    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      {/* Header Bar */}
+      <div className="mb-12 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-100 dark:bg-violet-950/70 border border-violet-300 dark:border-violet-500/30 text-xs font-bold text-violet-800 dark:text-lime-300 tracking-wider uppercase mb-3">
-            <Sparkles className="w-3.5 h-3.5 text-amber-500 dark:text-lime-300" />
-            <span>Nivó Service Infrastructure</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 dark:bg-white/[0.06] border border-zinc-200 dark:border-white/10 text-xs font-semibold text-zinc-700 dark:text-zinc-300 tracking-wider uppercase mb-3">
+            <Award className="w-3.5 h-3.5 text-red-600 dark:text-red-400" />
+            <span>Nivó Service Architecture</span>
           </div>
-          <h2 className="max-w-2xl text-3xl font-black tracking-tight sm:text-4xl md:text-5xl text-slate-900 dark:text-white">
-            Transforming learning & hiring with our{' '}
-            <span className="bg-gradient-to-r from-violet-600 to-indigo-500 bg-clip-text text-transparent dark:from-violet-400 dark:to-lime-300">
-              all-in-one ecosystem
+          <h2 className="max-w-2xl text-3xl font-black tracking-tight sm:text-4xl md:text-5xl text-zinc-950 dark:text-white">
+            Four Core Pillars of{' '}
+            <span className="text-red-600 dark:text-red-500">
+              Excellence & Growth
             </span>
           </h2>
         </div>
         <Link href="/contact">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 whitespace-nowrap rounded-xl bg-slate-900 dark:bg-white px-5 py-3 text-sm font-bold text-white dark:text-zinc-950 shadow-xl transition-colors hover:bg-slate-700 dark:hover:bg-zinc-200"
-          >
-            <span>Partner With Nivó</span>
+          <button className="brand-primary-btn px-6 py-3 rounded-xl text-sm font-semibold shadow-md gap-2">
+            <span>Direct Advisory Enquiry</span>
             <ArrowRight className="w-4 h-4" />
-          </motion.button>
+          </button>
         </Link>
       </div>
 
-      {/* Row 1: 4-col + 8-col */}
-      <div className="mb-6 grid grid-cols-12 gap-6">
+      {/* 4 Pillars Grid (2x2 on desktop, clean architectural layout) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         
-        {/* Card 1: Academic Mentorship (4-col) */}
-        <Link href="/education" className="col-span-12 md:col-span-4 block">
-          <BounceCard className="h-full">
-            <div className="flex items-center justify-between mb-2">
-              <div className="w-10 h-10 rounded-xl bg-violet-600/10 dark:bg-violet-600/20 border border-violet-500/30 flex items-center justify-center text-violet-600 dark:text-violet-300">
-                <GraduationCap className="w-5 h-5" />
+        {/* Pillar I: Academic Education */}
+        <div className="card-surface rounded-3xl p-8 flex flex-col justify-between group hover:border-red-500/40 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+          <div className="space-y-5">
+            <div className="flex items-center justify-between">
+              <div className="w-12 h-12 rounded-2xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/40 flex items-center justify-center text-red-600 dark:text-red-400 shadow-sm">
+                <GraduationCap className="w-6 h-6" />
               </div>
-              <span className="text-[11px] font-black uppercase tracking-widest text-violet-600 dark:text-lime-300">
+              <span className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
                 Pillar I
               </span>
             </div>
-            <CardTitle subtitle="K-12, university tuition, foreign languages & competitive exam coaching.">
-              Academic Education
-            </CardTitle>
-            
-            {/* Interactive Feature Demo Card */}
-            <div className="absolute bottom-0 left-4 right-4 top-40 translate-y-10 rounded-t-3xl overflow-hidden bg-gradient-to-br from-violet-500 via-indigo-600 to-purple-700 p-5 shadow-2xl transition-transform duration-[300ms] group-hover:translate-y-4 group-hover:rotate-[1.5deg]">
-              <img
-                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop"
-                alt="Students studying together"
-                className="absolute inset-0 w-full h-full object-cover opacity-25 mix-blend-overlay"
-              />
-              <div className="relative z-10 flex flex-col justify-between h-full text-white">
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-md bg-white/20 backdrop-blur-md">
-                    Verified Tutors
-                  </span>
-                  <ArrowUpRight className="w-5 h-5 text-white/80 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </div>
-                <div className="space-y-1.5 pb-8">
-                  <div className="text-sm font-bold flex items-center gap-1.5">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-300" />
-                    <span>Personalized 1:1 Diagnostic Sessions</span>
-                  </div>
-                  <div className="text-xs text-violet-100">
-                    Home tuition & online hybrid interactive cohorts.
-                  </div>
-                </div>
+
+            <div>
+              <h3 className="text-2xl font-extrabold text-zinc-950 dark:text-white tracking-tight group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
+                Academic Education & Mentorship
+              </h3>
+              <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                Personalized 1-on-1 tuition from primary grades through university. Tailored instruction for Cambridge, IB, CBSE, ICSE, and competitive examinations.
+              </p>
+            </div>
+
+            <div className="space-y-2 pt-2 border-t border-zinc-100 dark:border-white/5">
+              <div className="flex items-center gap-2 text-xs text-zinc-700 dark:text-zinc-300">
+                <CheckCircle2 className="w-4 h-4 text-red-600 dark:text-red-400 shrink-0" />
+                <span>Concept-first diagnostic loops and customized problem sets</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs text-zinc-700 dark:text-zinc-300">
+                <CheckCircle2 className="w-4 h-4 text-red-600 dark:text-red-400 shrink-0" />
+                <span>Available via global interactive online classrooms & select home tuition</span>
               </div>
             </div>
-          </BounceCard>
-        </Link>
+          </div>
 
-        {/* Card 2: Professional Courses & Tech Skilling (8-col) */}
-        <Link href="/professional-courses" className="col-span-12 md:col-span-8 block">
-          <BounceCard className="h-full">
-            <div className="flex items-center justify-between mb-2">
-              <div className="w-10 h-10 rounded-xl bg-amber-500/10 dark:bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-600 dark:text-amber-300">
-                <Code2 className="w-5 h-5" />
+          <div className="pt-8 mt-6 border-t border-zinc-100 dark:border-white/5 flex items-center justify-between">
+            <span className="text-xs font-medium text-zinc-500">Established 2020</span>
+            <Link
+              href="/education"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 transition-colors"
+            >
+              <span>Explore Curriculum</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+        </div>
+
+        {/* Pillar II: Professional Courses */}
+        <div className="card-surface rounded-3xl p-8 flex flex-col justify-between group hover:border-red-500/40 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+          <div className="space-y-5">
+            <div className="flex items-center justify-between">
+              <div className="w-12 h-12 rounded-2xl bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-white/10 flex items-center justify-center text-zinc-900 dark:text-white shadow-sm">
+                <Code2 className="w-6 h-6" />
               </div>
-              <span className="text-[11px] font-black uppercase tracking-widest text-amber-600 dark:text-amber-300">
+              <span className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
                 Pillar II
               </span>
             </div>
-            <CardTitle subtitle="Full-stack engineering, applied machine learning, UI/UX systems & creative media bootcamps.">
-              Professional Courses & Tech Skilling
-            </CardTitle>
 
-            {/* Interactive Feature Demo Card */}
-            <div className="absolute bottom-0 left-4 right-4 top-40 translate-y-10 rounded-t-3xl overflow-hidden bg-gradient-to-br from-amber-500 via-orange-600 to-rose-600 p-6 shadow-2xl transition-transform duration-[300ms] group-hover:translate-y-4 group-hover:rotate-[-1deg]">
-              <img
-                src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1200&auto=format&fit=crop"
-                alt="Programming and tech labs"
-                className="absolute inset-0 w-full h-full object-cover opacity-25 mix-blend-overlay"
-              />
-              <div className="relative z-10 flex flex-col justify-between h-full text-white">
-                <div className="flex items-center justify-between">
-                  <div className="flex gap-2">
-                    <span className="text-[11px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-md bg-black/20 backdrop-blur-md">
-                      Live Hands-on Labs
-                    </span>
-                    <span className="text-[11px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-md bg-white/20 backdrop-blur-md">
-                      Industry Mentors
-                    </span>
-                  </div>
-                  <ArrowUpRight className="w-5 h-5 text-white/80 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pb-8">
-                  <div className="bg-black/25 backdrop-blur-md rounded-xl p-3 border border-white/10">
-                    <div className="text-[11px] text-amber-200 font-semibold">Full-Stack</div>
-                    <div className="text-sm font-bold">16 Wks Cohort</div>
-                  </div>
-                  <div className="bg-black/25 backdrop-blur-md rounded-xl p-3 border border-white/10">
-                    <div className="text-[11px] text-amber-200 font-semibold">Applied AI / ML</div>
-                    <div className="text-sm font-bold">14 Wks Cohort</div>
-                  </div>
-                  <div className="bg-black/25 backdrop-blur-md rounded-xl p-3 border border-white/10">
-                    <div className="text-[11px] text-amber-200 font-semibold">Product UI/UX</div>
-                    <div className="text-sm font-bold">12 Wks Cohort</div>
-                  </div>
-                </div>
+            <div>
+              <h3 className="text-2xl font-extrabold text-zinc-950 dark:text-white tracking-tight group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
+                Professional Skill Cohorts
+              </h3>
+              <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                Rigorous cohort-based programs for developers and career changers. Specialize in full-stack engineering, applied artificial intelligence, and modern system design.
+              </p>
+            </div>
+
+            <div className="space-y-2 pt-2 border-t border-zinc-100 dark:border-white/5">
+              <div className="flex items-center gap-2 text-xs text-zinc-700 dark:text-zinc-300">
+                <CheckCircle2 className="w-4 h-4 text-red-600 dark:text-red-400 shrink-0" />
+                <span>Real-world production codebases, vector databases, and cloud deployments</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs text-zinc-700 dark:text-zinc-300">
+                <CheckCircle2 className="w-4 h-4 text-red-600 dark:text-red-400 shrink-0" />
+                <span>Direct mentorship from practicing staff architects and engineers</span>
               </div>
             </div>
-          </BounceCard>
-        </Link>
-      </div>
+          </div>
 
-      {/* Row 2: 8-col + 4-col */}
-      <div className="grid grid-cols-12 gap-6">
+          <div className="pt-8 mt-6 border-t border-zinc-100 dark:border-white/5 flex items-center justify-between">
+            <span className="text-xs font-medium text-zinc-500">Live & Hands-On</span>
+            <Link
+              href="/professional-courses"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 transition-colors"
+            >
+              <span>View Course Tracks</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+        </div>
 
-        {/* Card 3: Institutional HR & Staffing (8-col) */}
-        <Link href="/hr-and-recruitment" className="col-span-12 md:col-span-8 block">
-          <BounceCard className="h-full">
-            <div className="flex items-center justify-between mb-2">
-              <div className="w-10 h-10 rounded-xl bg-emerald-500/10 dark:bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-300">
-                <Users className="w-5 h-5" />
+        {/* Pillar III: HR & Educator Recruitment */}
+        <div className="card-surface rounded-3xl p-8 flex flex-col justify-between group hover:border-red-500/40 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+          <div className="space-y-5">
+            <div className="flex items-center justify-between">
+              <div className="w-12 h-12 rounded-2xl bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-white/10 flex items-center justify-center text-zinc-900 dark:text-white shadow-sm">
+                <Users className="w-6 h-6" />
               </div>
-              <span className="text-[11px] font-black uppercase tracking-widest text-emerald-600 dark:text-lime-300">
+              <span className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
                 Pillar III
               </span>
             </div>
-            <CardTitle subtitle="Supplying schools, colleges, ed-tech enterprises and corporations with vetted teachers & tech talent.">
-              Corporate HR & Educational Recruitment
-            </CardTitle>
 
-            {/* Interactive Feature Demo Card */}
-            <div className="absolute bottom-0 left-4 right-4 top-40 translate-y-10 rounded-t-3xl overflow-hidden bg-gradient-to-br from-emerald-500 via-teal-600 to-cyan-700 p-6 shadow-2xl transition-transform duration-[300ms] group-hover:translate-y-4 group-hover:rotate-[1deg]">
-              <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop"
-                alt="Recruitment and interview teamwork"
-                className="absolute inset-0 w-full h-full object-cover opacity-25 mix-blend-overlay"
-              />
-              <div className="relative z-10 flex flex-col justify-between h-full text-white">
-                <div className="flex items-center justify-between">
-                  <div className="flex gap-2">
-                    <span className="text-[11px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-md bg-black/20 backdrop-blur-md">
-                      Institutional Mandates
-                    </span>
-                    <span className="text-[11px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-md bg-white/20 backdrop-blur-md">
-                      Rigorous Background Checks
-                    </span>
-                  </div>
-                  <ArrowUpRight className="w-5 h-5 text-white/80 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pb-8">
-                  <div className="bg-black/25 backdrop-blur-md rounded-xl p-3 border border-white/10 flex items-center gap-2">
-                    <Award className="w-4 h-4 text-emerald-300 shrink-0" />
-                    <div>
-                      <div className="text-[10px] text-emerald-200">School Faculty</div>
-                      <div className="text-xs font-bold">K-12 & Pre-Primary</div>
-                    </div>
-                  </div>
-                  <div className="bg-black/25 backdrop-blur-md rounded-xl p-3 border border-white/10 flex items-center gap-2">
-                    <Award className="w-4 h-4 text-emerald-300 shrink-0" />
-                    <div>
-                      <div className="text-[10px] text-emerald-200">Higher Education</div>
-                      <div className="text-xs font-bold">College Lecturers</div>
-                    </div>
-                  </div>
-                  <div className="bg-black/25 backdrop-blur-md rounded-xl p-3 border border-white/10 flex items-center gap-2">
-                    <Award className="w-4 h-4 text-emerald-300 shrink-0" />
-                    <div>
-                      <div className="text-[10px] text-emerald-200">Tech Bootcamps</div>
-                      <div className="text-xs font-bold">Industry Trainers</div>
-                    </div>
-                  </div>
-                </div>
+            <div>
+              <h3 className="text-2xl font-extrabold text-zinc-950 dark:text-white tracking-tight group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
+                Educator Recruitment & Staffing
+              </h3>
+              <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                Strategic talent partner for premier K-12 schools, higher education institutions, and technical academies. We source, vet, and place verified educators.
+              </p>
+            </div>
+
+            <div className="space-y-2 pt-2 border-t border-zinc-100 dark:border-white/5">
+              <div className="flex items-center gap-2 text-xs text-zinc-700 dark:text-zinc-300">
+                <CheckCircle2 className="w-4 h-4 text-red-600 dark:text-red-400 shrink-0" />
+                <span>Multi-stage credential validation and mandatory mock-teaching evaluations</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs text-zinc-700 dark:text-zinc-300">
+                <CheckCircle2 className="w-4 h-4 text-red-600 dark:text-red-400 shrink-0" />
+                <span>Full-time faculty placement, visiting lecturers, and corporate training</span>
               </div>
             </div>
-          </BounceCard>
-        </Link>
+          </div>
 
-        {/* Card 4: Resume Studio (4-col) */}
-        <Link href="/resume-studio" className="col-span-12 md:col-span-4 block">
-          <BounceCard className="h-full">
-            <div className="flex items-center justify-between mb-2">
-              <div className="w-10 h-10 rounded-xl bg-pink-500/10 dark:bg-pink-500/20 border border-pink-500/30 flex items-center justify-center text-pink-600 dark:text-pink-300">
-                <FileText className="w-5 h-5" />
+          <div className="pt-8 mt-6 border-t border-zinc-100 dark:border-white/5 flex items-center justify-between">
+            <span className="text-xs font-medium text-zinc-500">Institutional Partner</span>
+            <Link
+              href="/hr-and-recruitment"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 transition-colors"
+            >
+              <span>Staffing Solutions</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+        </div>
+
+        {/* Pillar IV: Resume Studio */}
+        <div className="card-surface rounded-3xl p-8 flex flex-col justify-between group hover:border-red-500/40 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+          <div className="space-y-5">
+            <div className="flex items-center justify-between">
+              <div className="w-12 h-12 rounded-2xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/40 flex items-center justify-center text-red-600 dark:text-red-400 shadow-sm">
+                <FileText className="w-6 h-6" />
               </div>
-              <span className="text-[11px] font-black uppercase tracking-widest text-pink-600 dark:text-pink-300">
+              <span className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
                 Pillar IV
               </span>
             </div>
-            <CardTitle subtitle="ATS score engine, LaTeX typography & automated career engineering tools.">
-              Resume Studio
-            </CardTitle>
 
-            {/* Interactive Feature Demo Card */}
-            <div className="absolute bottom-0 left-4 right-4 top-40 translate-y-10 rounded-t-3xl overflow-hidden bg-gradient-to-br from-pink-500 via-rose-600 to-purple-700 p-5 shadow-2xl transition-transform duration-[300ms] group-hover:translate-y-4 group-hover:rotate-[-1.5deg]">
-              <img
-                src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=800&auto=format&fit=crop"
-                alt="Resume and documents review"
-                className="absolute inset-0 w-full h-full object-cover opacity-25 mix-blend-overlay"
-              />
-              <div className="relative z-10 flex flex-col justify-between h-full text-white">
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-md bg-white/20 backdrop-blur-md">
-                    Instant ATS Score
-                  </span>
-                  <ArrowUpRight className="w-5 h-5 text-white/80 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </div>
-                <div className="space-y-1.5 pb-8">
-                  <div className="text-sm font-bold flex items-center gap-1.5">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-300" />
-                    <span>Free Exportable PDF Templates</span>
-                  </div>
-                  <div className="text-xs text-pink-100">
-                    Industry vetted layout formats optimized for recruiters.
-                  </div>
-                </div>
+            <div>
+              <h3 className="text-2xl font-extrabold text-zinc-950 dark:text-white tracking-tight group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
+                Nivó Resume Studio
+              </h3>
+              <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                First-party ATS-engineered resume tool. Import existing PDF/DOCX files, customize typography across 4 curated templates, and export genuine vector PDFs.
+              </p>
+            </div>
+
+            <div className="space-y-2 pt-2 border-t border-zinc-100 dark:border-white/5">
+              <div className="flex items-center gap-2 text-xs text-zinc-700 dark:text-zinc-300">
+                <CheckCircle2 className="w-4 h-4 text-red-600 dark:text-red-400 shrink-0" />
+                <span>Zero account friction: secured with high-entropy cryptographic keys</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs text-zinc-700 dark:text-zinc-300">
+                <CheckCircle2 className="w-4 h-4 text-red-600 dark:text-red-400 shrink-0" />
+                <span>Clean selectable text vectors; never image captures or public scraping</span>
               </div>
             </div>
-          </BounceCard>
-        </Link>
+          </div>
+
+          <div className="pt-8 mt-6 border-t border-zinc-100 dark:border-white/5 flex items-center justify-between">
+            <span className="text-xs font-medium text-zinc-500">First-Party Tooling</span>
+            <Link
+              href="/resume-studio"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 transition-colors"
+            >
+              <span>Build Your Resume</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+        </div>
 
       </div>
     </section>

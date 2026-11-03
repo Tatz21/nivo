@@ -10,7 +10,7 @@ interface ResumePreviewProps {
 }
 
 export default function ResumePreview({ resume, scale = 1 }: ResumePreviewProps) {
-  const accentColor = resume.accentColor || '#6554F5';
+  const accentColor = resume.accentColor || '#DC2626';
   const template = resume.template || 'cosmic';
 
   // Render template-specific layouts
@@ -226,7 +226,7 @@ export default function ResumePreview({ resume, scale = 1 }: ResumePreviewProps)
   // Default: Cosmic Modern
   return (
     <div 
-      className="w-[210mm] min-h-[297mm] bg-white text-zinc-900 p-10 shadow-2xl mx-auto font-sans transition-all selection:bg-violet-100"
+      className="w-[210mm] min-h-[297mm] bg-white text-zinc-900 p-10 shadow-2xl mx-auto font-sans transition-all selection:bg-red-100 selection:text-red-900"
       style={{ transform: `scale(${scale})`, transformOrigin: 'top center' }}
     >
       {/* Header with Brand Accent Line */}
@@ -341,7 +341,7 @@ export default function ResumePreview({ resume, scale = 1 }: ResumePreviewProps)
               <div key={proj.id}>
                 <div className="flex justify-between items-baseline">
                   <span className="font-bold text-xs text-zinc-900">{proj.title}</span>
-                  {proj.url && <span className="text-[10px] text-violet-600">{proj.url}</span>}
+                  {proj.url && <span className="text-[10px] text-red-600">{proj.url}</span>}
                 </div>
                 <div className="text-xs text-zinc-600 mt-0.5">{proj.description}</div>
                 {proj.technologies && proj.technologies.length > 0 && (

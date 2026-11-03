@@ -30,9 +30,9 @@ function EditorInner() {
 
   if (!resumeData) {
     return (
-      <div className="min-h-screen bg-[#0d0c15] flex items-center justify-center text-white">
-        <div className="flex items-center gap-3 text-xs text-zinc-400">
-          <Loader2 className="w-5 h-5 animate-spin text-lime-300" />
+      <div className="min-h-screen bg-zinc-50 dark:bg-[#09090B] flex items-center justify-center text-zinc-950 dark:text-white">
+        <div className="flex items-center gap-3 text-xs text-zinc-500 dark:text-zinc-400">
+          <Loader2 className="w-5 h-5 animate-spin text-red-600 dark:text-red-500" />
           <span>Initializing secure resume workspace...</span>
         </div>
       </div>
@@ -46,9 +46,9 @@ export default function ResumeEditorPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-[#0d0c15] flex items-center justify-center text-white">
-          <div className="flex items-center gap-3 text-xs text-zinc-400">
-            <Loader2 className="w-5 h-5 animate-spin text-lime-300" />
+        <div className="min-h-screen bg-zinc-50 dark:bg-[#09090B] flex items-center justify-center text-zinc-950 dark:text-white">
+          <div className="flex items-center gap-3 text-xs text-zinc-500 dark:text-zinc-400">
+            <Loader2 className="w-5 h-5 animate-spin text-red-600 dark:text-red-500" />
             <span>Loading workspace...</span>
           </div>
         </div>

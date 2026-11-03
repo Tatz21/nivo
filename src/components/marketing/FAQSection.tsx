@@ -19,12 +19,12 @@ export default function FAQSection() {
         
         <ScrollReveal>
           <div className="text-center mb-12 space-y-3">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-violet-100 dark:bg-violet-950/60 border border-violet-300 dark:border-violet-500/30 text-xs text-violet-800 dark:text-lime-300 font-semibold tracking-wide uppercase">
-              <HelpCircle className="w-3.5 h-3.5 text-violet-600 dark:text-lime-300" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 dark:bg-white/[0.06] border border-zinc-200 dark:border-white/10 text-xs text-zinc-700 dark:text-zinc-300 font-semibold tracking-wide uppercase">
+              <HelpCircle className="w-3.5 h-3.5 text-red-600 dark:text-red-400" />
               <span>Questions & Answers</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-zinc-950 dark:text-white tracking-tight">
-              Frequently Asked Questions
+              Frequently Asked <span className="text-red-600 dark:text-red-500">Questions</span>
             </h2>
             <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400">
               Clear answers regarding our learning matches, courses, recruitment process, and Resume Studio.
@@ -40,8 +40,8 @@ export default function FAQSection() {
                 <div
                   className={`rounded-2xl transition-all duration-300 border ${
                     isOpen
-                      ? 'bg-violet-50/90 dark:bg-[#19172B]/90 border-violet-300 dark:border-violet-500/40 shadow-md text-zinc-950 dark:text-white'
-                      : 'glass-panel border-black/5 dark:border-white/5 hover:border-violet-400/40 text-zinc-900 dark:text-white'
+                      ? 'card-surface border-red-600/40 text-zinc-950 dark:text-white shadow-sm'
+                      : 'card-surface hover:border-red-600/30 text-zinc-950 dark:text-white'
                   }`}
                 >
                   <button
@@ -53,14 +53,14 @@ export default function FAQSection() {
                       {faq.question}
                     </span>
                     <ChevronDown
-                      className={`w-4 h-4 text-violet-600 dark:text-violet-400 shrink-0 transition-transform duration-300 ${
-                        isOpen ? 'rotate-180 text-violet-700 dark:text-lime-300' : ''
+                      className={`w-4 h-4 text-red-600 dark:text-red-400 shrink-0 transition-transform duration-300 ${
+                        isOpen ? 'rotate-180 text-red-600 dark:text-red-400' : ''
                       }`}
                     />
                   </button>
 
                   {isOpen && (
-                    <div className="px-5 pb-5 text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed border-t border-violet-200/60 dark:border-white/5 pt-3 animate-in fade-in duration-200">
+                    <div className="px-5 pb-5 text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed border-t border-zinc-200 dark:border-white/5 pt-3 animate-in fade-in duration-200">
                       {faq.answer}
                     </div>
                   )}
@@ -73,7 +73,7 @@ export default function FAQSection() {
         <div className="text-center pt-8">
           <Link
             href="/faq"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-violet-600 dark:text-violet-400 hover:text-violet-800 dark:hover:text-violet-300 transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 transition-colors"
           >
             <span>View Complete FAQ Knowledge Base</span>
             <ArrowRight className="w-3.5 h-3.5" />

@@ -35,21 +35,20 @@ export default function ThemeToggle({ className = '', showLabel = false }: Theme
     <button
       type="button"
       onClick={toggleTheme}
-      className={`group relative inline-flex items-center gap-2 px-2.5 py-1.5 rounded-xl border transition-all duration-300 cursor-pointer select-none
+      className={`group relative inline-flex items-center gap-2 px-2.5 py-1.5 rounded-xl border transition-all duration-200 cursor-pointer select-none
         ${
           isDark
-            ? 'bg-white/5 hover:bg-white/10 border-white/10 text-amber-300 hover:text-amber-200 hover:border-amber-400/30 shadow-[0_0_12px_rgba(251,191,36,0.1)]'
-            : 'bg-zinc-100 hover:bg-zinc-200/80 border-zinc-300 text-violet-700 hover:text-violet-900 hover:border-violet-400 shadow-[0_2px_8px_rgba(101,84,245,0.12)]'
+            ? 'bg-white/[0.06] hover:bg-white/10 border-white/10 text-zinc-300 hover:text-white'
+            : 'bg-zinc-100 hover:bg-zinc-200 border-zinc-200 text-zinc-800 hover:text-black'
         } ${className}`}
       aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
       title={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
-      data-cursor="interactive"
     >
       <div className="relative w-4 h-4 flex items-center justify-center">
         {isDark ? (
-          <Moon className="w-4 h-4 text-violet-300 group-hover:text-violet-200 transition-transform duration-300 group-hover:-rotate-12 group-hover:scale-110" />
+          <Moon className="w-4 h-4 text-zinc-300 group-hover:text-white transition-transform duration-200" />
         ) : (
-          <Sun className="w-4 h-4 text-amber-500 group-hover:text-amber-600 transition-transform duration-300 group-hover:rotate-45 group-hover:scale-110" />
+          <Sun className="w-4 h-4 text-zinc-700 group-hover:text-black transition-transform duration-200" />
         )}
       </div>
 

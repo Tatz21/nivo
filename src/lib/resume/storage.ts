@@ -105,7 +105,7 @@ export function createNewResume(title = 'New Resume', fromSample = true): Resume
     title: title || 'Untitled Resume',
     updatedAt: new Date().toISOString(),
     template: 'cosmic',
-    accentColor: '#6554F5',
+    accentColor: '#DC2626',
     personalInfo: {
       fullName: '',
       jobTitle: '',

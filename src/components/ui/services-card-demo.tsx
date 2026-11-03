@@ -12,7 +12,7 @@ export const philosophyServices: Service[] = [
       "Every educator in our network undergoes multi-stage credential verification, pedagogical micro-teaching trials, and background reviews before placement.",
     icon: Users,
     tag: "Verified Qualifications",
-    gradient: "from-violet-100 to-indigo-200 dark:from-violet-950/70 dark:to-indigo-900/60",
+    gradient: "from-zinc-100 to-zinc-200 dark:from-zinc-900 dark:to-zinc-800",
     image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop",
   },
   {

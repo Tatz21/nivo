@@ -35,7 +35,7 @@ export function exportResumeToPDF(resume: ResumeData): void {
     return { r, g, b };
   };
 
-  const accentRgb = hexToRgb(resume.accentColor || '#6554F5');
+  const accentRgb = hexToRgb(resume.accentColor || '#DC2626');
 
   // Header - Full Name
   doc.setFont('Helvetica', 'bold');

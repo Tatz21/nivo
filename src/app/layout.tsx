@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
+import Script from 'next/script';
 import { Manrope, Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import CustomCursor from '@/components/cursor/CustomCursor';
 import CosmicBackground from '@/components/motion/CosmicBackground';
+import ScrollAudioEngine from '@/components/audio/ScrollAudioEngine';
 import { ThemeProvider } from '@/context/ThemeContext';
 
 const manrope = Manrope({
@@ -59,6 +61,14 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/brand/logo-emblem-dark.png', media: '(prefers-color-scheme: dark)' },
+      { url: '/brand/logo-emblem-light.png', media: '(prefers-color-scheme: light)' },
+    ],
+    apple: '/favicon.png',
+  },
 };
 
 export default function RootLayout({
@@ -68,14 +78,46 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth" className={`${manrope.variable} ${inter.variable} dark scroll-smooth`}>
-      <head />
-      <body className="min-h-screen bg-[#11111B] text-[#FAF9F6] antialiased selection:bg-[#6554F5] selection:text-white flex flex-col justify-between transition-colors duration-300">
+      <head>
+        <Script
+          src="/vendor/three.r134.min.js"
+          strategy="beforeInteractive"
+        />
+        <Script
+          src="/vendor/vanta.net.min.js"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="nivo-theme-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                const theme = localStorage.getItem('nivo-theme');
+                if (theme === 'light') {
+                  document.documentElement.classList.remove('dark');
+                  document.documentElement.classList.add('light');
+                  document.documentElement.setAttribute('data-theme', 'light');
+                } else {
+                  document.documentElement.classList.add('dark');
+                  document.documentElement.classList.remove('light');
+                  document.documentElement.setAttribute('data-theme', 'dark');
+                }
+              } catch (_) {}
+            `,
+          }}
+        />
+      </head>
+      <body className="min-h-screen bg-zinc-50 dark:bg-[#09090B] text-zinc-950 dark:text-[#FAFAFA] antialiased selection:bg-[#DC2626] selection:text-white flex flex-col justify-between transition-colors duration-200">
         <ThemeProvider>
           {/* Interactive Custom Cursor (Desktop fine pointers only) */}
           <CustomCursor />
 
           {/* Ambient Cosmic Background */}
           <CosmicBackground />
+
+          {/* Generative Non-Copyrighted Ambient Sound on Scroll */}
+          <ScrollAudioEngine />
 
           {/* Global Navigation */}
           <Suspense fallback={null}>

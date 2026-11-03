@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { Users, Award, ShieldCheck, ArrowRight, CheckCircle2, Building, Sparkles } from 'lucide-react';
+import { Users, ShieldCheck, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { RECRUITMENT_SERVICES } from '@/lib/data/recruitment';
 import ScrollReveal from '@/components/motion/ScrollReveal';
 
@@ -17,19 +17,19 @@ export default function HRAndRecruitmentPage() {
       {/* Header */}
       <ScrollReveal>
         <div className="max-w-3xl space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-lime-950/60 border border-lime-500/30 text-xs text-lime-300">
-            <Users className="w-3.5 h-3.5" />
-            <span className="font-semibold">Pillar III</span>
-            <span className="text-zinc-500">•</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-100 dark:bg-white/[0.06] border border-zinc-200 dark:border-white/10 text-xs text-zinc-700 dark:text-zinc-300 font-medium">
+            <Users className="w-3.5 h-3.5 text-red-600 dark:text-red-500" />
+            <span className="font-semibold text-zinc-950 dark:text-white">Pillar III</span>
+            <span className="text-zinc-400 dark:text-zinc-600">•</span>
             <span>Institutional Recruitment & Staffing</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-zinc-950 dark:text-white tracking-tight leading-tight">
             Exceptional Educators. <br />
-            <span className="cosmic-gradient-text">Verified Industry Practitioners.</span>
+            <span className="text-red-600 dark:text-red-500">Verified Industry Practitioners.</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-zinc-300 leading-relaxed">
+          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
             Finding genuine teaching talent requires more than scanning CVs. Since 2020, Nivó has partnered with educational institutions and enterprises to supply vetted, demonstrated educators.
           </p>
         </div>
@@ -39,21 +39,21 @@ export default function HRAndRecruitmentPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {RECRUITMENT_SERVICES.map((serv, idx) => (
           <ScrollReveal key={serv.slug} delay={idx * 100}>
-            <div className="glass-panel rounded-3xl p-8 border border-white/10 hover:border-lime-500/40 transition-all flex flex-col justify-between h-full group">
+            <div className="card-surface rounded-2xl p-7 flex flex-col justify-between h-full group hover:border-red-600/40 transition-all duration-300">
               <div className="space-y-4">
-                <h2 className="text-2xl font-bold text-white group-hover:text-lime-300 transition-colors">
+                <h2 className="text-2xl font-bold text-zinc-950 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-500 transition-colors">
                   {serv.title}
                 </h2>
 
-                <p className="text-xs text-zinc-400 leading-relaxed">
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                   {serv.description}
                 </p>
 
                 <div className="space-y-2 pt-2">
-                  <div className="text-xs font-semibold text-zinc-300">Target Roles:</div>
+                  <div className="text-xs font-semibold text-zinc-950 dark:text-white uppercase tracking-wider">Target Roles:</div>
                   <div className="flex flex-wrap gap-1.5">
                     {serv.targetRoleTypes.map((role, i) => (
-                      <span key={i} className="text-[11px] bg-white/5 border border-white/10 text-zinc-300 px-2.5 py-1 rounded-lg">
+                      <span key={i} className="text-xs bg-zinc-100 dark:bg-zinc-800/60 border border-zinc-200 dark:border-white/10 text-zinc-800 dark:text-zinc-300 px-2.5 py-1 rounded-lg">
                         {role}
                       </span>
                     ))}
@@ -61,11 +61,11 @@ export default function HRAndRecruitmentPage() {
                 </div>
 
                 <div className="space-y-2 pt-2">
-                  <div className="text-xs font-semibold text-zinc-300">Vetting Process:</div>
-                  <ul className="space-y-1.5 text-xs text-zinc-300">
+                  <div className="text-xs font-semibold text-zinc-950 dark:text-white uppercase tracking-wider">Vetting Process:</div>
+                  <ul className="space-y-1.5 text-xs text-zinc-700 dark:text-zinc-300">
                     {serv.vettingProcess.slice(0, 3).map((proc, i) => (
                       <li key={i} className="flex items-center gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-lime-400 shrink-0" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-red-600 dark:text-red-500 shrink-0" />
                         <span>{proc}</span>
                       </li>
                     ))}
@@ -73,17 +73,17 @@ export default function HRAndRecruitmentPage() {
                 </div>
               </div>
 
-              <div className="pt-8 mt-6 border-t border-white/5 flex items-center justify-between">
+              <div className="pt-6 mt-6 border-t border-zinc-200 dark:border-white/10 flex items-center justify-between">
                 <Link
                   href={`/contact?subject=Staffing%20Enquiry:%20${encodeURIComponent(serv.title)}`}
-                  className="text-xs text-zinc-400 hover:text-white"
+                  className="text-xs font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-colors"
                 >
                   Hire Talent
                 </Link>
 
                 <Link
                   href={`/hr-and-recruitment/${serv.slug}`}
-                  className="px-4 py-2 rounded-xl bg-lime-400/20 hover:bg-lime-400 text-lime-300 hover:text-black text-xs font-semibold flex items-center gap-1.5 transition-colors"
+                  className="brand-primary-btn !py-2 !px-4 !text-xs inline-flex items-center gap-1.5"
                 >
                   <span>Staffing Protocols</span>
                   <ArrowRight className="w-3.5 h-3.5" />

@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { UploadCloud, FileText, CheckCircle2, AlertCircle, ArrowRight, Loader2, Sparkles, RefreshCw } from 'lucide-react';
+import { UploadCloud, FileText, CheckCircle2, AlertCircle, ArrowRight, Loader2, RefreshCw } from 'lucide-react';
 import { ResumeData } from '@/lib/types/resume';
 import { generateResumeId, generateSecureAccessKey, saveLocalResume } from '@/lib/resume/storage';
 
@@ -60,7 +60,7 @@ export default function ResumeImporter() {
         title: file.name.replace(/\.[^/.]+$/, ''),
         updatedAt: new Date().toISOString(),
         template: 'cosmic',
-        accentColor: '#6554F5',
+        accentColor: '#DC2626',
         personalInfo: {
           fullName: 'Taylor Morgan',
           jobTitle: 'Senior Technology Specialist',
@@ -157,15 +157,15 @@ export default function ResumeImporter() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
       {!reviewedData ? (
-        <div className="glass-panel rounded-3xl p-8 sm:p-12 border border-violet-500/20 text-center space-y-6">
-          <div className="w-16 h-16 mx-auto rounded-2xl bg-violet-600/20 border border-violet-500/30 flex items-center justify-center text-violet-300">
+        <div className="card-surface rounded-2xl p-8 sm:p-12 text-center space-y-6">
+          <div className="w-16 h-16 mx-auto rounded-2xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-600 dark:text-red-500">
             <UploadCloud className="w-8 h-8" />
           </div>
 
           <div className="space-y-2">
-            <span className="text-xs font-semibold uppercase tracking-widest text-lime-300">Smart Document Import</span>
-            <h2 className="text-3xl font-bold text-white">Import Existing PDF or DOCX</h2>
-            <p className="text-xs sm:text-sm text-zinc-400 max-w-lg mx-auto leading-relaxed">
+            <span className="text-xs font-semibold uppercase tracking-widest text-red-600 dark:text-red-500">Smart Document Import</span>
+            <h2 className="text-3xl font-bold text-zinc-950 dark:text-white">Import Existing PDF or DOCX</h2>
+            <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 max-w-lg mx-auto leading-relaxed">
               Upload your current resume. Our extractor parses your contact info, experience, education, and skills for manual review before entering the editor.
             </p>
           </div>
@@ -179,7 +179,7 @@ export default function ResumeImporter() {
                 handleFileSelect(e.dataTransfer.files[0]);
               }
             }}
-            className="border-2 border-dashed border-white/20 hover:border-violet-500/50 rounded-2xl p-8 bg-[#11111B]/60 transition-colors cursor-pointer"
+            className="border-2 border-dashed border-zinc-300 dark:border-white/20 hover:border-red-500/50 rounded-2xl p-8 bg-zinc-50 dark:bg-black/40 transition-colors cursor-pointer"
             onClick={() => {
               const input = document.createElement('input');
               input.type = 'file';
@@ -195,14 +195,14 @@ export default function ResumeImporter() {
           >
             {file ? (
               <div className="space-y-2">
-                <FileText className="w-8 h-8 mx-auto text-lime-300" />
-                <div className="text-sm font-bold text-white">{file.name}</div>
-                <div className="text-xs text-zinc-400">{(file.size / 1024).toFixed(1)} KB • Ready to extract</div>
+                <FileText className="w-8 h-8 mx-auto text-red-600 dark:text-red-500" />
+                <div className="text-sm font-bold text-zinc-950 dark:text-white">{file.name}</div>
+                <div className="text-xs text-zinc-500">{(file.size / 1024).toFixed(1)} KB • Ready to extract</div>
               </div>
             ) : (
               <div className="space-y-2">
-                <p className="text-sm font-medium text-zinc-200">
-                  Drag and drop your file here, or <span className="text-violet-400 underline">browse</span>
+                <p className="text-sm font-medium text-zinc-800 dark:text-zinc-200">
+                  Drag and drop your file here, or <span className="text-red-600 dark:text-red-500 underline">browse</span>
                 </p>
                 <p className="text-xs text-zinc-500">Supports PDF and DOCX documents up to 5MB</p>
               </div>
@@ -210,7 +210,7 @@ export default function ResumeImporter() {
           </div>
 
           {error && (
-            <div className="flex items-center justify-center gap-2 text-xs text-rose-400 bg-rose-950/40 p-3 rounded-lg border border-rose-500/30">
+            <div className="flex items-center justify-center gap-2 text-xs text-red-600 dark:text-rose-400 bg-red-50 dark:bg-rose-950/40 p-3 rounded-lg border border-red-200 dark:border-rose-500/30">
               <AlertCircle className="w-4 h-4 shrink-0" />
               <span>{error}</span>
             </div>
@@ -218,16 +218,16 @@ export default function ResumeImporter() {
 
           {parsing && (
             <div className="space-y-3 pt-2">
-              <div className="flex items-center justify-between text-xs text-zinc-300">
+              <div className="flex items-center justify-between text-xs text-zinc-700 dark:text-zinc-300">
                 <span className="flex items-center gap-2">
-                  <Loader2 className="w-3.5 h-3.5 animate-spin text-lime-300" />
+                  <Loader2 className="w-3.5 h-3.5 animate-spin text-red-600 dark:text-red-500" />
                   <span>Parsing structured resume tokens...</span>
                 </span>
                 <span>{progress}%</span>
               </div>
-              <div className="w-full h-2 rounded-full bg-white/10 overflow-hidden">
+              <div className="w-full h-2 rounded-full bg-zinc-200 dark:bg-white/10 overflow-hidden">
                 <div 
-                  className="h-full bg-gradient-to-r from-violet-600 to-lime-400 transition-all duration-300"
+                  className="h-full bg-gradient-to-r from-red-600 to-red-500 transition-all duration-300"
                   style={{ width: `${progress}%` }}
                 />
               </div>
@@ -238,9 +238,9 @@ export default function ResumeImporter() {
             <div className="pt-2">
               <button
                 onClick={startExtraction}
-                className="px-8 py-3 rounded-xl cosmic-glow-btn text-white font-semibold text-sm shadow-xl flex items-center justify-center gap-2 mx-auto cursor-pointer"
+                className="brand-primary-btn !py-3 !px-8 !text-sm inline-flex items-center justify-center gap-2 mx-auto cursor-pointer shadow-md"
               >
-                <Sparkles className="w-4 h-4 text-lime-300" />
+                <FileText className="w-4 h-4 text-white" />
                 <span>Extract & Review Fields</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
@@ -249,18 +249,18 @@ export default function ResumeImporter() {
         </div>
       ) : (
         /* Review Screen (PRD Rule 19: "Imported information must be reviewable and editable.") */
-        <div className="glass-panel rounded-3xl p-8 border border-violet-500/30 space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
+        <div className="card-surface rounded-2xl p-8 space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-zinc-200 dark:border-white/10 pb-4">
             <div>
-              <span className="text-xs font-semibold text-lime-300 uppercase tracking-widest">Step 2: Verification Review</span>
-              <h2 className="text-2xl font-bold text-white mt-1">Review Extracted Information</h2>
-              <p className="text-xs text-zinc-400">Confirm extracted fields before saving to your workspace.</p>
+              <span className="text-xs font-semibold text-red-600 dark:text-red-500 uppercase tracking-widest">Step 2: Verification Review</span>
+              <h2 className="text-2xl font-bold text-zinc-950 dark:text-white mt-1">Review Extracted Information</h2>
+              <p className="text-xs text-zinc-600 dark:text-zinc-400">Confirm extracted fields before saving to your workspace.</p>
             </div>
 
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setReviewedData(null)}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-xs text-zinc-300 border border-white/10"
+                className="brand-secondary-btn !py-2 !px-4 !text-xs inline-flex items-center gap-1.5"
               >
                 <RefreshCw className="w-3.5 h-3.5" />
                 <span>Re-upload</span>
@@ -268,9 +268,9 @@ export default function ResumeImporter() {
 
               <button
                 onClick={handleApproveAndEdit}
-                className="flex items-center gap-2 px-5 py-2 rounded-lg cosmic-glow-btn text-xs font-semibold text-white cursor-pointer"
+                className="brand-primary-btn !py-2 !px-5 !text-xs inline-flex items-center gap-2 cursor-pointer"
               >
-                <CheckCircle2 className="w-4 h-4 text-lime-300" />
+                <CheckCircle2 className="w-4 h-4 text-white" />
                 <span>Approve & Open Editor</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
@@ -280,7 +280,7 @@ export default function ResumeImporter() {
           {/* Quick Review Fields */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-medium text-zinc-400 mb-1">Extracted Full Name</label>
+              <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-400 mb-1">Extracted Full Name</label>
               <input
                 type="text"
                 value={reviewedData.personalInfo.fullName}
@@ -288,12 +288,12 @@ export default function ResumeImporter() {
                   ...reviewedData,
                   personalInfo: { ...reviewedData.personalInfo, fullName: e.target.value }
                 })}
-                className="w-full px-3 py-2 rounded bg-[#11111B] border border-white/10 text-white text-xs"
+                className="w-full px-3 py-2 rounded-lg bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-white/10 text-zinc-950 dark:text-white text-xs focus:outline-none focus:border-red-600 dark:focus:border-red-500"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-zinc-400 mb-1">Extracted Job Title</label>
+              <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-400 mb-1">Extracted Job Title</label>
               <input
                 type="text"
                 value={reviewedData.personalInfo.jobTitle}
@@ -301,12 +301,12 @@ export default function ResumeImporter() {
                   ...reviewedData,
                   personalInfo: { ...reviewedData.personalInfo, jobTitle: e.target.value }
                 })}
-                className="w-full px-3 py-2 rounded bg-[#11111B] border border-white/10 text-white text-xs"
+                className="w-full px-3 py-2 rounded-lg bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-white/10 text-zinc-950 dark:text-white text-xs focus:outline-none focus:border-red-600 dark:focus:border-red-500"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-zinc-400 mb-1">Email</label>
+              <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-400 mb-1">Email</label>
               <input
                 type="email"
                 value={reviewedData.personalInfo.email}
@@ -314,12 +314,12 @@ export default function ResumeImporter() {
                   ...reviewedData,
                   personalInfo: { ...reviewedData.personalInfo, email: e.target.value }
                 })}
-                className="w-full px-3 py-2 rounded bg-[#11111B] border border-white/10 text-white text-xs"
+                className="w-full px-3 py-2 rounded-lg bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-white/10 text-zinc-950 dark:text-white text-xs focus:outline-none focus:border-red-600 dark:focus:border-red-500"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-zinc-400 mb-1">Phone</label>
+              <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-400 mb-1">Phone</label>
               <input
                 type="text"
                 value={reviewedData.personalInfo.phone}
@@ -327,29 +327,29 @@ export default function ResumeImporter() {
                   ...reviewedData,
                   personalInfo: { ...reviewedData.personalInfo, phone: e.target.value }
                 })}
-                className="w-full px-3 py-2 rounded bg-[#11111B] border border-white/10 text-white text-xs"
+                className="w-full px-3 py-2 rounded-lg bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-white/10 text-zinc-950 dark:text-white text-xs focus:outline-none focus:border-red-600 dark:focus:border-red-500"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-zinc-400 mb-1">Extracted Summary</label>
+            <label className="block text-xs font-medium text-zinc-700 dark:text-zinc-400 mb-1">Extracted Summary</label>
             <textarea
               rows={3}
               value={reviewedData.summary}
               onChange={(e) => setReviewedData({ ...reviewedData, summary: e.target.value })}
-              className="w-full p-2.5 rounded bg-[#11111B] border border-white/10 text-white text-xs leading-relaxed"
+              className="w-full p-2.5 rounded-lg bg-white dark:bg-zinc-900 border border-zinc-300 dark:border-white/10 text-zinc-950 dark:text-white text-xs leading-relaxed focus:outline-none focus:border-red-600 dark:focus:border-red-500"
             />
           </div>
 
-          <div className="p-4 rounded-xl bg-violet-950/40 border border-violet-500/20 text-xs text-zinc-300 flex items-center justify-between">
+          <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-xs text-zinc-700 dark:text-zinc-300 flex items-center justify-between">
             <div>
-              <span className="font-semibold text-white">Extracted Sections:</span>
+              <span className="font-semibold text-zinc-950 dark:text-white">Extracted Sections:</span>
               <span className="ml-2">{reviewedData.experiences.length} Experiences, {reviewedData.education.length} Degrees, {reviewedData.skillCategories.length} Skill Sets</span>
             </div>
             <button
               onClick={handleApproveAndEdit}
-              className="text-lime-300 font-semibold hover:underline flex items-center gap-1"
+              className="text-red-600 dark:text-red-500 font-semibold hover:underline flex items-center gap-1 cursor-pointer"
             >
               <span>Continue to Workspace</span>
               <ArrowRight className="w-3.5 h-3.5" />
