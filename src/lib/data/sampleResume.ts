@@ -57,7 +57,7 @@ export const SAMPLE_RESUME_DATA: ResumeData = {
       location: 'Berkeley, CA',
       startDate: '2016',
       endDate: '2020',
-      grade: '3.85 GPA — Honors',
+      grade: '3.85 GPA, Honors',
       highlights: [
         'Teaching Assistant for CS 61B (Data Structures & Algorithms)',
         'President of the Open Source Developer Guild'
@@ -102,7 +102,7 @@ export const SAMPLE_RESUME_DATA: ResumeData = {
   certifications: [
     {
       id: 'cert-1',
-      name: 'AWS Certified Solutions Architect – Associate',
+      name: 'AWS Certified Solutions Architect (Associate)',
       issuer: 'Amazon Web Services',
       issueDate: '2024',
       credentialUrl: 'https://aws.amazon.com/verification'

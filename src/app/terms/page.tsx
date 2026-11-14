@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { FileText } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service — Nivó',
+  title: 'Terms of Service | Nivó',
   description: 'Terms and conditions governing the use of Nivó education, courses, recruitment, and Resume Studio services.',
 };
 

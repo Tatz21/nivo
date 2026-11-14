@@ -50,7 +50,7 @@ export default function ResumePreview({ resume, scale = 1 }: ResumePreviewProps)
                 <div key={exp.id}>
                   <div className="flex justify-between items-baseline">
                     <span className="font-bold text-xs text-zinc-900">{exp.role}</span>
-                    <span className="text-[11px] text-zinc-500">{exp.startDate} – {exp.current ? 'Present' : exp.endDate}</span>
+                    <span className="text-[11px] text-zinc-500">{exp.startDate} to {exp.current ? 'Present' : exp.endDate}</span>
                   </div>
                   <div className="text-xs text-zinc-700 italic">{exp.company} {exp.location && `| ${exp.location}`}</div>
                   <ul className="list-disc list-inside mt-1.5 space-y-1 text-xs text-zinc-600">
@@ -73,7 +73,7 @@ export default function ResumePreview({ resume, scale = 1 }: ResumePreviewProps)
                 <div key={edu.id}>
                   <div className="flex justify-between items-baseline">
                     <span className="font-bold text-xs text-zinc-900">{edu.degree}</span>
-                    <span className="text-[11px] text-zinc-500">{edu.startDate} – {edu.endDate}</span>
+                    <span className="text-[11px] text-zinc-500">{edu.startDate} to {edu.endDate}</span>
                   </div>
                   <div className="text-xs text-zinc-700">{edu.institution} {edu.location && `| ${edu.location}`}</div>
                   {edu.grade && <div className="text-[11px] text-zinc-500">{edu.grade}</div>}
@@ -174,7 +174,7 @@ export default function ResumePreview({ resume, scale = 1 }: ResumePreviewProps)
                   <div key={exp.id}>
                     <div className="flex justify-between items-baseline">
                       <span className="font-bold text-xs text-zinc-900">{exp.role}</span>
-                      <span className="text-[10px] text-zinc-400">{exp.startDate} – {exp.current ? 'Present' : exp.endDate}</span>
+                      <span className="text-[10px] text-zinc-400">{exp.startDate} to {exp.current ? 'Present' : exp.endDate}</span>
                     </div>
                     <div className="text-xs font-medium text-zinc-600">{exp.company} {exp.location && `• ${exp.location}`}</div>
                     <ul className="list-disc list-inside mt-1.5 space-y-1 text-xs text-zinc-600">
@@ -196,7 +196,7 @@ export default function ResumePreview({ resume, scale = 1 }: ResumePreviewProps)
                   <div key={edu.id}>
                     <div className="flex justify-between items-baseline">
                       <span className="font-bold text-xs text-zinc-900">{edu.degree}</span>
-                      <span className="text-[10px] text-zinc-400">{edu.startDate} – {edu.endDate}</span>
+                      <span className="text-[10px] text-zinc-400">{edu.startDate} to {edu.endDate}</span>
                     </div>
                     <div className="text-xs text-zinc-600">{edu.institution} {edu.grade && `• ${edu.grade}`}</div>
                   </div>
@@ -278,7 +278,7 @@ export default function ResumePreview({ resume, scale = 1 }: ResumePreviewProps)
                 <div className="flex justify-between items-baseline">
                   <span className="font-bold text-xs text-zinc-900">{exp.role}</span>
                   <span className="text-[10px] text-zinc-500 font-medium">
-                    {exp.startDate} – {exp.current ? 'Present' : exp.endDate}
+                    {exp.startDate} to {exp.current ? 'Present' : exp.endDate}
                   </span>
                 </div>
                 <div className="text-xs text-zinc-600 font-medium">{exp.company} {exp.location && `• ${exp.location}`}</div>
@@ -304,7 +304,7 @@ export default function ResumePreview({ resume, scale = 1 }: ResumePreviewProps)
               <div key={edu.id}>
                 <div className="flex justify-between items-baseline">
                   <span className="font-bold text-xs text-zinc-900">{edu.degree}</span>
-                  <span className="text-[10px] text-zinc-500">{edu.startDate} – {edu.endDate}</span>
+                  <span className="text-[10px] text-zinc-500">{edu.startDate} to {edu.endDate}</span>
                 </div>
                 <div className="text-xs text-zinc-600">{edu.institution} {edu.grade && `• Grade: ${edu.grade}`}</div>
               </div>

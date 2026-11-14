@@ -5,7 +5,7 @@ import { ArrowLeft } from 'lucide-react';
 import ResumeImporter from '@/components/resume/ResumeImporter';
 
 export const metadata: Metadata = {
-  title: 'Import Resume — Nivó Resume Studio',
+  title: 'Import Resume | Nivó Resume Studio',
   description: 'Upload your existing PDF or DOCX resume to extract and review structured information before customization.',
   robots: {
     index: false,

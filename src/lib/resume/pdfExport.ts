@@ -137,7 +137,7 @@ export function exportResumeToPDF(resume: ResumeData): void {
       doc.setFont('Helvetica', 'normal');
       doc.setFontSize(9.5);
       doc.setTextColor(70, 70, 85);
-      const companyLocation = exp.location ? `${exp.company} — ${exp.location}` : exp.company;
+      const companyLocation = exp.location ? `${exp.company}, ${exp.location}` : exp.company;
       doc.text(companyLocation, margin, y);
       y += 14;
 
@@ -182,7 +182,7 @@ export function exportResumeToPDF(resume: ResumeData): void {
       doc.setFont('Helvetica', 'normal');
       doc.setFontSize(9.5);
       doc.setTextColor(70, 70, 85);
-      const instLocation = edu.location ? `${edu.institution} — ${edu.location}` : edu.institution;
+      const instLocation = edu.location ? `${edu.institution}, ${edu.location}` : edu.institution;
       doc.text(instLocation, margin, y);
       y += 14;
 

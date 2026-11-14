@@ -6,7 +6,7 @@ import { PROFESSIONAL_COURSES } from '@/lib/data/courses';
 import ScrollReveal from '@/components/motion/ScrollReveal';
 
 export const metadata: Metadata = {
-  title: 'Professional Cohort Courses — Software, AI, Design & Media',
+  title: 'Professional Cohort Courses | Software, AI, Design & Media',
   description: 'Mentor-led intensive technical courses covering Full-Stack Software Engineering, Applied AI & Machine Learning, UI/UX Product Design, and Creative Media.',
 };
 

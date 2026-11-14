@@ -85,7 +85,7 @@ export async function POST(req: NextRequest) {
       name: parsed.data.name,
       email: parsed.data.email,
       phone: parsed.data.phone,
-      service: `${parsed.data.educationLevel} — ${parsed.data.subjectOrArea} (${parsed.data.deliveryMode})`,
+      service: `${parsed.data.educationLevel}: ${parsed.data.subjectOrArea} (${parsed.data.deliveryMode})`,
       message: parsed.data.notes,
       location: parsed.data.locationCity
     });

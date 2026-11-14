@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!item) return { title: 'Service Not Found' };
 
   return {
-    title: `${item.title} — Nivó HR & Recruitment`,
+    title: `${item.title} | Nivó HR & Recruitment`,
     description: item.description,
   };
 }

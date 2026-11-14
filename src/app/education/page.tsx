@@ -6,7 +6,7 @@ import { EDUCATION_SERVICES } from '@/lib/data/services';
 import ScrollReveal from '@/components/motion/ScrollReveal';
 
 export const metadata: Metadata = {
-  title: 'Education & Training Programs — Nivó',
+  title: 'Education & Training Programs | Nivó',
   description: 'Personalized academic coaching from Kindergarten through 12th grade, college degree subject support, foreign languages, creative arts, and competitive exams.',
 };
 

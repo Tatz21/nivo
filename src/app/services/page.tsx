@@ -8,7 +8,7 @@ import { RECRUITMENT_SERVICES } from '@/lib/data/recruitment';
 import ScrollReveal from '@/components/motion/ScrollReveal';
 
 export const metadata: Metadata = {
-  title: 'Services Directory — Education, Courses, Recruitment & Resume Studio',
+  title: 'Services Directory | Education, Courses, Recruitment & Resume Studio',
   description: 'Explore the full spectrum of services provided by Nivó: foundational tutoring, university mentorship, professional courses, educator recruitment, and our ATS Resume Studio.',
 };
 

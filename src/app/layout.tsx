@@ -25,7 +25,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://nivo.education'),
   title: {
-    default: 'Nivó — Modern Education, Training, Recruitment & Resume Studio',
+    default: 'Nivó | Modern Education, Training, Recruitment & Resume Studio',
     template: '%s | Nivó'
   },
   description: 'Operating since 2020. Nivó bridges foundational academic tutoring, industry-focused engineering & AI training, institutional educator recruitment, and our first-party Resume Studio.',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://nivo.education',
     siteName: 'Nivó',
-    title: 'Nivó — Modern Education, Training, Recruitment & Resume Studio',
+    title: 'Nivó | Modern Education, Training, Recruitment & Resume Studio',
     description: 'Operating since 2020. Connecting learners, professionals, and institutions with verified academic faculty and first-party career tooling.',
   },
   robots: {

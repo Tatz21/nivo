@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { ShieldCheck } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — Nivó',
+  title: 'Privacy Policy | Nivó',
   description: 'Nivó privacy policy: our commitment to zero-friction access, cryptographic resume security, and non-disclosure of personal data.',
 };
 

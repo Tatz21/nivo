@@ -6,7 +6,7 @@ import { RECRUITMENT_SERVICES } from '@/lib/data/recruitment';
 import ScrollReveal from '@/components/motion/ScrollReveal';
 
 export const metadata: Metadata = {
-  title: 'HR & Educator Recruitment — Nivó',
+  title: 'HR & Educator Recruitment | Nivó',
   description: 'Rigorous talent acquisition for schools, colleges, training bootcamps, and corporate enterprises. Verified teachers, lecturers, and technical instructors.',
 };
 

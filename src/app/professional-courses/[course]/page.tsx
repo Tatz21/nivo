@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!item) return { title: 'Course Not Found' };
 
   return {
-    title: `${item.title} — Nivó Professional Courses`,
+    title: `${item.title} | Nivó Professional Courses`,
     description: item.description,
   };
 }
