@@ -1,6 +1,7 @@
 import React from 'react';
 import HeroSection from '@/components/marketing/HeroSection';
 import AudiencePathwaySection from '@/components/marketing/AudiencePathwaySection';
+import OurPartnersSection from '@/components/marketing/OurPartnersSection';
 import PillarsSection from '@/components/marketing/PillarsSection';
 import HowItWorksSection from '@/components/marketing/HowItWorksSection';
 import ResumeStudioFeature from '@/components/marketing/ResumeStudioFeature';
@@ -17,22 +18,25 @@ export default function HomePage() {
       {/* 2. Tailored Pathways (Students, Engineers, Institutions) */}
       <AudiencePathwaySection />
 
-      {/* 3. Four Core Pillars Architecture */}
+      {/* 3. Our Partners & Institutional Alliances */}
+      <OurPartnersSection />
+
+      {/* 4. Four Core Pillars Architecture */}
       <PillarsSection />
 
-      {/* 4. How It Works: Four Steps to Mastery */}
+      {/* 5. How It Works: Four Steps to Mastery */}
       <HowItWorksSection />
 
-      {/* 5. Resume Studio Application Highlight */}
+      {/* 6. Resume Studio Application Highlight */}
       <ResumeStudioFeature />
 
-      {/* 6. Our Operating Philosophy with Refined Boxes Style */}
+      {/* 7. Our Operating Philosophy with Refined Boxes Style */}
       <TrustEthicsSection />
 
-      {/* 7. Direct Academic Advisory Banner */}
+      {/* 8. Direct Academic Advisory Banner */}
       <ConsultationBanner />
 
-      {/* 8. Frequently Asked Questions */}
+      {/* 9. Frequently Asked Questions */}
       <FAQSection />
     </div>
   );
