@@ -27,7 +27,7 @@ export default function ConsultationBanner() {
                 <div className="lg:col-span-8 space-y-4 text-left">
                   <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/40 text-xs text-red-600 dark:text-red-400 font-semibold uppercase tracking-wider">
                     <Calendar className="w-3.5 h-3.5" />
-                    <span>Free Academic & Staffing Consultation</span>
+                    <span>Free 1-on-1 Student Diagnostic Consultation</span>
                   </div>
 
                   <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-zinc-950 dark:text-white tracking-tight leading-tight">
@@ -36,17 +36,17 @@ export default function ConsultationBanner() {
                   </h2>
 
                   <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 max-w-2xl font-normal leading-relaxed">
-                    Have questions about specific syllabus requirements, tutor availability, cohort start dates, or institutional staffing trials? We offer a free 15-minute diagnostic consultation to understand your goals and explain how we can help.
+                    Have questions about school syllabus requirements, one-to-one tutor pairing, or technical cohorts? We offer a free 15-minute diagnostic consultation to understand your student&apos;s learning goals and match them with the right educator.
                   </p>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs text-zinc-700 dark:text-zinc-300">
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="w-4 h-4 text-red-600 dark:text-red-400 shrink-0" />
-                      <span>Direct response within 24 hours</span>
+                      <span>Dedicated 1:1 educator matching</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="w-4 h-4 text-red-600 dark:text-red-400 shrink-0" />
-                      <span>Personalized learning advice</span>
+                      <span>Personalized learning diagnostic</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="w-4 h-4 text-red-600 dark:text-red-400 shrink-0" />

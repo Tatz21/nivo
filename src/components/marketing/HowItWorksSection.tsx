@@ -36,7 +36,7 @@ export default function HowItWorksSection() {
             </h2>
             
             <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
-              Real learning does not happen through pre-recorded playlists. We build a personalized learning roadmap around your syllabus, current strengths, and target outcomes.
+              Real learning does not happen through crowded halls or pre-recorded playlists. We build a personalized one-to-one learning roadmap around your child&apos;s specific syllabus, current strengths, and target outcomes.
             </p>
           </div>
         </ScrollReveal>
@@ -61,7 +61,7 @@ export default function HowItWorksSection() {
                   {/* Step Header with 45-Min Timer Badge */}
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-mono font-bold text-red-600 dark:text-red-400 px-2.5 py-1 rounded-full bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/40">
-                      01 / DIAGNOSTIC
+                      01 / 1-ON-1 DIAGNOSTIC
                     </span>
                     <span className="inline-flex items-center gap-1 text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-300 border border-zinc-200 dark:border-white/10">
                       <Clock className="w-3 h-3 text-red-600" />
@@ -79,18 +79,18 @@ export default function HowItWorksSection() {
                   </h3>
 
                   <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
-                    We sit down with the learner or parent to review current conceptual grasp, exam targets, and specific stumbling blocks.
+                    We sit down one-on-one with the student to review their current conceptual grasp, exam targets, learning style, and specific stumbling blocks.
                   </p>
                 </div>
 
                 <div className="pt-4 mt-6 border-t border-zinc-100 dark:border-white/10 space-y-1.5 text-xs text-zinc-700 dark:text-zinc-300">
                   <div className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0" />
-                    <span className="text-[11px]">Pinpoints foundational gaps</span>
+                    <span className="text-[11px]">Pinpoints individual learning gaps</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0" />
-                    <span className="text-[11px]">Tests problem-solving speed</span>
+                    <span className="text-[11px]">Evaluates problem-solving intuition</span>
                   </div>
                 </div>
               </div>
@@ -109,7 +109,7 @@ export default function HowItWorksSection() {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-mono font-bold text-zinc-900 dark:text-white px-2.5 py-1 rounded-full bg-zinc-200 dark:bg-zinc-800 border border-zinc-300 dark:border-white/10">
-                      02 / PAIRING
+                      02 / 1-ON-1 PAIRING
                     </span>
                     <span className="text-[10px] font-bold text-red-600 dark:text-red-400 uppercase tracking-wider">
                       Top 2% Vetted
@@ -121,11 +121,11 @@ export default function HowItWorksSection() {
                   </div>
 
                   <h3 className="text-lg font-bold text-zinc-950 dark:text-white group-hover:text-red-600 transition-colors leading-snug">
-                    Matched Faculty Pairing
+                    Dedicated Teacher Match
                   </h3>
 
                   <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
-                    We pair each student with an educator whose subject depth matches how they learn best. You speak with them before confirming.
+                    One teacher dedicated to one student. We match based on syllabus requirements and teaching demeanor. You meet with them before confirming.
                   </p>
                 </div>
 
@@ -136,7 +136,7 @@ export default function HowItWorksSection() {
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-red-600 shrink-0" />
-                    <span className="text-[11px]">Personal fit consultation</span>
+                    <span className="text-[11px]">Personal 1:1 fit trial</span>
                   </div>
                 </div>
               </div>
@@ -161,11 +161,11 @@ export default function HowItWorksSection() {
                 <div className="space-y-4 relative z-10">
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-mono font-bold text-red-600 dark:text-red-400 px-2.5 py-1 rounded-full bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/40">
-                      03 / ACTIVE PRACTICE
+                      03 / 1-ON-1 PRACTICE
                     </span>
                     <span className="inline-flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-white/10">
                       <Zap className="w-3 h-3 text-amber-500" />
-                      <span>Live Math</span>
+                      <span>Live Dialogue</span>
                     </span>
                   </div>
 
@@ -178,7 +178,7 @@ export default function HowItWorksSection() {
                   </h3>
 
                   <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
-                    No passive video watching. Sessions prioritize first-principles derivations, line-by-line pull request reviews, and immediate correction.
+                    No passive video watching or crowd lectures. Every session is a one-to-one dialogue where the student tackles problems out loud with immediate mentor guidance.
                   </p>
                 </div>
 

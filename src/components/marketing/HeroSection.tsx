@@ -33,14 +33,14 @@ export default function HeroSection() {
 
             {/* Subheading */}
             <p className="text-base sm:text-lg text-zinc-700 dark:text-zinc-300 max-w-2xl font-normal leading-relaxed">
-              Nivó connects students with exceptional academic mentors, trains professionals in modern engineering and AI, partners with institutions to recruit verified educators, and powers careers with our first-party Resume Studio.
+              Nivó pairs students with dedicated educators for private one-to-one academic teaching, trains engineers in mentor-led cohorts, assists schools with verified faculty recruitment, and powers careers through Resume Studio.
             </p>
 
             {/* Trust points */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-xs text-zinc-700 dark:text-zinc-300">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-red-600 dark:text-red-400 shrink-0" />
-                <span>Vetted Pedagogical Faculty</span>
+                <span>Dedicated 1-on-1 Student Teaching</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-red-600 dark:text-red-400 shrink-0" />

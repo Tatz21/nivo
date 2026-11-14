@@ -74,7 +74,7 @@ export default function Navbar() {
       name: 'Education & Mentorship',
       href: '/education',
       tag: '1-on-1 Academic Tutoring',
-      description: 'Foundational K-12, Cambridge, IB, and undergraduate STEM tutoring.',
+      description: 'Dedicated 1-on-1 student tutoring for K-12, Cambridge, IB, and college STEM.',
       icon: GraduationCap,
     },
     {

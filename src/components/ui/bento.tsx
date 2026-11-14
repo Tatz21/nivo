@@ -126,11 +126,11 @@ export default function FUIBentoGridDark() {
           eyebrow={
             <>
               <GraduationCap className="w-3.5 h-3.5" />
-              <span>Pillar I • Academic Education</span>
+              <span>Pillar I • 1-on-1 Student Tutoring</span>
             </>
           }
-          title="Foundational & Higher Education Mentorship"
-          description="Personalized 1-on-1 tutoring from primary school through college. Tailored diagnostic loops for Cambridge, IB, CBSE, ICSE, and competitive examinations."
+          title="Dedicated One-to-One Academic Teaching"
+          description="One verified educator dedicated to one student. Tailored diagnostic roadmaps for Cambridge, IB, CBSE, and university STEM examinations with undivided individual attention."
           graphic={
             <div 
               className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-700"
@@ -141,13 +141,13 @@ export default function FUIBentoGridDark() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
               <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 dark:bg-black/60 backdrop-blur-md text-[11px] font-semibold text-zinc-900 dark:text-white border border-black/5 dark:border-white/10">
                 <CheckCircle2 className="w-3 h-3 text-red-600" />
-                <span>1-on-1 Diagnostic Match</span>
+                <span>Private 1:1 Teaching</span>
               </div>
             </div>
           }
           fade={["bottom"]}
           href="/education"
-          ctaText="Explore Curriculum"
+          ctaText="Explore 1-on-1 Programs"
           className="lg:col-span-3 lg:rounded-tl-4xl"
         />
 

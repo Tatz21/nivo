@@ -21,19 +21,23 @@ export default function EducationPage() {
             <GraduationCap className="w-3.5 h-3.5 text-red-600 dark:text-red-400" />
             <span className="font-semibold text-zinc-900 dark:text-white">Pillar I</span>
             <span className="text-zinc-400 dark:text-zinc-600">•</span>
-            <span>Education & Academic Mentorship</span>
+            <span>Dedicated 1-on-1 Student Tutoring</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-zinc-950 dark:text-white tracking-tight leading-tight">
-            Nurturing Curiosity. <br />
-            <span className="text-red-600 dark:text-red-500">Mastering Concepts.</span>
+            One-to-One Academic Teaching. <br />
+            <span className="text-red-600 dark:text-red-500">Mastery Built Around the Student.</span>
           </h1>
 
           <p className="text-base sm:text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed">
-            Our education division pairs learners with vetted, passionate educators. We provide structured instruction built on analytical understanding, active inquiry, and patient diagnostic support.
+            No crowded coaching halls. No one-size-fits-all lecture broadcasts. Nivó pairs each student with a dedicated, background-verified educator for private one-to-one academic tuition. Every lesson adapts entirely to the student&apos;s unique learning pace, school board syllabus, and conceptual questions.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 text-xs text-zinc-600 dark:text-zinc-400 pt-2 font-medium">
+            <div className="flex items-center gap-1.5">
+              <GraduationCap className="w-4 h-4 text-red-600 dark:text-red-400" />
+              <span>Dedicated 1:1 Teacher-Student Pairing</span>
+            </div>
             <div className="flex items-center gap-1.5">
               <Monitor className="w-4 h-4 text-red-600 dark:text-red-400" />
               <span>Interactive Live Online (Global)</span>

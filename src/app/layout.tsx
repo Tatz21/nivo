@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     default: 'Nivó | Modern Education, Training, Recruitment & Resume Studio',
     template: '%s | Nivó'
   },
-  description: 'Operating since 2020. Nivó bridges foundational academic tutoring, industry-focused engineering & AI training, institutional educator recruitment, and our first-party Resume Studio.',
+  description: 'Operating since 2020. Nivó bridges dedicated one-to-one academic student tutoring, industry-focused engineering cohorts, institutional educator recruitment, and our first-party Resume Studio.',
   manifest: '/manifest.webmanifest',
   appleWebApp: {
     capable: true,
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     url: 'https://nivo.education',
     siteName: 'Nivó',
     title: 'Nivó | Modern Education, Training, Recruitment & Resume Studio',
-    description: 'Operating since 2020. Connecting learners, professionals, and institutions with verified academic faculty and first-party career tooling.',
+    description: 'Operating since 2020. Connecting students with dedicated 1-on-1 educators, engineering professionals with mentor cohorts, and institutions with verified faculty.',
   },
   robots: {
     index: true,

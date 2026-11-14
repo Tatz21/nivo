@@ -62,17 +62,17 @@ export default function AudiencePathwaySection() {
                     <GraduationCap className="w-6 h-6" />
                   </div>
                   <span className="text-[11px] font-bold text-red-600 dark:text-red-400 px-3 py-1 rounded-full bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/40">
-                    School & College
+                    Dedicated 1-on-1 Teaching
                   </span>
                 </div>
 
                 {/* Title & Target Syllabus */}
                 <div>
                   <h3 className="text-xl font-bold text-zinc-950 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors leading-snug">
-                    Foundational Learning & Exam Prep
+                    One-to-One Student Tutoring
                   </h3>
                   <p className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 mt-1">
-                    Cambridge IGCSE, A-Levels, IB Diploma, CBSE, and Undergraduate STEM
+                    Private instruction for Cambridge, IB, CBSE, and University STEM
                   </p>
                 </div>
 
@@ -91,15 +91,15 @@ export default function AudiencePathwaySection() {
                 </div>
 
                 <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
-                  We work with students who need clarity on tough concepts rather than quick-fix memorization. Our tutors break complex topics into intuitive steps so students build genuine academic confidence.
+                  One verified educator dedicated to one student. We identify conceptual roadblocks, break down complex derivations step by step, and tailor session pacing entirely to how the student learns best. Zero crowd distractions.
                 </p>
 
                 {/* Key Points */}
                 <div className="pt-3 border-t border-zinc-100 dark:border-white/10 space-y-2">
                   {[
-                    '1-on-1 private mentoring with specialized university graduates',
-                    'Systematic past-paper analysis and structured exam techniques',
-                    'Customized problem sets aligned directly with your board syllabus'
+                    'One teacher to one student pairing with undivided attention',
+                    'Personalized diagnostic roadmap targeting individual concept gaps',
+                    'Direct, unhurried past-paper problem sets and exam strategy'
                   ].map((pt, idx) => (
                     <div key={idx} className="flex items-start gap-2 text-xs text-zinc-700 dark:text-zinc-300">
                       <CheckCircle2 className="w-3.5 h-3.5 text-red-600 dark:text-red-400 shrink-0 mt-0.5" />
@@ -115,7 +115,7 @@ export default function AudiencePathwaySection() {
                   href="/education"
                   className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs font-semibold text-zinc-900 dark:text-white bg-zinc-100 dark:bg-zinc-900 hover:bg-red-600 hover:text-white dark:hover:bg-red-600 transition-all border border-zinc-200 dark:border-white/10"
                 >
-                  <span>Explore Academic Tutoring</span>
+                  <span>Explore 1-on-1 Student Tutoring</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>

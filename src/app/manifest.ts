@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'Nivó: Modern Education & Career Platform',
     short_name: 'Nivó',
-    description: 'Foundational academic tutoring, tech cohorts, educator recruitment, and ATS Resume Studio.',
+    description: 'Dedicated 1-on-1 student academic tutoring, tech cohorts, educator recruitment, and ATS Resume Studio.',
     start_url: '/',
     display: 'standalone',
     background_color: '#09090B',
@@ -32,3 +32,4 @@ export default function manifest(): MetadataRoute.Manifest {
     categories: ['education', 'productivity', 'business'],
   };
 }
+

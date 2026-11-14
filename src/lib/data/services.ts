@@ -13,70 +13,70 @@ export interface EducationService {
 export const EDUCATION_SERVICES: EducationService[] = [
   {
     slug: 'foundational-and-k12',
-    title: 'Foundational & K-12 Academic Learning',
-    subtitle: 'Kindergarten through higher-secondary conceptual mastery',
+    title: '1-on-1 Foundational & K-12 Student Tuition',
+    subtitle: 'Private one-to-one coaching from early childhood through 12th standard',
     category: 'School Education',
-    description: 'Personalized academic coaching structured to build genuine subject intuition, rigorous examination readiness, and disciplined study habits from early childhood through 12th standard.',
+    description: 'Dedicated one-to-one academic coaching designed around the individual child. We replace the stress of crowded tuition centers with patient concept instruction, personalized diagnostic roadmaps, and disciplined study habits.',
     features: [
-      'Early childhood foundational literacy, numeracy & cognitive development',
-      'Primary & middle school curriculum alignment (Math, Science, Social Studies, Languages)',
-      'Secondary (9th-10th) board examination deep prep & problem sets',
-      'Higher secondary (11th-12th) specialized streams (Science, Commerce, Humanities)',
-      'Periodic benchmark assessments & personalized feedback loops'
+      'One dedicated educator to one student with undivided attention',
+      'Personalized learning pacing matched directly to your child\'s speed',
+      'Primary and middle school conceptual foundations (Math, Science, Social Studies, English)',
+      'Cambridge IGCSE, Cambridge A-Levels, IB Diploma, and CBSE board exam prep',
+      'Regular one-on-one progress debriefs with parents on conceptual milestones'
     ],
-    audience: ['Kindergarten to 12th-grade students', 'Parents seeking focused one-on-one mentorship'],
+    audience: ['Kindergarten to 12th-grade students', 'Parents seeking dedicated one-on-one private tuition'],
     modes: ['One-on-one Online Mentoring', 'Dedicated Home Tuition (selected zones)', 'Hybrid Academic Sessions'],
     icon: 'GraduationCap'
   },
   {
     slug: 'undergraduate-and-college',
-    title: 'Undergraduate & College Subject Support',
-    subtitle: 'Deep-dive academic mentorship for university courses',
+    title: '1-on-1 Undergraduate & College STEM Support',
+    subtitle: 'Private one-to-one subject mentorship for demanding university courses',
     category: 'Higher Education',
-    description: 'Advanced academic support designed for university scholars in engineering, computer science, commerce, economics, pure sciences, and humanities.',
+    description: 'Personalized one-to-one technical tutoring for university students tackling advanced calculus, engineering mechanics, computer science theory, physics, and economics.',
     features: [
-      'Core university syllabus breakdown & exam answer formatting',
-      'Advanced calculus, statistics, engineering physics & chemistry',
-      'Programming fundamentals, data structures & computational theory',
-      'Financial accounting, business economics & corporate taxation',
-      'Assignment support & research methodology guidance'
+      'One-on-one deep dives into complex university theorem proofs and problem sets',
+      'Direct code debugging and algorithmic walkthroughs in data structures',
+      'Advanced calculus, differential equations, and computational mathematics',
+      'University past-paper walkthroughs and exam strategy guidance',
+      'Dedicated faculty matching based on your university degree track'
     ],
-    audience: ['B.Tech/B.Sc/B.Com/BBA undergraduates', 'Post-graduate candidates seeking subject clarity'],
-    modes: ['Live Interactive Online Cohorts', '1:1 Expert Mentorship'],
+    audience: ['B.Tech, B.Sc, B.Com, and BBA undergraduates', 'Post-graduate candidates seeking subject clarity'],
+    modes: ['1:1 Expert Live Online Mentorship', 'Private Study Cohorts'],
     icon: 'BookOpen'
   },
   {
     slug: 'languages-and-creative-arts',
-    title: 'Languages & Creative Arts Academy',
-    subtitle: 'Multilingual proficiency and expressive arts education',
+    title: '1-on-1 Languages & Creative Arts Academy',
+    subtitle: 'Individualized instruction in world languages and expressive arts',
     category: 'Creative & Global Skills',
-    description: 'Immersive instruction in global languages alongside fine arts, drawing, classical & contemporary dance, and instrumental & vocal music taught by practicing artists.',
+    description: 'Immersive one-to-one instruction in global languages alongside fine arts, drawing, classical and contemporary dance, and instrumental music taught by practicing artists.',
     features: [
-      'Spoken & certified foreign language mastery (French, German, Spanish, Japanese)',
+      'One-on-one conversational foreign language coaching (French, German, Spanish, Japanese)',
       'English fluency, phonetics, and academic writing labs',
-      'Fine arts, sketching, acrylics, watercolours & visual perspective',
-      'Classical & contemporary vocal and instrumental tuition (Keyboard, Guitar, Violin)',
-      'Performance arts & foundational dance disciplines'
+      'Fine arts, sketching, acrylics, watercolours, and visual perspective',
+      'Private vocal and instrumental tuition (Keyboard, Guitar, Violin)',
+      'Personalized artistic portfolio development for creative school admissions'
     ],
-    audience: ['School learners', 'Adult enthusiasts & aspiring creative professionals'],
-    modes: ['Studio Workshops', 'Online Guided Masterclasses', 'Private Tuition'],
+    audience: ['School learners seeking private arts tuition', 'Adult enthusiasts and aspiring creative professionals'],
+    modes: ['Studio Workshops', 'Online Guided Masterclasses', 'Private 1:1 Tuition'],
     icon: 'Palette'
   },
   {
     slug: 'competitive-exam-prep',
-    title: 'Competitive Examination Preparation',
-    subtitle: 'Focused exam strategy and high-frequency problem workshops',
+    title: '1-on-1 Competitive Examination Coaching',
+    subtitle: 'Individualized exam strategy and high-frequency problem walkthroughs',
     category: 'Competitive Prep',
-    description: 'Structured preparation programs led by veteran educators focused exclusively on syllabus mastery, time management, mock performance analytics, and error auditing.',
+    description: 'Targeted one-to-one exam preparation led by veteran educators. Focus exclusively on the specific problem types, time-budgeting weaknesses, and error patterns of the individual student.',
     features: [
+      'One-to-one diagnostic audit of previous mock scores and error patterns',
       'Targeted topic breakdowns and high-yield question patterns',
-      'Timed mock simulations with diagnostic performance reviews',
-      'Formula synthesis notes & memory retention frameworks',
-      'Small batch cohorts to ensure personal doubt resolution',
-      'Psychological resilience and stress-reduction exam strategies'
+      'Timed mock simulations with personal performance reviews',
+      'Formula synthesis notes and memory retention frameworks',
+      'Stress reduction and focused psychological exam strategies'
     ],
-    audience: ['Aspirants targeting national & regional entrance exams'],
-    modes: ['Rigorous Online Bootcamps', 'Weekend Intensives'],
+    audience: ['Students targeting national, regional, and international entrance exams'],
+    modes: ['Rigorous 1:1 Online Bootcamps', 'Weekend Intensives'],
     icon: 'Target'
   }
 ];

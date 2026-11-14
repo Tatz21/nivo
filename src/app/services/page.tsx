@@ -41,8 +41,8 @@ export default function ServicesPage() {
               <GraduationCap className="w-6 h-6" />
             </div>
             <div>
-              <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">Education & Training</h2>
-              <p className="text-xs text-zinc-600 dark:text-zinc-400">Kindergarten to university subject coaching and exam prep</p>
+              <h2 className="text-2xl font-bold text-zinc-950 dark:text-white">Dedicated 1-on-1 Academic Tutoring</h2>
+              <p className="text-xs text-zinc-600 dark:text-zinc-400">Private one-to-one student coaching for K-12, Cambridge, IB, and university STEM</p>
             </div>
           </div>
           <Link href="/education" className="text-xs font-semibold text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 flex items-center gap-1">

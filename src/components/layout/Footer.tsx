@@ -50,14 +50,14 @@ export default function Footer() {
           <div className="space-y-3">
             <div className="flex items-center gap-1.5 text-zinc-950 dark:text-white font-semibold text-xs tracking-wider uppercase">
               <GraduationCap className="w-4 h-4 text-red-600 dark:text-red-400" />
-              <span>Education</span>
+              <span>1-on-1 Education</span>
             </div>
             <ul className="space-y-2 text-xs">
               <li><Link href="/education/foundational-and-k12" className="hover:text-red-600 dark:hover:text-white transition-colors">Foundational & K-12</Link></li>
               <li><Link href="/education/undergraduate-and-college" className="hover:text-red-600 dark:hover:text-white transition-colors">College & Degree Mentoring</Link></li>
               <li><Link href="/education/languages-and-creative-arts" className="hover:text-red-600 dark:hover:text-white transition-colors">Languages & Creative Arts</Link></li>
               <li><Link href="/education/competitive-exam-prep" className="hover:text-red-600 dark:hover:text-white transition-colors">Competitive Exam Prep</Link></li>
-              <li><Link href="/education" className="text-red-600 dark:text-red-400 hover:underline font-semibold">Explore All Education →</Link></li>
+              <li><Link href="/education" className="text-red-600 dark:text-red-400 hover:underline font-semibold">Explore 1-on-1 Tutoring →</Link></li>
             </ul>
           </div>
 

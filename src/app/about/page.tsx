@@ -94,13 +94,13 @@ export default function AboutPage() {
     {
       audience: 'To Our Students',
       promise:
-        'You will always have a patient educator who listens, never shames you for asking basic questions, and helps you discover why a concept makes sense.',
+        'You will always have a dedicated one-to-one educator who listens patiently, never shames you for asking basic questions, and adapts their teaching to your personal pace.',
       icon: GraduationCap,
     },
     {
       audience: 'To Parents',
       promise:
-        'We provide honest, transparent updates on your child’s learning pace. If a student needs extra time on a foundational topic, we tell you directly.',
+        'We provide honest, transparent updates on your child\'s learning pace. In our one-to-one sessions, every minute is tailored to their specific curriculum and doubt clearance.',
       icon: HeartHandshake,
     },
     {
@@ -153,11 +153,11 @@ export default function AboutPage() {
           </div>
 
           <p>
-            In early 2020, three senior educators and a software engineer began tutoring small groups of students in Bangalore who were struggling with higher-level Cambridge and CBSE mathematics. We noticed a consistent pattern: the students were bright and dedicated, but their previous instruction had treated learning as a series of disconnected tricks to pass tomorrow’s quiz.
+            In early 2020, three senior educators and a software engineer began offering private one-to-one tutoring in Bangalore for students struggling with higher-level Cambridge and CBSE mathematics. We noticed a consistent pattern: in crowded classrooms and mass coaching centers, students were reluctant to ask questions for fear of looking silly, and teachers lacked the time to diagnose individual learning gaps.
           </p>
 
           <p>
-            When we slowed down, returned to the geometric and physical origins of calculus, and showed them how vectors behave in real space, their exam anxiety began to disappear. They were no longer trying to memorize fifty problem variations; they were deriving solutions from first principles.
+            When we dedicated one teacher to one student, slowed down to the geometric and physical origins of calculus, and showed them how vectors behave in real space, their exam anxiety disappeared. They were no longer trying to memorize fifty problem variations; they were deriving solutions from first principles with direct mentor support.
           </p>
 
           <p>
