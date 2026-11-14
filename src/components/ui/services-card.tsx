@@ -252,7 +252,7 @@ export interface Service {
   image?: string;
 }
 
-// Sub-component for individual cards
+// Sub-component for individual cards (Architectural Blueprint Manifesto Style)
 const ServiceCard = ({ service, index }: { service: Service; index: number }) => {
   const cardVariants = {
     hidden: { opacity: 0, y: 40 },
@@ -271,30 +271,30 @@ const ServiceCard = ({ service, index }: { service: Service; index: number }) =>
       variants={cardVariants}
       whileHover={{ y: -6, transition: { duration: 0.2 } }}
       className={cn(
-        "group relative flex min-h-[440px] w-full flex-col justify-between overflow-hidden rounded-3xl p-7 sm:p-8 transition-all duration-300",
+        "group relative flex min-h-[440px] w-full flex-col justify-between overflow-hidden rounded-3xl p-8 transition-all duration-300 text-left",
         "bg-white dark:bg-zinc-950/85 backdrop-blur-xl border border-zinc-200 dark:border-white/10 shadow-sm hover:shadow-2xl hover:border-red-500/40 dark:hover:border-red-500/40",
+        "border-l-4 border-l-red-600"
       )}
     >
-      {/* Top Crimson Accent Line */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-red-600/30 to-transparent group-hover:via-red-600 transition-all duration-500" />
+      {/* Blueprint Corner Registration Crosshairs (+) */}
+      <span className="absolute top-3 left-3 text-zinc-400 dark:text-zinc-600 font-mono text-[10px] select-none pointer-events-none">+</span>
+      <span className="absolute top-3 right-3 text-zinc-400 dark:text-zinc-600 font-mono text-[10px] select-none pointer-events-none">+</span>
+      <span className="absolute bottom-3 left-3 text-zinc-400 dark:text-zinc-600 font-mono text-[10px] select-none pointer-events-none">+</span>
+      <span className="absolute bottom-3 right-3 text-zinc-400 dark:text-zinc-600 font-mono text-[10px] select-none pointer-events-none">+</span>
+
+      {/* Massive Architectural Background Watermark Number */}
+      <span className="absolute -bottom-6 -right-2 text-8xl font-mono font-extrabold text-zinc-900/[0.04] dark:text-white/[0.05] pointer-events-none select-none z-0">
+        {service.number}
+      </span>
 
       {/* Ambient Crimson Aura on Hover */}
       <div className="absolute -top-12 -right-12 w-44 h-44 bg-red-600/10 dark:bg-red-600/15 rounded-full blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-700" />
 
-      {/* Subtle Dot Pattern */}
-      <div 
-        className="absolute inset-0 opacity-[0.04] dark:opacity-[0.06] pointer-events-none"
-        style={{
-          backgroundImage: `radial-gradient(circle, #dc2626 1px, transparent 1px)`,
-          backgroundSize: '20px 20px',
-        }}
-      />
-
       {/* Card Header: Index & Tag & Icon */}
-      <div className="relative z-10 flex flex-col items-start text-left space-y-5">
+      <div className="relative z-10 flex flex-col items-start space-y-4">
         <div className="w-full flex items-center justify-between">
-          <span className="text-xs font-mono font-bold text-red-600 dark:text-red-400 px-2.5 py-1 rounded-full bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/50">
-            // {service.number}
+          <span className="text-xs font-mono font-bold text-red-600 dark:text-red-400 px-3 py-1 rounded-full bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/50">
+            // PRINCIPLE {service.number}
           </span>
           {service.tag && (
             <span className="text-[11px] font-semibold text-zinc-700 dark:text-zinc-300 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-white/10">
@@ -309,9 +309,9 @@ const ServiceCard = ({ service, index }: { service: Service; index: number }) =>
       </div>
 
       {/* Card Content & Proof Points */}
-      <div className="relative z-10 space-y-4 pt-6">
+      <div className="relative z-10 space-y-4 pt-4">
         <div className="space-y-2">
-          <h3 className="text-lg sm:text-xl font-bold text-zinc-950 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-500 transition-colors leading-snug">
+          <h3 className="text-lg sm:text-xl font-bold text-zinc-950 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors leading-snug">
             {service.title}
           </h3>
           <p className="text-xs sm:text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 font-normal">
