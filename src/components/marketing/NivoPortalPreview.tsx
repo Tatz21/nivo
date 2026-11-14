@@ -17,9 +17,11 @@ import {
   Presentation,
   Binary
 } from 'lucide-react';
+import LottiePlayer from '@/components/animations/LottiePlayer';
+import studentAnimationData from '@/lib/animations/student_transparent.json';
 
 type TabKey = 'education' | 'courses' | 'staffing' | 'resume';
-type ClassroomViewMode = '3d-scene' | 'whiteboard';
+type ClassroomViewMode = '3d-lottie' | 'whiteboard' | '3d-studio';
 
 interface PillarTab {
   id: TabKey;
@@ -118,7 +120,7 @@ function ClassroomCursor({
 
 export default function NivoPortalPreview() {
   const [activeTab, setActiveTab] = useState<TabKey>('education');
-  const [viewMode, setViewMode] = useState<ClassroomViewMode>('3d-scene');
+  const [viewMode, setViewMode] = useState<ClassroomViewMode>('3d-lottie');
   const [isPaused, setIsPaused] = useState(false);
 
   // 3D Parallax Tilt state
@@ -159,7 +161,24 @@ export default function NivoPortalPreview() {
     setTilt({ rotateX: 0, rotateY: 0 });
   };
 
-  // Cursors coordinates for 3D Holographic Scene (calibrated to the 3D hologram screen)
+  // Cursors coordinates for 3D Lottie Scene (calibrated to the floating pencil, student, idea bulb, books)
+  const lottieTeacherPositions = [
+    { x: 135, y: 55, isClicking: false },  // Pointing to idea lightbulb
+    { x: 105, y: 92, isClicking: true },   // Directing the floating 3D pencil
+    { x: 180, y: 70, isClicking: true },   // Highlighting concept speech balloon
+    { x: 235, y: 105, isClicking: false }, // Guiding student through derivative
+    { x: 155, y: 135, isClicking: true },  // Validating calculus equation
+  ];
+
+  const lottieStudentPositions = [
+    { x: 310, y: 125, isClicking: false }, // Student analyzing concept
+    { x: 275, y: 110, isClicking: false }, // Observing teacher demonstration
+    { x: 250, y: 130, isClicking: true },  // Computing on digital pad
+    { x: 220, y: 125, isClicking: true },  // Substituting t = 3 into derivative
+    { x: 295, y: 140, isClicking: false }, // Reviewing confirmed score (+100 XP)
+  ];
+
+  // Cursors coordinates for 3D CGI Studio Scene
   const scene3DTeacherPositions = [
     { x: 120, y: 70, isClicking: false },  // Pointing to floating calculus curve
     { x: 190, y: 85, isClicking: true },   // Highlighting red holographic atom model
@@ -193,11 +212,15 @@ export default function NivoPortalPreview() {
     { x: 270, y: 172, isClicking: false },
   ];
 
-  const teacherPos = viewMode === '3d-scene'
+  const teacherPos = viewMode === '3d-lottie'
+    ? (lottieTeacherPositions[eduStep] || lottieTeacherPositions[0])
+    : viewMode === '3d-studio'
     ? (scene3DTeacherPositions[eduStep] || scene3DTeacherPositions[0])
     : (wbTeacherPositions[eduStep] || wbTeacherPositions[0]);
 
-  const studentPos = viewMode === '3d-scene'
+  const studentPos = viewMode === '3d-lottie'
+    ? (lottieStudentPositions[eduStep] || lottieStudentPositions[0])
+    : viewMode === '3d-studio'
     ? (scene3DStudentPositions[eduStep] || scene3DStudentPositions[0])
     : (wbStudentPositions[eduStep] || wbStudentPositions[0]);
 
@@ -294,15 +317,15 @@ export default function NivoPortalPreview() {
               {/* View Mode Switcher Pills */}
               <div className="flex items-center gap-1 bg-zinc-200/70 dark:bg-zinc-900 p-0.5 rounded-lg border border-zinc-300 dark:border-white/10 text-[10px]">
                 <button
-                  onClick={() => setViewMode('3d-scene')}
+                  onClick={() => setViewMode('3d-lottie')}
                   className={`px-2 py-0.5 rounded-md font-semibold transition-colors flex items-center gap-1 cursor-pointer ${
-                    viewMode === '3d-scene'
+                    viewMode === '3d-lottie'
                       ? 'bg-white dark:bg-zinc-800 text-red-600 dark:text-red-400 shadow-xs'
                       : 'text-zinc-600 dark:text-zinc-400'
                   }`}
                 >
                   <Sparkles className="w-2.5 h-2.5" />
-                  <span>3D View</span>
+                  <span>3D Animation</span>
                 </button>
                 <button
                   onClick={() => setViewMode('whiteboard')}
@@ -314,6 +337,17 @@ export default function NivoPortalPreview() {
                 >
                   <Presentation className="w-2.5 h-2.5" />
                   <span>Whiteboard</span>
+                </button>
+                <button
+                  onClick={() => setViewMode('3d-studio')}
+                  className={`px-2 py-0.5 rounded-md font-semibold transition-colors flex items-center gap-1 cursor-pointer ${
+                    viewMode === '3d-studio'
+                      ? 'bg-white dark:bg-zinc-800 text-red-600 dark:text-red-400 shadow-xs'
+                      : 'text-zinc-600 dark:text-zinc-400'
+                  }`}
+                >
+                  <Layers className="w-2.5 h-2.5" />
+                  <span>Studio Render</span>
                 </button>
               </div>
 
@@ -330,9 +364,9 @@ export default function NivoPortalPreview() {
             </div>
 
             {/* Container for Cursors + 3D View or Whiteboard */}
-            <div className="relative min-h-[210px] sm:min-h-[225px] rounded-2xl bg-zinc-950 border border-zinc-200 dark:border-white/10 overflow-hidden shadow-inner">
+            <div className="relative min-h-[235px] sm:min-h-[245px] rounded-2xl bg-zinc-950 border border-zinc-200 dark:border-white/10 overflow-hidden shadow-inner">
               
-              {/* Collaborative Cursors (Rendered on top of either 3D Scene or Whiteboard) */}
+              {/* Collaborative Cursors (Rendered on top of 3D Scene or Whiteboard) */}
               <ClassroomCursor
                 x={teacherPos.x}
                 y={teacherPos.y}
@@ -352,33 +386,45 @@ export default function NivoPortalPreview() {
               />
 
               {/* ---------------------------------------------------- */}
-              {/* MODE 1: 3D GRAPHICS SCENE OF TEACHER TEACHING STUDENT */}
+              {/* MODE 1: 3D LOTTIE VECTOR CLASSROOM (TEACHER & STUDENT) */}
               {/* ---------------------------------------------------- */}
-              {viewMode === '3d-scene' && (
-                <div className="relative w-full h-[225px] overflow-hidden group">
-                  {/* High-Resolution 3D CGI Render Image */}
-                  <img
-                    src="/brand/3d-classroom-mentor.jpg"
-                    alt="3D Classroom — Teacher Teaching Student"
-                    className="w-full h-full object-cover object-center filter contrast-[1.05] brightness-95 transition-transform duration-700 group-hover:scale-105"
+              {viewMode === '3d-lottie' && (
+                <div className="relative w-full h-[235px] sm:h-[245px] overflow-hidden flex items-center justify-center bg-gradient-to-b from-zinc-950 via-zinc-900 to-black group">
+                  {/* Subtle red coordinate dot grid */}
+                  <div 
+                    className="absolute inset-0 opacity-[0.14] pointer-events-none"
+                    style={{
+                      backgroundImage: `radial-gradient(circle, #dc2626 1px, transparent 1px)`,
+                      backgroundSize: '18px 18px',
+                    }}
                   />
 
-                  {/* Holographic Crimson Ambient Lighting Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
-                  <div className="absolute inset-0 bg-radial from-red-600/15 via-transparent to-transparent pointer-events-none" />
+                  {/* Soft Ambient Crimson Spotlight */}
+                  <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-64 h-36 bg-red-600/20 rounded-full blur-3xl pointer-events-none" />
 
-                  {/* Floating Holographic Interactive Status Badges */}
-                  <div className="absolute top-2.5 left-3 flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-black/70 backdrop-blur-md border border-red-500/30 text-white text-[10px]">
-                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping" />
-                    <span className="font-mono text-red-400 font-semibold">3D Hologram: Active</span>
+                  {/* The Live Lottie Classroom Animation */}
+                  <div className="relative w-full h-full flex items-center justify-center pointer-events-none -mt-2">
+                    <LottiePlayer
+                      animationData={studentAnimationData}
+                      loop
+                      autoplay
+                      isPaused={isPaused}
+                      className="w-[260px] h-[260px] sm:w-[285px] sm:h-[285px] filter drop-shadow-[0_8px_20px_rgba(220,38,38,0.3)] transition-transform duration-500 group-hover:scale-105"
+                    />
                   </div>
 
-                  <div className="absolute top-2.5 right-3 px-2 py-0.5 rounded-full bg-black/70 backdrop-blur-md border border-white/10 text-white text-[10px] font-mono">
+                  {/* Floating Holographic Interactive Status Badges */}
+                  <div className="absolute top-2.5 left-3 flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-black/75 backdrop-blur-md border border-red-500/30 text-white text-[10px]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping" />
+                    <span className="font-mono text-red-400 font-semibold">3D Classroom: Live</span>
+                  </div>
+
+                  <div className="absolute top-2.5 right-3 px-2 py-0.5 rounded-full bg-black/75 backdrop-blur-md border border-white/10 text-white text-[10px] font-mono">
                     Step {eduStep + 1} of 5
                   </div>
 
                   {/* Dynamic Concept Dialogue Floating in 3D Space */}
-                  <div className="absolute bottom-3 left-3 right-3 p-2.5 rounded-xl bg-black/80 backdrop-blur-md border border-white/15 text-white flex items-center justify-between">
+                  <div className="absolute bottom-2.5 left-3 right-3 p-2.5 rounded-xl bg-black/85 backdrop-blur-md border border-white/15 text-white flex items-center justify-between shadow-lg">
                     <div className="space-y-0.5">
                       <div className="text-[9px] uppercase font-bold tracking-wider text-red-400 flex items-center gap-1">
                         <Sparkles className="w-2.5 h-2.5" />
@@ -403,10 +449,61 @@ export default function NivoPortalPreview() {
               )}
 
               {/* ---------------------------------------------------- */}
-              {/* MODE 2: STEP-BY-STEP MATHEMATICAL WHITEBOARD */}
+              {/* MODE 2: 3D CGI STUDIO RENDER */}
+              {/* ---------------------------------------------------- */}
+              {viewMode === '3d-studio' && (
+                <div className="relative w-full h-[235px] sm:h-[245px] overflow-hidden group">
+                  {/* High-Resolution 3D CGI Render Image */}
+                  <img
+                    src="/brand/3d-classroom-mentor.jpg"
+                    alt="3D Classroom — Teacher Teaching Student"
+                    className="w-full h-full object-cover object-center filter contrast-[1.05] brightness-95 transition-transform duration-700 group-hover:scale-105"
+                  />
+
+                  {/* Holographic Crimson Ambient Lighting Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
+                  <div className="absolute inset-0 bg-radial from-red-600/15 via-transparent to-transparent pointer-events-none" />
+
+                  {/* Floating Holographic Interactive Status Badges */}
+                  <div className="absolute top-2.5 left-3 flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-black/70 backdrop-blur-md border border-red-500/30 text-white text-[10px]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping" />
+                    <span className="font-mono text-red-400 font-semibold">3D Studio: Active</span>
+                  </div>
+
+                  <div className="absolute top-2.5 right-3 px-2 py-0.5 rounded-full bg-black/70 backdrop-blur-md border border-white/10 text-white text-[10px] font-mono">
+                    Step {eduStep + 1} of 5
+                  </div>
+
+                  {/* Dynamic Concept Dialogue Floating in 3D Space */}
+                  <div className="absolute bottom-2.5 left-3 right-3 p-2.5 rounded-xl bg-black/80 backdrop-blur-md border border-white/15 text-white flex items-center justify-between">
+                    <div className="space-y-0.5">
+                      <div className="text-[9px] uppercase font-bold tracking-wider text-red-400 flex items-center gap-1">
+                        <Sparkles className="w-2.5 h-2.5" />
+                        <span>
+                          {eduStep === 0 && 'Teacher: Introducing Motion Vector Function s(t)'}
+                          {eduStep === 1 && 'Teacher: Projecting Derivative v(t) = 6t + 2 on Hologram'}
+                          {eduStep === 2 && 'Teacher Prompt: Evaluating Instantaneous Rate at t = 3'}
+                          {eduStep === 3 && 'Student Calculation: Computing v(3) = 20 m/s'}
+                          {eduStep === 4 && 'Concept Mastered: First-Principles Physics & Calculus'}
+                        </span>
+                      </div>
+                      <div className="text-xs font-mono font-bold text-zinc-100">
+                        {eduStep < 3 ? 's(t) = 3t² + 2t - 5  →  v(t) = 6t + 2' : 'v(3) = 6(3) + 2 = 20 m/s  [✓ Confirmed]'}
+                      </div>
+                    </div>
+
+                    <span className="px-2 py-1 rounded bg-red-600 text-white text-[10px] font-bold tracking-wide uppercase font-mono shadow-md shrink-0">
+                      {eduStep === 4 ? '+100 XP' : 'Live Math'}
+                    </span>
+                  </div>
+                </div>
+              )}
+
+              {/* ---------------------------------------------------- */}
+              {/* MODE 3: STEP-BY-STEP MATHEMATICAL WHITEBOARD */}
               {/* ---------------------------------------------------- */}
               {viewMode === 'whiteboard' && (
-                <div className="relative p-4 h-[225px] overflow-hidden font-mono text-xs text-zinc-100 space-y-2">
+                <div className="relative p-4 h-[235px] sm:h-[245px] overflow-hidden font-mono text-xs text-zinc-100 space-y-2">
                   {/* Subtle dot grid pattern */}
                   <div 
                     className="absolute inset-0 opacity-[0.10] pointer-events-none"
