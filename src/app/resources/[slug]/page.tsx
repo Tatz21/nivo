@@ -9,8 +9,6 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-export const dynamicParams = false;
-
 export async function generateStaticParams() {
   return RESOURCE_ARTICLES.map((a) => ({
     slug: a.slug,
@@ -28,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function ResourceDetailPage({ params }: PageProps) {
+async function ArticleView({ params }: PageProps) {
   const { slug } = await params;
   const article = RESOURCE_ARTICLES.find((a) => a.slug === slug);
 
@@ -172,5 +170,13 @@ export default async function ResourceDetailPage({ params }: PageProps) {
       </div>
 
     </div>
+  );
+}
+
+export default function ResourceDetailPage(props: PageProps) {
+  return (
+    <React.Suspense fallback={<div className="pt-32 pb-24 max-w-4xl mx-auto px-4 text-center text-zinc-500">Loading guide...</div>}>
+      <ArticleView {...props} />
+    </React.Suspense>
   );
 }

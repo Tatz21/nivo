@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function RecruitmentDetailPage({ params }: PageProps) {
+async function RecruitmentContentView({ params }: PageProps) {
   const { service } = await params;
   const item = RECRUITMENT_SERVICES.find((r) => r.slug === service);
 
@@ -126,5 +126,13 @@ export default async function RecruitmentDetailPage({ params }: PageProps) {
       </div>
 
     </div>
+  );
+}
+
+export default function RecruitmentDetailPage(props: PageProps) {
+  return (
+    <React.Suspense fallback={<div className="pt-32 pb-24 max-w-5xl mx-auto px-4 text-center text-zinc-500">Loading service details...</div>}>
+      <RecruitmentContentView {...props} />
+    </React.Suspense>
   );
 }

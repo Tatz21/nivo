@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function ProfessionalCourseDetailPage({ params }: PageProps) {
+async function ProfessionalCourseContentView({ params }: PageProps) {
   const { course } = await params;
   const item = PROFESSIONAL_COURSES.find((c) => c.slug === course);
 
@@ -152,5 +152,13 @@ export default async function ProfessionalCourseDetailPage({ params }: PageProps
       </div>
 
     </div>
+  );
+}
+
+export default function ProfessionalCourseDetailPage(props: PageProps) {
+  return (
+    <React.Suspense fallback={<div className="pt-32 pb-24 max-w-5xl mx-auto px-4 text-center text-zinc-500">Loading course curriculum...</div>}>
+      <ProfessionalCourseContentView {...props} />
+    </React.Suspense>
   );
 }

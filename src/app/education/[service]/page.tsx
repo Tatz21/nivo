@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function EducationDetailPage({ params }: PageProps) {
+async function EducationContentView({ params }: PageProps) {
   const { service } = await params;
   const item = EDUCATION_SERVICES.find((s) => s.slug === service);
 
@@ -121,5 +121,13 @@ export default async function EducationDetailPage({ params }: PageProps) {
       </div>
 
     </div>
+  );
+}
+
+export default function EducationDetailPage(props: PageProps) {
+  return (
+    <React.Suspense fallback={<div className="pt-32 pb-24 max-w-5xl mx-auto px-4 text-center text-zinc-500">Loading program details...</div>}>
+      <EducationContentView {...props} />
+    </React.Suspense>
   );
 }
