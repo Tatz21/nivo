@@ -18,10 +18,18 @@ interface ResumeEditorProps {
 export default function ResumeEditor({ initialData }: ResumeEditorProps) {
   const [resume, setResume] = useState<ResumeData>(initialData);
   const [activeSection, setActiveSection] = useState<'personal' | 'summary' | 'experience' | 'education' | 'skills' | 'projects' | 'certifications'>('personal');
+  const [mobileTab, setMobileTab] = useState<'edit' | 'preview'>('edit');
   const [scale, setScale] = useState(0.85);
   const [savedNotice, setSavedNotice] = useState(false);
   const [showKeyModal, setShowKeyModal] = useState(false);
   const [copiedKey, setCopiedKey] = useState(false);
+
+  // Auto-detect mobile screen to fit resume preview paper
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      setScale(0.48);
+    }
+  }, []);
 
   // Auto-save on edits
   useEffect(() => {
@@ -205,13 +213,41 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
             <span>Export PDF</span>
           </button>
         </div>
+
+        {/* Mobile PWA Segmented View Switcher */}
+        <div className="lg:hidden w-full flex items-center bg-black/60 p-1 rounded-xl border border-white/10 mt-1">
+          <button
+            type="button"
+            onClick={() => setMobileTab('edit')}
+            className={`flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold text-center transition-all cursor-pointer ${
+              mobileTab === 'edit'
+                ? 'bg-red-600 text-white shadow-sm'
+                : 'text-zinc-400 hover:text-white'
+            }`}
+          >
+            Form Editor
+          </button>
+          <button
+            type="button"
+            onClick={() => setMobileTab('preview')}
+            className={`flex-1 py-1.5 px-3 rounded-lg text-xs font-semibold text-center transition-all cursor-pointer ${
+              mobileTab === 'preview'
+                ? 'bg-red-600 text-white shadow-sm'
+                : 'text-zinc-400 hover:text-white'
+            }`}
+          >
+            Live Paper Preview
+          </button>
+        </div>
       </div>
 
       {/* 3-Region Workspace Layout */}
       <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
         
         {/* Left Region: Section Navigation & Field Editor */}
-        <div className="w-full lg:w-[460px] xl:w-[500px] border-r border-white/10 bg-zinc-950 flex flex-col shrink-0 max-h-[calc(100vh-120px)] overflow-y-auto">
+        <div className={`w-full lg:w-[460px] xl:w-[500px] border-r border-white/10 bg-zinc-950 flex flex-col shrink-0 max-h-[calc(100vh-120px)] overflow-y-auto ${
+          mobileTab === 'preview' ? 'hidden lg:flex' : 'flex'
+        }`}>
           
           {/* Section Selector Tabs */}
           <div className="flex overflow-x-auto p-2 bg-black/40 border-b border-white/5 gap-1 scrollbar-none text-xs">
@@ -800,7 +836,9 @@ export default function ResumeEditor({ initialData }: ResumeEditorProps) {
         </div>
 
         {/* Center Region: Live Paper Preview */}
-        <div className="flex-1 bg-[#090810] p-6 lg:p-10 flex flex-col items-center overflow-auto relative">
+        <div className={`flex-1 bg-[#090810] p-4 sm:p-6 lg:p-10 flex flex-col items-center overflow-auto relative ${
+          mobileTab === 'edit' ? 'hidden lg:flex' : 'flex'
+        }`}>
           
           {/* Zoom controls */}
           <div className="sticky top-2 z-20 mb-4 flex items-center gap-2 bg-zinc-950/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 shadow-lg text-xs">

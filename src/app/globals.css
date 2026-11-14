@@ -154,3 +154,56 @@
 .dark ::-webkit-scrollbar-thumb:hover {
   background: #3F3F46;
 }
+
+/* PWA Native Mobile Optimizations */
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  .touch-pan-x-snap {
+    touch-action: pan-x;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Prevent tap grey flashes on iOS/Android */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Optimize touch responsiveness */
+button, 
+a, 
+input, 
+select, 
+textarea {
+  touch-action: manipulation;
+}
+
+/* Standalone PWA adjustments */
+@media all and (display-mode: standalone) {
+  body {
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  input, textarea {
+    user-select: text;
+    -webkit-user-select: text;
+  }
+}
+

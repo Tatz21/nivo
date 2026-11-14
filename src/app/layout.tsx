@@ -1,10 +1,11 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Suspense } from 'react';
 import Script from 'next/script';
 import { Manrope, Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import MobileBottomNav from '@/components/layout/MobileBottomNav';
 import CustomCursor from '@/components/cursor/CustomCursor';
 import CosmicBackground from '@/components/motion/CosmicBackground';
 import ScrollAudioEngine from '@/components/audio/ScrollAudioEngine';
@@ -22,6 +23,18 @@ const inter = Inter({
   display: 'swap',
 });
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: dark)', color: '#09090B' },
+    { media: '(prefers-color-scheme: light)', color: '#FFFFFF' },
+  ],
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  viewportFit: 'cover',
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://nivo.education'),
   title: {
@@ -29,6 +42,12 @@ export const metadata: Metadata = {
     template: '%s | Nivó'
   },
   description: 'Operating since 2020. Nivó bridges foundational academic tutoring, industry-focused engineering & AI training, institutional educator recruitment, and our first-party Resume Studio.',
+  manifest: '/manifest.webmanifest',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'Nivó',
+  },
   keywords: [
     'Nivó',
     'Education & Training',
@@ -125,12 +144,17 @@ export default function RootLayout({
           </Suspense>
 
           {/* Main Content Area */}
-          <main className="flex-grow relative z-10">
+          <main className="flex-grow relative z-10 pb-24 md:pb-0">
             {children}
           </main>
 
           {/* Global Footer */}
           <Footer />
+
+          {/* Native PWA Mobile Bottom Tab Dock */}
+          <Suspense fallback={null}>
+            <MobileBottomNav />
+          </Suspense>
         </ThemeProvider>
       </body>
     </html>

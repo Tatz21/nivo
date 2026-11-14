@@ -50,7 +50,7 @@ export default function AudiencePathwaySection() {
           {/* Style: Clean light/dark academic paper, syllabus chips   */}
           {/* ======================================================== */}
           <ScrollReveal delay={80}>
-            <div className="group relative flex flex-col justify-between h-full rounded-3xl p-8 bg-white dark:bg-zinc-950/90 border border-zinc-200 dark:border-white/10 shadow-sm hover:shadow-2xl hover:border-red-500/40 transition-all duration-300">
+            <div className="group relative flex flex-col justify-between h-full rounded-3xl p-6 sm:p-8 bg-white dark:bg-zinc-950/90 border border-zinc-200 dark:border-white/10 shadow-sm hover:shadow-2xl hover:border-red-500/40 transition-all duration-300">
               
               {/* Top Accent Gradient */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-600 via-red-500 to-transparent" />
@@ -128,7 +128,7 @@ export default function AudiencePathwaySection() {
           {/* Style: Dark Monospace IDE, code diff, tech stack chips   */}
           {/* ======================================================== */}
           <ScrollReveal delay={160}>
-            <div className="group relative flex flex-col justify-between h-full rounded-3xl p-8 bg-[#0C0D12] border border-zinc-800 shadow-2xl hover:border-red-500/50 transition-all duration-300 text-left">
+            <div className="group relative flex flex-col justify-between h-full rounded-3xl p-6 sm:p-8 bg-[#0C0D12] border border-zinc-800 shadow-2xl hover:border-red-500/50 transition-all duration-300 text-left">
               
               {/* Mac Terminal Window Bar */}
               <div className="flex items-center justify-between pb-4 border-b border-zinc-800/80">
@@ -211,7 +211,7 @@ export default function AudiencePathwaySection() {
           {/* Style: Official SLA seal, verification scorecard, badge  */}
           {/* ======================================================== */}
           <ScrollReveal delay={240}>
-            <div className="group relative flex flex-col justify-between h-full rounded-3xl p-8 bg-zinc-50 dark:bg-zinc-950/80 border border-zinc-300 dark:border-white/15 shadow-sm hover:shadow-2xl hover:border-red-500/40 transition-all duration-300 text-left">
+            <div className="group relative flex flex-col justify-between h-full rounded-3xl p-6 sm:p-8 bg-zinc-50 dark:bg-zinc-950/80 border border-zinc-300 dark:border-white/15 shadow-sm hover:shadow-2xl hover:border-red-500/40 transition-all duration-300 text-left">
               
               {/* Background Watermark Crest */}
               <div className="absolute top-4 right-4 text-zinc-200 dark:text-zinc-800/40 pointer-events-none select-none">

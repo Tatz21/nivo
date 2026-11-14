@@ -273,7 +273,7 @@ export default function Navbar() {
             </div>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="p-2 rounded-xl text-zinc-700 dark:text-zinc-300 hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 border border-black/10 dark:border-white/10 transition-colors cursor-pointer"
+              className="p-2 rounded-xl text-zinc-700 dark:text-zinc-300 hover:text-black dark:hover:text-white bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 border border-black/10 dark:border-white/10 transition-colors cursor-pointer active:scale-95 touch-manipulation"
               aria-label="Toggle navigation menu"
             >
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -281,17 +281,28 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile menu drawer */}
+        {/* Mobile menu backdrop overlay */}
         {mobileOpen && (
-          <div className="xl:hidden fixed inset-x-0 top-[65px] bg-white/95 dark:bg-black/95 backdrop-blur-xl border-b border-black/10 dark:border-white/10 p-6 space-y-4 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-200 max-h-[85vh] overflow-y-auto">
+          <div 
+            className="xl:hidden fixed inset-0 bg-black/60 backdrop-blur-xs z-40 animate-in fade-in duration-200" 
+            onClick={() => setMobileOpen(false)} 
+          />
+        )}
+
+        {/* Mobile menu drawer sheet */}
+        {mobileOpen && (
+          <div className="xl:hidden fixed inset-x-0 top-[65px] z-50 bg-white/95 dark:bg-[#09090B]/95 backdrop-blur-2xl border-b border-black/10 dark:border-white/10 p-5 space-y-4 shadow-2xl animate-in fade-in slide-in-from-top-3 duration-200 max-h-[82vh] overflow-y-auto rounded-b-3xl">
+            {/* Native Sheet Grab Handle */}
+            <div className="w-12 h-1 rounded-full bg-zinc-300 dark:bg-zinc-700 mx-auto -mt-1 mb-3" />
+
             <nav className="flex flex-col space-y-2">
               
               {/* Mobile Services Accordion */}
-              <div className="rounded-xl border border-zinc-200 dark:border-white/10 overflow-hidden bg-zinc-50/70 dark:bg-zinc-950/60">
+              <div className="rounded-2xl border border-zinc-200 dark:border-white/10 overflow-hidden bg-zinc-50/70 dark:bg-zinc-950/60 shadow-xs">
                 <button
                   type="button"
                   onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                  className="w-full flex items-center justify-between p-3.5 text-sm font-semibold text-zinc-900 dark:text-white"
+                  className="w-full flex items-center justify-between p-3.5 text-sm font-semibold text-zinc-900 dark:text-white active:bg-black/5 dark:active:bg-white/5"
                 >
                   <span className="flex items-center gap-2">
                     <Sparkles className="w-4 h-4 text-red-600 dark:text-red-400" />
@@ -313,7 +324,8 @@ export default function Navbar() {
                         <Link
                           key={item.name}
                           href={item.href}
-                          className={`flex items-start gap-2.5 p-2.5 rounded-lg text-xs transition-colors ${
+                          onClick={() => setMobileOpen(false)}
+                          className={`flex items-start gap-2.5 p-2.5 rounded-xl text-xs transition-colors active:scale-[0.98] ${
                             isActive
                               ? 'bg-red-500/15 dark:bg-red-950/40 text-red-600 dark:text-red-400 border border-red-500/30 font-semibold'
                               : 'text-zinc-700 dark:text-zinc-300 hover:bg-black/5 dark:hover:bg-white/5'
@@ -338,7 +350,8 @@ export default function Navbar() {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
+                    onClick={() => setMobileOpen(false)}
+                    className={`flex items-center justify-between px-4 py-3 rounded-2xl text-sm font-medium transition-colors active:scale-[0.98] ${
                       isActive
                         ? 'bg-red-500/15 dark:bg-red-950/40 text-red-600 dark:text-red-400 border border-red-500/30'
                         : 'text-zinc-700 dark:text-zinc-300 hover:bg-black/5 dark:hover:bg-white/5 hover:text-red-600 dark:hover:text-red-400'
@@ -358,15 +371,16 @@ export default function Navbar() {
             </nav>
 
             {/* Mobile Theme Preference Selector */}
-            <div className="flex items-center justify-between px-4 py-2.5 rounded-xl card-surface border border-black/10 dark:border-white/10">
+            <div className="flex items-center justify-between px-4 py-2.5 rounded-2xl card-surface border border-black/10 dark:border-white/10">
               <span className="text-xs font-medium text-zinc-700 dark:text-zinc-300">Theme</span>
               <ThemeToggle showLabel />
             </div>
 
-            <div className="pt-2 grid grid-cols-2 gap-3">
+            <div className="pt-2 grid grid-cols-2 gap-3 pb-2">
               <Link
                 href="/resume-studio/create"
-                className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl card-surface text-xs font-medium text-zinc-900 dark:text-white text-center border border-black/10 dark:border-white/10"
+                onClick={() => setMobileOpen(false)}
+                className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-2xl card-surface text-xs font-medium text-zinc-900 dark:text-white text-center border border-black/10 dark:border-white/10 active:scale-95"
               >
                 <FileText className="w-3.5 h-3.5 text-red-600 dark:text-red-400" />
                 <span>Build Resume</span>
@@ -377,7 +391,7 @@ export default function Navbar() {
                   setMobileOpen(false);
                   setModalOpen(true);
                 }}
-                className="brand-primary-btn !py-2.5 !px-3 !text-xs inline-flex items-center justify-center gap-1.5 text-center cursor-pointer"
+                className="brand-primary-btn !py-2.5 !px-3 !text-xs !rounded-2xl inline-flex items-center justify-center gap-1.5 text-center cursor-pointer active:scale-95"
               >
                 <span>Enquire Now</span>
                 <Send className="w-3.5 h-3.5" />

@@ -52,12 +52,12 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* CTAs */}
-            <div className="pt-4 flex flex-wrap items-center gap-4">
+            {/* CTAs (PWA Touch Friendly Full-Width on Mobile) */}
+            <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <MagneticButton>
                 <Link
                   href="/resume-studio"
-                  className="brand-primary-btn !py-3.5 !px-6 !text-sm inline-flex items-center gap-2.5 shadow-md"
+                  className="brand-primary-btn !py-3.5 !px-6 !text-sm w-full sm:w-auto inline-flex items-center justify-center gap-2.5 shadow-md active:scale-95"
                 >
                   <FileText className="w-4 h-4 text-white" />
                   <span>Launch Resume Studio</span>
@@ -66,8 +66,9 @@ export default function HeroSection() {
               </MagneticButton>
 
               <button
+                type="button"
                 onClick={() => setModalOpen(true)}
-                className="brand-secondary-btn !py-3.5 !px-6 !text-sm inline-flex items-center gap-2 cursor-pointer shadow-sm"
+                className="brand-secondary-btn !py-3.5 !px-6 !text-sm w-full sm:w-auto inline-flex items-center justify-center gap-2 cursor-pointer shadow-sm active:scale-95"
               >
                 <Send className="w-4 h-4 text-red-600 dark:text-red-500" />
                 <span>Direct Enquiry</span>
@@ -75,7 +76,7 @@ export default function HeroSection() {
 
               <Link
                 href="/education"
-                className="flex items-center gap-1.5 px-4 py-3.5 text-xs text-zinc-600 dark:text-zinc-400 hover:text-red-600 dark:hover:text-red-500 transition-colors font-medium"
+                className="flex items-center justify-center sm:justify-start gap-1.5 px-3 py-2 text-xs text-zinc-600 dark:text-zinc-400 hover:text-red-600 dark:hover:text-red-500 transition-colors font-medium text-center"
               >
                 <span>View All Disciplines</span>
                 <ArrowRight className="w-3.5 h-3.5" />

@@ -184,9 +184,9 @@ export default function OurPartnersSection() {
             </div>
           </ScrollReveal>
 
-          {/* Category Filter Pills */}
+          {/* Category Filter Pills (PWA Native Horizontal Swipe on Mobile) */}
           <ScrollReveal delay={120}>
-            <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
+            <div className="flex items-center sm:justify-center gap-2 mb-8 overflow-x-auto no-scrollbar py-1 px-4 -mx-4 sm:mx-0 sm:px-0 scroll-smooth">
               {[
                 { id: 'all', label: 'All Partners' },
                 { id: 'schools', label: 'International Schools & Academies' },
@@ -197,7 +197,7 @@ export default function OurPartnersSection() {
                   key={tab.id}
                   type="button"
                   onClick={() => setActiveCategory(tab.id as any)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all cursor-pointer ${
+                  className={`shrink-0 px-4 py-2 rounded-full text-xs font-medium transition-all cursor-pointer active:scale-95 touch-manipulation ${
                     activeCategory === tab.id
                       ? 'bg-red-600 text-white font-semibold shadow-sm'
                       : 'bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white border border-zinc-200 dark:border-white/5'
