@@ -7,54 +7,69 @@ import { ServiceCarousel, type Service } from '@/components/ui/services-card';
 
 const philosophyServices: Service[] = [
   {
-    number: '001',
-    title: 'Demonstrated Faculty Vetting',
+    number: '01',
+    title: 'We test every teacher before they step into a classroom',
     description:
-      'Every educator in our network undergoes multi-stage credential verification, pedagogical micro-teaching trials, and background reviews before placement.',
+      'Every educator in our network clears a subject trial, a live micro-teaching demonstration with senior faculty, and full background verification before placement.',
     icon: Users,
-    tag: 'Verified Qualifications',
-    gradient: 'from-zinc-100 via-zinc-50 to-red-50/40 dark:from-zinc-900/90 dark:via-zinc-950/90 dark:to-red-950/40',
-    image: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop',
+    tag: 'Top 2% Faculty Vetting',
+    proofPoints: [
+      '45-minute live teaching demonstration evaluated by senior faculty',
+      'Identity, university degree, and credential verification',
+      'Continuous student and parent feedback audits each term'
+    ],
   },
   {
-    number: '002',
-    title: 'Concept-First Pedagogy',
+    number: '02',
+    title: 'First-principles understanding over rote exam cramming',
     description:
-      'We discard rote memorization in favor of first-principles understanding, structured problem sets, and diagnostic feedback loops.',
+      'We discard memorization tricks in favor of foundational concept mastery, structured diagnostic problem sets, and immediate feedback loops.',
     icon: Compass,
     tag: 'Analytical Mastery',
-    gradient: 'from-zinc-100 via-zinc-50 to-zinc-100 dark:from-zinc-900/90 dark:via-zinc-950/90 dark:to-zinc-900/60',
-    image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=800&auto=format&fit=crop',
+    proofPoints: [
+      'Root-cause diagnostic assessments to find knowledge gaps',
+      'Active problem solving instead of passive lecture listening',
+      'Customized study pacing built around individual learning styles'
+    ],
   },
   {
-    number: '003',
-    title: 'Privacy by Architecture',
+    number: '03',
+    title: 'Your data stays private by architecture, not by policy',
     description:
-      'Resumes created in Resume Studio are secured with high-entropy cryptographic access tokens. No public directory, no search engine scraping.',
+      'Resumes created in Resume Studio are protected with high-entropy cryptographic tokens. We have no public directory, no search engine scraping, and zero third-party data broker sharing.',
     icon: Lock,
-    tag: 'Zero Public Exposure',
-    gradient: 'from-zinc-100 via-zinc-50 to-red-50/40 dark:from-zinc-900/90 dark:via-zinc-950/90 dark:to-red-950/40',
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800&auto=format&fit=crop',
+    tag: 'Zero Public Scraping',
+    proofPoints: [
+      'Cryptographic access tokens with optional expiry',
+      'Zero search engine indexing of personal candidate records',
+      'Client-side vector generation and private export'
+    ],
   },
   {
-    number: '004',
-    title: 'Confirmed Offerings Only',
+    number: '04',
+    title: 'Clear dates, clear syllabi, zero false promises',
     description:
-      'We publish course durations, tuition modes, and staffing categories only when active and confirmed. No bait-and-switch offerings.',
+      'We publish course durations, tuition modes, and staffing availability only when active and verified. No bait and switch marketing or inflated outcome statistics.',
     icon: CheckCircle2,
-    tag: 'Transparent Delivery',
-    gradient: 'from-zinc-100 via-zinc-50 to-zinc-100 dark:from-zinc-900/90 dark:via-zinc-950/90 dark:to-zinc-900/60',
-    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop',
+    tag: 'Honest Delivery',
+    proofPoints: [
+      'Accurate cohort start dates and real mentor-to-student ratios',
+      'Transparent curriculum outlines available before registration',
+      'No hidden fees or compulsory multi-year contracts'
+    ],
   },
   {
-    number: '005',
-    title: 'Institutional Accountability',
+    number: '05',
+    title: 'Service-level agreements with verified milestone audits',
     description:
-      'Direct service-level agreements with leading schools, colleges, and enterprise talent pipelines with verified milestone audits.',
+      'We maintain direct institutional agreements with leading schools, colleges, and enterprise talent pipelines, backed by accountable delivery standards.',
     icon: Award,
-    tag: 'Established Since 2020',
-    gradient: 'from-zinc-100 via-zinc-50 to-red-50/50 dark:from-zinc-900/90 dark:via-zinc-950/90 dark:to-red-950/40',
-    image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=800&auto=format&fit=crop',
+    tag: 'Established 2020',
+    proofPoints: [
+      'Formal service-level agreements for faculty placement',
+      'Replacement guarantees if an educator match is not ideal',
+      'Milestone-based progress reporting for institutional leadership'
+    ],
   },
 ];
 

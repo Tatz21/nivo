@@ -246,21 +246,22 @@ export interface Service {
   title: string;
   description: string;
   icon: React.ElementType;
-  gradient: string;
   tag?: string;
+  proofPoints?: string[];
+  gradient?: string;
   image?: string;
 }
 
 // Sub-component for individual cards
 const ServiceCard = ({ service, index }: { service: Service; index: number }) => {
   const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
-        delay: index * 0.1,
+        duration: 0.45,
+        delay: index * 0.08,
       },
     },
   };
@@ -270,51 +271,66 @@ const ServiceCard = ({ service, index }: { service: Service; index: number }) =>
       variants={cardVariants}
       whileHover={{ y: -6, transition: { duration: 0.2 } }}
       className={cn(
-        "group relative flex h-[450px] w-full flex-col justify-between overflow-hidden rounded-3xl p-8 transition-all duration-300",
-        "border border-zinc-200 dark:border-white/10 shadow-sm hover:shadow-xl",
-        "bg-gradient-to-br",
-        service.gradient
+        "group relative flex min-h-[440px] w-full flex-col justify-between overflow-hidden rounded-3xl p-7 sm:p-8 transition-all duration-300",
+        "bg-white dark:bg-zinc-950/85 backdrop-blur-xl border border-zinc-200 dark:border-white/10 shadow-sm hover:shadow-2xl hover:border-red-500/40 dark:hover:border-red-500/40",
       )}
     >
-      {/* Background Unsplash Stock Image with Overlay */}
-      {service.image && (
-        <img
-          src={service.image}
-          alt={service.title}
-          className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay group-hover:scale-105 transition-transform duration-700 pointer-events-none"
-        />
-      )}
+      {/* Top Crimson Accent Line */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-red-600/30 to-transparent group-hover:via-red-600 transition-all duration-500" />
 
-      {/* Card Content Top */}
-      <div className="z-10 flex flex-col items-start text-left">
-        <div className="w-full flex items-center justify-between mb-8">
-          <span className="text-sm font-mono font-bold text-zinc-700 dark:text-zinc-400 px-3 py-1 rounded-full bg-white/70 dark:bg-black/40 border border-zinc-200/60 dark:border-white/10 backdrop-blur-sm">
-            ( {service.number} )
+      {/* Ambient Crimson Aura on Hover */}
+      <div className="absolute -top-12 -right-12 w-44 h-44 bg-red-600/10 dark:bg-red-600/15 rounded-full blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-700" />
+
+      {/* Subtle Dot Pattern */}
+      <div 
+        className="absolute inset-0 opacity-[0.04] dark:opacity-[0.06] pointer-events-none"
+        style={{
+          backgroundImage: `radial-gradient(circle, #dc2626 1px, transparent 1px)`,
+          backgroundSize: '20px 20px',
+        }}
+      />
+
+      {/* Card Header: Index & Tag & Icon */}
+      <div className="relative z-10 flex flex-col items-start text-left space-y-5">
+        <div className="w-full flex items-center justify-between">
+          <span className="text-xs font-mono font-bold text-red-600 dark:text-red-400 px-2.5 py-1 rounded-full bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/50">
+            // {service.number}
           </span>
           {service.tag && (
-            <span className="text-[11px] font-bold text-red-600 dark:text-red-400 px-2.5 py-1 rounded-full bg-red-500/10 dark:bg-red-500/15 border border-red-500/20">
+            <span className="text-[11px] font-semibold text-zinc-700 dark:text-zinc-300 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-white/10">
               {service.tag}
             </span>
           )}
         </div>
 
-        <div className="mb-auto p-3.5 rounded-2xl bg-white/90 dark:bg-black/50 border border-zinc-200/80 dark:border-white/10 shadow-sm group-hover:scale-110 transition-transform duration-300">
-          <service.icon className="h-8 w-8 text-red-600 dark:text-red-500" />
+        <div className="p-3.5 rounded-2xl bg-red-600/10 dark:bg-red-500/15 border border-red-500/20 text-red-600 dark:text-red-400 group-hover:scale-110 transition-transform duration-300">
+          <service.icon className="h-6 w-6" />
         </div>
       </div>
 
-      {/* Card Content Bottom */}
-      <div className="z-10 space-y-2">
-        <h3 className="text-xl font-bold uppercase tracking-wider text-zinc-950 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-500 transition-colors">
-          {service.title}
-        </h3>
-        <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-300 font-medium">
-          {service.description}
-        </p>
-      </div>
+      {/* Card Content & Proof Points */}
+      <div className="relative z-10 space-y-4 pt-6">
+        <div className="space-y-2">
+          <h3 className="text-lg sm:text-xl font-bold text-zinc-950 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-500 transition-colors leading-snug">
+            {service.title}
+          </h3>
+          <p className="text-xs sm:text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 font-normal">
+            {service.description}
+          </p>
+        </div>
 
-      {/* Subtle overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-white/70 via-white/20 dark:from-zinc-950/80 dark:via-zinc-950/20 to-transparent pointer-events-none" />
+        {/* Tangible Checkmark Commitments */}
+        {service.proofPoints && service.proofPoints.length > 0 && (
+          <div className="pt-3 border-t border-zinc-100 dark:border-white/10 space-y-2 text-xs">
+            {service.proofPoints.map((point, idx) => (
+              <div key={idx} className="flex items-start gap-2 text-zinc-700 dark:text-zinc-300">
+                <span className="w-1.5 h-1.5 rounded-full bg-red-600 mt-1.5 shrink-0" />
+                <span className="text-[11px] leading-tight font-medium">{point}</span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </motion.div>
   );
 };
